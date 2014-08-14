@@ -1,0 +1,2 @@
+8-12-14 Got datepicker and second screen added. Adding back end to datepicker tomorrow
+8-13-14 Got fields and listeners for second screen set up. Need to delete edittext on first screen. And need to implement a next button on your number pad or find an equally smooth way of navigating through them. 

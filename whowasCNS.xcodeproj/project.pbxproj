@@ -23,6 +23,8 @@
 		FA3133D9199AE5FB00ED3D1D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA3133D7199AE5FB00ED3D1D /* InfoPlist.strings */; };
 		FA3133DB199AE5FB00ED3D1D /* whowasCNSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3133DA199AE5FB00ED3D1D /* whowasCNSTests.m */; };
 		FA3133E6199AE9C500ED3D1D /* DatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3133E5199AE9C500ED3D1D /* DatePicker.m */; };
+		FA3133E9199C254500ED3D1D /* TrainingMaxes.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3133E8199C254500ED3D1D /* TrainingMaxes.m */; };
+		FA3133EB199C3C8E00ED3D1D /* DatePicker in Resources */ = {isa = PBXBuildFile; fileRef = FA3133EA199C3C8E00ED3D1D /* DatePicker */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,9 @@
 		FA3133DA199AE5FB00ED3D1D /* whowasCNSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = whowasCNSTests.m; sourceTree = "<group>"; };
 		FA3133E4199AE9C500ED3D1D /* DatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePicker.h; sourceTree = "<group>"; };
 		FA3133E5199AE9C500ED3D1D /* DatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePicker.m; sourceTree = "<group>"; };
+		FA3133E7199C254500ED3D1D /* TrainingMaxes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingMaxes.h; sourceTree = "<group>"; };
+		FA3133E8199C254500ED3D1D /* TrainingMaxes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingMaxes.m; sourceTree = "<group>"; };
+		FA3133EA199C3C8E00ED3D1D /* DatePicker */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DatePicker; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,16 +122,19 @@
 		FA3133B2199AE5FB00ED3D1D /* whowasCNS */ = {
 			isa = PBXGroup;
 			children = (
-				FA3133BB199AE5FB00ED3D1D /* AppDelegate.h */,
-				FA3133BC199AE5FB00ED3D1D /* AppDelegate.m */,
 				FA3133BE199AE5FB00ED3D1D /* Main_iPhone.storyboard */,
-				FA3133C1199AE5FB00ED3D1D /* Main_iPad.storyboard */,
+				FA3133E4199AE9C500ED3D1D /* DatePicker.h */,
+				FA3133E5199AE9C500ED3D1D /* DatePicker.m */,
+				FA3133EA199C3C8E00ED3D1D /* DatePicker */,
+				FA3133E7199C254500ED3D1D /* TrainingMaxes.h */,
+				FA3133E8199C254500ED3D1D /* TrainingMaxes.m */,
 				FA3133C4199AE5FB00ED3D1D /* ViewController.h */,
 				FA3133C5199AE5FB00ED3D1D /* ViewController.m */,
 				FA3133C7199AE5FB00ED3D1D /* Images.xcassets */,
+				FA3133BB199AE5FB00ED3D1D /* AppDelegate.h */,
+				FA3133BC199AE5FB00ED3D1D /* AppDelegate.m */,
+				FA3133C1199AE5FB00ED3D1D /* Main_iPad.storyboard */,
 				FA3133B3199AE5FB00ED3D1D /* Supporting Files */,
-				FA3133E4199AE9C500ED3D1D /* DatePicker.h */,
-				FA3133E5199AE9C500ED3D1D /* DatePicker.m */,
 			);
 			path = whowasCNS;
 			sourceTree = "<group>";
@@ -237,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3133C3199AE5FB00ED3D1D /* Main_iPad.storyboard in Resources */,
+				FA3133EB199C3C8E00ED3D1D /* DatePicker in Resources */,
 				FA3133C8199AE5FB00ED3D1D /* Images.xcassets in Resources */,
 				FA3133C0199AE5FB00ED3D1D /* Main_iPhone.storyboard in Resources */,
 				FA3133B7199AE5FB00ED3D1D /* InfoPlist.strings in Resources */,
@@ -258,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3133E9199C254500ED3D1D /* TrainingMaxes.m in Sources */,
 				FA3133C6199AE5FB00ED3D1D /* ViewController.m in Sources */,
 				FA3133BD199AE5FB00ED3D1D /* AppDelegate.m in Sources */,
 				FA3133B9199AE5FB00ED3D1D /* main.m in Sources */,
@@ -476,6 +486,7 @@
 				FA3133E0199AE5FB00ED3D1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA3133E1199AE5FB00ED3D1D /* Build configuration list for PBXNativeTarget "whowasCNSTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +495,7 @@
 				FA3133E3199AE5FB00ED3D1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

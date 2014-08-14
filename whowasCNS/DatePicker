@@ -25,26 +25,21 @@
 -(NSString *)formatDate:(NSString *)initialDate;
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
+    [dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss ZZZ yyyy"];
     NSDate *date  = [dateFormatter dateFromString:initialDate];
     
     // Convert to new Date Format
-    [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *newDate = [dateFormatter stringFromDate:date];
-    return newDate;
+    return newDate *;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"dateToTMSegue"]){
         TrainingMaxes *controller = (TrainingMaxes *)segue.destinationViewController;
-        NSString * myDate = [self formatDate:(field.text)]; //if this is right you got some splaining to do
-        NSString *title = [NSString stringWithFormat:@"Starting Date: %@", myDate];
-        controller.isSomethingEnabled =title;
+        controller.isSomethingEnabled = field.text;
     }
 }
-
 
     
     

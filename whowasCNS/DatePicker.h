@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DatePicker.h"
+#import "TrainingMaxes.h"
 
 @interface DatePicker : UIViewController
 {
@@ -15,5 +17,9 @@
 }
 
 -(IBAction)displayDate:(id)sender;
+
+-(NSString *)formatDate:(NSString *)initialDate;
+
+
 
 @end
