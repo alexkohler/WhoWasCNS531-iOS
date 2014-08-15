@@ -1,2 +1,4 @@
 8-12-14 Got datepicker and second screen added. Adding back end to datepicker tomorrow
 8-13-14 Got fields and listeners for second screen set up. Need to delete edittext on first screen. And need to implement a next button on your number pad or find an equally smooth way of navigating through them. 
+8-14-14 Added back end to TM fields. Added other front end components on secondScreen. Created segue to third screen. Next on your plate is transferring the data between those views and updating the title. 
+	I would also think about holes you fell into during android development (besides the fact that java is a spacesuit that takes 500 lines to do anything but will go anywhere). Primarily try to make use of abstractio         and don't let your class definitions get too bloated. Research ways to transfer that data then implement that on Sunday or Monday. 

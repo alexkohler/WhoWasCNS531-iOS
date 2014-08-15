@@ -28,6 +28,56 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setDateText];
+    //handle next and cancel buttons for bench
+    
+    UIToolbar* numberToolbarBenchTM = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbarBenchTM.items = [NSArray arrayWithObjects:
+                                  [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelBench)],
+                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                           [[UIBarButtonItem alloc]initWithTitle:@"Next" style:UIBarButtonItemStyleDone target:self action:@selector(moveFromBench)],
+                           nil];
+    
+    
+    benchTMField.inputAccessoryView = numberToolbarBenchTM;
+    
+    
+    
+    //handle next/cancel for squat
+    UIToolbar* numberToolbarSquatTM = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbarSquatTM.items = [NSArray arrayWithObjects:
+                                  [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelSquat)],
+                                  [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                                  [[UIBarButtonItem alloc]initWithTitle:@"Next" style:UIBarButtonItemStyleDone target:self action:@selector(moveFromSquat)],
+                                  nil];
+    
+    
+    squatTMField.inputAccessoryView = numberToolbarSquatTM;
+    
+    //handle next/cancel for OHP
+    UIToolbar* numberToolbarOhpTM = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbarOhpTM.items = [NSArray arrayWithObjects:
+                                  [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelOHP)],
+                                  [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                                  [[UIBarButtonItem alloc]initWithTitle:@"Next" style:UIBarButtonItemStyleDone target:self action:@selector(moveFromOHP)],
+                                  nil];
+    
+    
+    ohpTMField.inputAccessoryView = numberToolbarOhpTM;
+    
+    
+    //handle next/cancel for Dead
+    UIToolbar* numberToolbarDeadTM = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbarDeadTM.items = [NSArray arrayWithObjects:
+                                [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelDead)],
+                                [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                                [[UIBarButtonItem alloc]initWithTitle:@"Next" style:UIBarButtonItemStyleDone target:self action:@selector(moveFromDead)],
+                                nil];
+    
+    
+    deadTMField.inputAccessoryView = numberToolbarDeadTM;
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,10 +100,59 @@
     
 }
 
--(IBAction)textFieldReturn:(id)sender
-{
-    [sender resignFirstResponder];
+-(void)cancelNumberPadAt:(UITextField *) currentField{
+    [currentField resignFirstResponder];
+    currentField.text = @"";
 }
+//since selector methods can't have arguments create a wrappers for each lift type
+-(void)cancelBench
+{
+cancelNumberPadAt:benchTMField;
+}
+
+-(void)cancelSquat
+{
+cancelNumberPadAt:squatTMField;
+}
+
+-(void)cancelOHP
+{
+cancelNumberPadAt:ohpTMField;
+}
+
+-(void)cancelDead
+{
+cancelNumberPadAt:deadTMField;
+}
+
+-(void)moveFrom:(UITextField *)currentField to:(UITextField *) nextField{
+    NSString *numberFromTheKeyboard = currentField.text;
+    [nextField becomeFirstResponder];
+}
+
+//since selector methods can't have arguments create a wrappers for each lift type
+-(void)moveFromBench
+{
+    [self moveFrom:benchTMField to:squatTMField];
+}
+
+-(void) moveFromSquat
+{
+    [self moveFrom:squatTMField to:ohpTMField];
+}
+
+-(void) moveFromOHP
+{
+    [self moveFrom:ohpTMField to:deadTMField];
+}
+
+-(void) moveFromDead
+{
+    //eventually want to move to next component here I think. (number of cycles dropdown)?
+    [deadTMField resignFirstResponder];
+}
+
+
 
 
 

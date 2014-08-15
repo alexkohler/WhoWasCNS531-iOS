@@ -22,16 +22,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "whowasCNS/TrainingMaxes.m"
-            timestampString = "429674426.436522"
+            timestampString = "429756026.564351"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "-getTrainingMaxes"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "-cancelSquat"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

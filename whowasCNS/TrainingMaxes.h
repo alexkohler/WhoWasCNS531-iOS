@@ -21,6 +21,7 @@
     NSInteger ohpTM;
     NSInteger deadTM;
 
+
 }
 
 
@@ -28,7 +29,11 @@
 -(void)getTrainingMaxes;
 @property(nonatomic) NSString *isSomethingEnabled;
 @property (strong, nonatomic) IBOutlet UITextField *textField;
--(IBAction)textFieldReturn:(id)sender;
-
+-(void)cancelNumberPadAt:(UITextField *) currentField;
+-(void)cancelBench;
+-(void)cancelSquat;
+-(void)moveFrom:(UITextField *)currentField to:(UITextField *) nextField;
+-(void)moveFromBench;
+-(void)moveFromSquat;
 @end
 
