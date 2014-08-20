@@ -41,7 +41,7 @@
         TrainingMaxes *controller = (TrainingMaxes *)segue.destinationViewController;
         NSString * myDate = [self formatDate:(field.text)]; //if this is right you got some splaining to do
         NSString *title = [NSString stringWithFormat:@"Starting Date: %@", myDate];
-        controller.isSomethingEnabled =title;
+        controller.dateText =title;
     }
 }
 

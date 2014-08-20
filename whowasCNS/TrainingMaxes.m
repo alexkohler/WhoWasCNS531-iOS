@@ -7,6 +7,7 @@
 //
 
 #import "TrainingMaxes.h"
+#import "TableDisplay.h"
 
 @interface TrainingMaxes ()
 
@@ -76,6 +77,18 @@
     
     deadTMField.inputAccessoryView = numberToolbarDeadTM;
     
+    //handle next/cancel for cycle
+    
+    UIToolbar* numberToolbarCycles = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbarCycles.items = [NSArray arrayWithObjects:
+                                 [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelCycle)],
+                                 [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                                 [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(cancelCycle)],
+                                 nil];
+    
+    
+    cycleField.inputAccessoryView = numberToolbarCycles;
+    
     
     
 }
@@ -88,45 +101,60 @@
 
 -(IBAction) setDateText
 {
-    Screen.text = [NSString stringWithFormat:@"%@",_isSomethingEnabled];
+    Screen.text = [NSString stringWithFormat:@"%@",_dateText];
 }
 
--(IBAction)getTrainingMaxes
+-(IBAction)getInput
 {
     benchTM = [benchTMField.text intValue];
     squatTM = [squatTMField.text intValue];
     ohpTM = [ohpTMField.text intValue];
     deadTM = [deadTMField.text intValue];
     
+    numberOfCycles = [cycleField.text intValue];
+    NSNumber *value = [NSNumber numberWithBool:roundSwitch.isOn];
+    usingRounding= value != 0; // myBool is NO for 0, YES for anything else
+    
+    int intermediateValue = unitField.selectedSegmentIndex;
+    usingLbs = intermediateValue == 0; // myBool is YES for 0, NO for anything else
+    
 }
 
--(void)cancelNumberPadAt:(UITextField *) currentField{
-    [currentField resignFirstResponder];
-    currentField.text = @"";
+- (IBAction)sliderChanged:(id)sender
+{
+    int sliderValue;
+    sliderValue = lroundf(_mySlider.value);
+    [_mySlider setValue:sliderValue animated:YES];
 }
+
 //since selector methods can't have arguments create a wrappers for each lift type
 -(void)cancelBench
 {
-cancelNumberPadAt:benchTMField;
+    [benchTMField resignFirstResponder];
 }
 
 -(void)cancelSquat
 {
-cancelNumberPadAt:squatTMField;
+    [squatTMField resignFirstResponder];
 }
 
 -(void)cancelOHP
 {
-cancelNumberPadAt:ohpTMField;
+    [ohpTMField resignFirstResponder];
 }
 
 -(void)cancelDead
 {
-cancelNumberPadAt:deadTMField;
+    [deadTMField resignFirstResponder];
+}
+
+-(void)cancelCycle
+{
+    [cycleField resignFirstResponder];
 }
 
 -(void)moveFrom:(UITextField *)currentField to:(UITextField *) nextField{
-    NSString *numberFromTheKeyboard = currentField.text;
+    //NSString *numberFromTheKeyboard = currentField.text;
     [nextField becomeFirstResponder];
 }
 
@@ -148,23 +176,24 @@ cancelNumberPadAt:deadTMField;
 
 -(void) moveFromDead
 {
-    //eventually want to move to next component here I think. (number of cycles dropdown)?
-    [deadTMField resignFirstResponder];
+    //[self moveFrom:deadTMField to:cycleField];
+    [cycleField becomeFirstResponder];
 }
 
 
 
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"maxesToTableSegue"]){
+        TableDisplay *controller = (TableDisplay *)segue.destinationViewController;
+        controller.benchTM = benchTM; //the reference from where our segue is going is equal to where our segue is currently (we are transferring data)
+        controller.squatTM = squatTM;
+        controller.ohpTM = ohpTM;
+        controller.deadTM = deadTM;
+        //just creating training max stream here
+        NSString *title = [NSString stringWithFormat:@"Starting TMS Bench[%zd] Squat[%zd], OHP[%zd], Dead[%zd]", benchTM, squatTM, ohpTM, deadTM];
+        controller.trainingMaxStream = title;
+    }
 }
-*/
 
 @end
