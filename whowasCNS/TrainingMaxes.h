@@ -16,9 +16,12 @@
     IBOutlet UITextField *squatTMField;
     IBOutlet UITextField *ohpTMField;
     IBOutlet UITextField *deadTMField;
-    IBOutlet UITextField *cycleField;
+    IBOutlet UISegmentedControl *cycleField;
     IBOutlet UISwitch *roundSwitch;
     IBOutlet UISegmentedControl *unitField;
+    IBOutlet UITextView *errorStreamField;
+    IBOutlet UIScrollView *scrollView;
+    
     
     NSInteger benchTM;
     NSInteger squatTM;
@@ -27,13 +30,13 @@
     NSInteger numberOfCycles;
     BOOL usingLbs;
     BOOL usingRounding;
+
     
 }
 
 @property(nonatomic) NSString *dateText;
 @property (strong, nonatomic) IBOutlet UITextField *textField;
-@property (strong, nonatomic) IBOutlet UISlider *mySlider;
-- (IBAction)sliderChanged:(id)sender;
+-(BOOL) checkForProperInput;
 -(IBAction) setDateText;
 -(void)getInput;
 -(void)cancelBench;
@@ -41,6 +44,5 @@
 -(void)moveFrom:(UITextField *)currentField to:(UITextField *) nextField;
 -(void)moveFromBench;
 -(void)moveFromSquat;
--(void)cancelCycle;
 @end
 

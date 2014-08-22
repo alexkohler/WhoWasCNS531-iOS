@@ -27,6 +27,9 @@
 		FA3133EB199C3C8E00ED3D1D /* DatePicker in Resources */ = {isa = PBXBuildFile; fileRef = FA3133EA199C3C8E00ED3D1D /* DatePicker */; };
 		FA3133ED19A4205900ED3D1D /* TrainingMaxes in Resources */ = {isa = PBXBuildFile; fileRef = FA3133EC19A4205900ED3D1D /* TrainingMaxes */; };
 		FA3133F019A4251B00ED3D1D /* TableDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3133EF19A4251B00ED3D1D /* TableDisplay.m */; };
+		FA3133F219A576DC00ED3D1D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3133F119A576DB00ED3D1D /* libsqlite3.dylib */; };
+		FA31345119A6BEB700ED3D1D /* AdjustPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = FA31345019A6BEB700ED3D1D /* AdjustPattern.m */; };
+		FA31345319A6C96C00ED3D1D /* AdjustPattern in Resources */ = {isa = PBXBuildFile; fileRef = FA31345219A6C96C00ED3D1D /* AdjustPattern */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,10 @@
 		FA3133EC19A4205900ED3D1D /* TrainingMaxes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TrainingMaxes; sourceTree = "<group>"; };
 		FA3133EE19A4251B00ED3D1D /* TableDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableDisplay.h; sourceTree = "<group>"; };
 		FA3133EF19A4251B00ED3D1D /* TableDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableDisplay.m; sourceTree = "<group>"; };
+		FA3133F119A576DB00ED3D1D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		FA31344F19A6BEB700ED3D1D /* AdjustPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdjustPattern.h; sourceTree = "<group>"; };
+		FA31345019A6BEB700ED3D1D /* AdjustPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdjustPattern.m; sourceTree = "<group>"; };
+		FA31345219A6C96C00ED3D1D /* AdjustPattern */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AdjustPattern; path = whowasCNS/AdjustPattern; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3133F219A576DC00ED3D1D /* libsqlite3.dylib in Frameworks */,
 				FA3133AF199AE5FB00ED3D1D /* CoreGraphics.framework in Frameworks */,
 				FA3133B1199AE5FB00ED3D1D /* UIKit.framework in Frameworks */,
 				FA3133AD199AE5FB00ED3D1D /* Foundation.framework in Frameworks */,
@@ -97,6 +105,7 @@
 		FA3133A0199AE5FB00ED3D1D = {
 			isa = PBXGroup;
 			children = (
+				FA31345219A6C96C00ED3D1D /* AdjustPattern */,
 				FA3133B2199AE5FB00ED3D1D /* whowasCNS */,
 				FA3133D4199AE5FB00ED3D1D /* whowasCNSTests */,
 				FA3133AB199AE5FB00ED3D1D /* Frameworks */,
@@ -116,6 +125,7 @@
 		FA3133AB199AE5FB00ED3D1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA3133F119A576DB00ED3D1D /* libsqlite3.dylib */,
 				FA3133AC199AE5FB00ED3D1D /* Foundation.framework */,
 				FA3133AE199AE5FB00ED3D1D /* CoreGraphics.framework */,
 				FA3133B0199AE5FB00ED3D1D /* UIKit.framework */,
@@ -142,6 +152,8 @@
 				FA3133BB199AE5FB00ED3D1D /* AppDelegate.h */,
 				FA3133BC199AE5FB00ED3D1D /* AppDelegate.m */,
 				FA3133C1199AE5FB00ED3D1D /* Main_iPad.storyboard */,
+				FA31344F19A6BEB700ED3D1D /* AdjustPattern.h */,
+				FA31345019A6BEB700ED3D1D /* AdjustPattern.m */,
 				FA3133B3199AE5FB00ED3D1D /* Supporting Files */,
 			);
 			path = whowasCNS;
@@ -254,6 +266,7 @@
 			files = (
 				FA3133C3199AE5FB00ED3D1D /* Main_iPad.storyboard in Resources */,
 				FA3133ED19A4205900ED3D1D /* TrainingMaxes in Resources */,
+				FA31345319A6C96C00ED3D1D /* AdjustPattern in Resources */,
 				FA3133EB199C3C8E00ED3D1D /* DatePicker in Resources */,
 				FA3133C8199AE5FB00ED3D1D /* Images.xcassets in Resources */,
 				FA3133C0199AE5FB00ED3D1D /* Main_iPhone.storyboard in Resources */,
@@ -277,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3133E9199C254500ED3D1D /* TrainingMaxes.m in Sources */,
+				FA31345119A6BEB700ED3D1D /* AdjustPattern.m in Sources */,
 				FA3133C6199AE5FB00ED3D1D /* ViewController.m in Sources */,
 				FA3133BD199AE5FB00ED3D1D /* AppDelegate.m in Sources */,
 				FA3133B9199AE5FB00ED3D1D /* main.m in Sources */,

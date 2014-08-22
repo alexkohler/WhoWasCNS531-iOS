@@ -7,14 +7,12 @@
 //
 
 #import "TrainingMaxes.h"
-#import "TableDisplay.h"
 
 @interface TrainingMaxes ()
 
 @end
 
 @implementation TrainingMaxes
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -72,7 +70,7 @@
     numberToolbarDeadTM.items = [NSArray arrayWithObjects:
                                 [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelDead)],
                                 [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                                [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(cancelDead)],
+                                [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(moveFromDead)],
                                 nil];
     
     
@@ -80,10 +78,7 @@
     
     
     
-    
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -103,63 +98,18 @@
     ohpTM = [ohpTMField.text intValue];
     deadTM = [deadTMField.text intValue];
     
-    numberOfCycles = unitField.selectedSegmentIndex + 1; //0 indexed
-    
-    NSNumber *value = [NSNumber numberWithBool:roundSwitch.isOn];
-    usingRounding= value != 0; // myBool is NO for 0, YES for anything else
-    
-    int intermediateValue = unitField.selectedSegmentIndex;
-    usingLbs = intermediateValue == 0; // myBool is YES for 0, NO for anything else
+    numberOfCycles = [cycleField.text intValue];
+    usingLbs = [NSNumber numberWithBool:roundSwitch.isOn];
+    BOOL usingRounding;
     
 }
 
-//checkForFieldError - returns true if there is an error within one of the fields and also generates an errorStream to errorStreamFIeld
--(BOOL) checkForProperInput
+- (IBAction)sliderChanged:(id)sender
 {
-    NSString *errorStream = @"";
-    
-    
-    NSString* emptyLiftString = @"One or more of your training max fields is empty!";
-    NSString* zeroLiftString = @"Please enter a training max greater than 0!";
-    NSString* reasonableLiftString = @"Please enter reasonable numbers for your lifts";
-
-    
-    BOOL errorFree = YES; //will pass until failure  (duh)
-    
-    if (benchTMField.text.length == 0 || squatTMField.text.length == 0 || deadTMField.text.length == 0 || ohpTMField.text.length == 0)
-    {
-        errorStream = [ errorStream stringByAppendingString:@"\n"];
-        errorStream = [ errorStream stringByAppendingString:emptyLiftString];
-        errorFree = NO; //can assign this error flag to any of the lifts, one failure will cause validation to fail
-    }
-    
-    else if (benchTMField.text == 0 || squatTMField.text == 0 || deadTMField.text == 0 || ohpTMField.text == 0)
-    {
-        errorStream = [ errorStream stringByAppendingString:@"\n"];
-        errorStream = [ errorStream stringByAppendingString:zeroLiftString];
-        errorFree = NO; //can assign this error flag to any of the lifts, one failure will cause validation to fail
-    }
-    
-    else
-    {
-        if (benchTM >= 1100 || squatTM >= 1100 || deadTM >= 1100 || ohpTM >= 1100)
-        {
-            errorStream = [ errorStream stringByAppendingString:@"\n"];
-            errorStream = [ errorStream stringByAppendingString:reasonableLiftString];
-            errorFree = NO; //can assign this error flag to any of the lifts, one failure will cause validation to fail
-        }
-    }
-    
-    
-
-    
-    
-
-    [errorStreamField setText:errorStream];
-    return errorFree;
+    int sliderValue;
+    sliderValue = lroundf(_mySlider.value);
+    [_mySlider setValue:sliderValue animated:YES];
 }
-
-
 
 //since selector methods can't have arguments create a wrappers for each lift type
 -(void)cancelBench
@@ -182,7 +132,6 @@
     [deadTMField resignFirstResponder];
 }
 
-
 -(void)moveFrom:(UITextField *)currentField to:(UITextField *) nextField{
     //NSString *numberFromTheKeyboard = currentField.text;
     [nextField becomeFirstResponder];
@@ -204,40 +153,25 @@
     [self moveFrom:ohpTMField to:deadTMField];
 }
 
-
-
-
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+-(void) moveFromDead
 {
-    BOOL fieldErrors = [self checkForProperInput];
-    return fieldErrors;
+    //eventually want to move to next component here I think. (number of cycles dropdown)?
+    [deadTMField resignFirstResponder];
 }
 
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 
-    if([segue.identifier isEqualToString:@"maxesToTableSegue"]){
-        TableDisplay *controller = (TableDisplay *)segue.destinationViewController;
-        controller.benchTM = benchTM; //the reference from where our segue is going is equal to where our segue is currently (we are transferring data)
-        controller.squatTM = squatTM;
-        controller.ohpTM = ohpTM;
-        controller.deadTM = deadTM;
-        controller.usingRounding = usingRounding;
-        controller.usingLbs = usingLbs;
-        //just creating training max stream here
-        NSString *unitString;
-        usingLbs ? unitString = @"Mode: Lbs" : @"Mode: Kgs";
-        
-        NSString *modeString;
-        usingRounding ? modeString = @"YES" : @"NO";
-        
-        
-        
-        NSString *title = [NSString stringWithFormat:@"Starting TMS Bench[%zd] Squat[%zd], OHP[%zd], Dead[%zd] Rounding? [%@] %@", benchTM, squatTM, ohpTM, deadTM, modeString, unitString];
-        controller.trainingMaxStream = title;
-    }
-    
-    
+
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
+*/
 
 @end

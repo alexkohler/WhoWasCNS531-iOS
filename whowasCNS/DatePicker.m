@@ -20,6 +20,11 @@
 	NSDate *now = [NSDate date];
 	[picker setDate:now animated:YES];
 	field.text = [now description];
+    
+    //if user is coming from pattern segue
+  //  NSDate *storedDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"DatePickerViewController.selectedDate"];
+   // [picker setDate:storedDate animated:NO];
+    
     }
 
 -(NSString *)formatDate:(NSString *)initialDate;
@@ -42,6 +47,10 @@
         NSString * myDate = [self formatDate:(field.text)]; //if this is right you got some splaining to do
         NSString *title = [NSString stringWithFormat:@"Starting Date: %@", myDate];
         controller.dateText =title;
+    }
+    
+    if([segue.identifier isEqualToString:@"dateToPatternSegue"]){
+        //pass date back here - declare properties here and at pattern.m, implement a prepareForSegue method over at patern.m as well. 
     }
 }
 

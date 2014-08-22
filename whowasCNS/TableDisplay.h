@@ -7,17 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <sqlite3.h>
 
 @interface TableDisplay : UIViewController <UITextFieldDelegate>
 {
     IBOutlet UILabel *trainingMaxStreamLabel;
     
 }
-
+//data retrieved from text fields
 @property(nonatomic) NSString  *trainingMaxStream;
 @property(nonatomic) NSInteger benchTM;
 @property(nonatomic) NSInteger squatTM;
 @property(nonatomic) NSInteger ohpTM;
 @property(nonatomic) NSInteger deadTM;
+@property(nonatomic) BOOL usingLbs;
+@property(nonatomic) BOOL usingRounding;
 
+
+//database properties
+- (IBAction)saveData:(id)sender;
+- (IBAction)getData:(id)sender;
+@property (strong, nonatomic) NSString *databasePath;
+@property (nonatomic) sqlite3 *contactDB;
+@property (strong, nonatomic) IBOutlet UILabel *status;//db status
 @end
