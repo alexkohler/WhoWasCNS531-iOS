@@ -22,7 +22,7 @@
 @property(nonatomic) NSInteger deadTM;
 @property(nonatomic) BOOL usingLbs;
 @property(nonatomic) BOOL usingRounding;
-
+@property(nonatomic) NSArray *patternArray;
 
 //database properties
 - (IBAction)saveData:(id)sender;

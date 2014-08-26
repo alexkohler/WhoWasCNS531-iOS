@@ -43,7 +43,7 @@
     // Build the path to the database file
     _databasePath = [[NSString alloc]
                      initWithString: [docsDir stringByAppendingPathComponent:
-                                      @"contacts.db"]];
+                                      @"lifts.db"]];
     
     NSFileManager *filemgr = [NSFileManager defaultManager];
     
@@ -55,7 +55,7 @@
         {
             char *errMsg;
             const char *sql_stmt =
-            "CREATE TABLE IF NOT EXISTS CONTACTS (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, ADDRESS TEXT, PHONE TEXT)";
+            "CREATE TABLE IF NOT EXISTS LIFTS (liftDate text not null, Cycle integer, Lift text not null, Frequency text not null, First_Lift real, Second_Lift real, Third_Lift real, Training_Max integer, column_lbFlag integer)";
             
             if (sqlite3_exec(_contactDB, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK)
             {
@@ -76,76 +76,36 @@
 }
 
 
+//-(void) insertData
+//{
+//    sqlite3 *database;
+//    const char *dbPath= [ _databasePath UTF8String];
+//    if(sqlite3_open(dbPath,&database)==SQLITE_OK)
+//    {
+//        const char *sqlstatement = "INSERT INTO upssTable (column1, column2) VALUES (?,?)";
+//        sqlite3_stmt *compiledstatement;
+//        
+//        if(sqlite3_prepare_v2(database,sqlstatement , -1, &compiledstatement, NULL)==SQLITE_OK)
+//        {
+//            NSString *  str1 =@"1";
+//            NSString * str2 =@"1";
+//            sqlite3_bind_int(compiledstatement, 1, [str1 integerValue]);
+//            sqlite3_bind_int(compiledstatement, 2, [str2 integerValue]);
+//            if(sqlite3_step(compiledstatement)==SQLITE_DONE)
+//            {
+//                NSLog(@"done");
+//            }
+//            else NSLog(@"ERROR");
+//            sqlite3_reset(compiledstatement);
+//        }
+//        else
+//        {
+//            NSAssert1(0, @"Error . '%s'", sqlite3_errmsg(cruddb));
+//        }
+//        sqlite3_close(database);
+//    }
+//}
 
-//data insertion method
-- (void) saveData:(id)sender
-{
-    sqlite3_stmt    *statement;
-    const char *dbpath = [_databasePath UTF8String];
-    
-   /* if (sqlite3_open(dbpath, &_contactDB) == SQLITE_OK)
-    {
-        
-        NSString *insertSQL = [NSString stringWithFormat:
-                               @"INSERT INTO CONTACTS (name, address, phone) VALUES (\"%@\", \"%@\", \"%@\")",
-                               _name.text, _address.text, _phone.text];
-        
-        const char *insert_stmt = [insertSQL UTF8String];
-        sqlite3_prepare_v2(_contactDB, insert_stmt,
-                           -1, &statement, NULL);
-        if (sqlite3_step(statement) == SQLITE_DONE)
-        {
-            _status.text = @"Contact added";
-            _name.text = @"";
-            _address.text = @"";
-            _phone.text = @"";
-        } else {
-            _status.text = @"Failed to add contact";
-        }
-        sqlite3_finalize(statement);
-        sqlite3_close(_contactDB);
-    }*/
-}
-
-
-- (void) getData:(id)sender
-{
-    const char *dbpath = [_databasePath UTF8String];
-    sqlite3_stmt    *statement;
-    
-   /* if (sqlite3_open(dbpath, &_contactDB) == SQLITE_OK)
-    {
-        NSString *querySQL = [NSString stringWithFormat:
-                              @"SELECT address, phone FROM contacts WHERE name=\"%@\"",
-                              _name.text];
-        
-        const char *query_stmt = [querySQL UTF8String];
-        
-        if (sqlite3_prepare_v2(_contactDB,
-                               query_stmt, -1, &statement, NULL) == SQLITE_OK)
-        {
-            if (sqlite3_step(statement) == SQLITE_ROW)
-            {
-                NSString *addressField = [[NSString alloc]
-                                          initWithUTF8String:
-                                          (const char *) sqlite3_column_text(
-                                                                             statement, 0)];
-                _address.text = addressField;
-                NSString *phoneField = [[NSString alloc]
-                                        initWithUTF8String:(const char *)
-                                        sqlite3_column_text(statement, 1)];
-                _phone.text = phoneField;
-                _status.text = @"Match found";
-            } else {
-                _status.text = @"Match not found";
-                _address.text = @"";
-                _phone.text = @"";
-            }
-            sqlite3_finalize(statement);
-        }
-        sqlite3_close(_contactDB);
-    }*/
-}
 
 
 

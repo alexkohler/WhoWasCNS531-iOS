@@ -12,14 +12,19 @@
 
 @interface DatePicker : UIViewController
 {
+  
 	IBOutlet UIDatePicker *picker;
 	IBOutlet UITextField  *field;
+    NSDate *pickerDate;
+    NSString *pickerDateString;
+    UILabel *currentPatternField;
 }
 
 -(IBAction)displayDate:(id)sender;
 
 -(NSString *)formatDate:(NSString *)initialDate;
 
-
+@property(nonatomic) NSDate *storedDate;
+@property(nonatomic) NSArray *patternArray;
 
 @end

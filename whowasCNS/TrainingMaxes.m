@@ -218,6 +218,7 @@
 
     if([segue.identifier isEqualToString:@"maxesToTableSegue"]){
         TableDisplay *controller = (TableDisplay *)segue.destinationViewController;
+        controller.patternArray = _patternArray;
         controller.benchTM = benchTM; //the reference from where our segue is going is equal to where our segue is currently (we are transferring data)
         controller.squatTM = squatTM;
         controller.ohpTM = ohpTM;

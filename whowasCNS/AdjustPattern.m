@@ -7,6 +7,7 @@
 //
 
 #import "AdjustPattern.h"
+#import "DatePicker.h"
 
 @interface AdjustPattern ()
 - (IBAction)addRestDay:(id)sender;
@@ -34,7 +35,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    NSArray *intermediate = @[@"Bench",@"Squat",@"Rest",@"OHP",@"Deadlift", @"Rest"];
+    NSArray *intermediate = @[@"Bench",@"Squat",@"Rest",@"OHP",@"Dead", @"Rest"];
     self.tableData = [NSMutableArray arrayWithArray:(intermediate)];
     self.editing = YES; //always enable editing
     //mutable arrays allow us to add/remove data, which we will need to do
@@ -112,6 +113,15 @@
     NSString *stringToMove = self.tableData[sourceIndexPath.row];
     [self.tableData removeObjectAtIndex:sourceIndexPath.row];
     [self.tableData insertObject:stringToMove atIndex:destinationIndexPath.row];
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"patternToDateSegue"]){
+        DatePicker *controller = (DatePicker *)segue.destinationViewController;
+        controller.storedDate = _chosenDate;
+        controller.patternArray = self.tableData;
+        }
 }
 
 

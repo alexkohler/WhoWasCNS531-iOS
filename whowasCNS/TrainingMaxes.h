@@ -36,6 +36,7 @@
 
 @property(nonatomic) NSString *dateText;
 @property (strong, nonatomic) IBOutlet UITextField *textField;
+@property(nonatomic) NSArray *patternArray;
 -(BOOL) checkForProperInput;
 -(IBAction) setDateText;
 -(void)getInput;
