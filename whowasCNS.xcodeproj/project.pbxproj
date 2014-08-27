@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA05536B19AD4DE3001EE3CE /* TableDisplay in Resources */ = {isa = PBXBuildFile; fileRef = FA05536A19AD4DE3001EE3CE /* TableDisplay */; };
 		FA3133AD199AE5FB00ED3D1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3133AC199AE5FB00ED3D1D /* Foundation.framework */; };
 		FA3133AF199AE5FB00ED3D1D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3133AE199AE5FB00ED3D1D /* CoreGraphics.framework */; };
 		FA3133B1199AE5FB00ED3D1D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3133B0199AE5FB00ED3D1D /* UIKit.framework */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA05536A19AD4DE3001EE3CE /* TableDisplay */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TableDisplay; sourceTree = "<group>"; };
 		FA3133A9199AE5FB00ED3D1D /* whowasCNS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whowasCNS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3133AC199AE5FB00ED3D1D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FA3133AE199AE5FB00ED3D1D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -146,6 +148,7 @@
 				FA3133EC19A4205900ED3D1D /* TrainingMaxes */,
 				FA3133EE19A4251B00ED3D1D /* TableDisplay.h */,
 				FA3133EF19A4251B00ED3D1D /* TableDisplay.m */,
+				FA05536A19AD4DE3001EE3CE /* TableDisplay */,
 				FA3133C4199AE5FB00ED3D1D /* ViewController.h */,
 				FA3133C5199AE5FB00ED3D1D /* ViewController.m */,
 				FA3133C7199AE5FB00ED3D1D /* Images.xcassets */,
@@ -266,6 +269,7 @@
 			files = (
 				FA3133C3199AE5FB00ED3D1D /* Main_iPad.storyboard in Resources */,
 				FA3133ED19A4205900ED3D1D /* TrainingMaxes in Resources */,
+				FA05536B19AD4DE3001EE3CE /* TableDisplay in Resources */,
 				FA31345319A6C96C00ED3D1D /* AdjustPattern in Resources */,
 				FA3133EB199C3C8E00ED3D1D /* DatePicker in Resources */,
 				FA3133C8199AE5FB00ED3D1D /* Images.xcassets in Resources */,

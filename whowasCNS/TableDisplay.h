@@ -25,8 +25,8 @@
 @property(nonatomic) NSArray *patternArray;
 
 //database properties
-- (IBAction)saveData:(id)sender;
-- (IBAction)getData:(id)sender;
+- (IBAction)insertData;
+- (IBAction)getData;
 @property (strong, nonatomic) NSString *databasePath;
 @property (nonatomic) sqlite3 *contactDB;
 @property (strong, nonatomic) IBOutlet UILabel *status;//db status

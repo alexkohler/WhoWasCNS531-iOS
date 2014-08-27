@@ -1,3 +1,4 @@
+//
 //  TableDisplay.m
 //  whowasCNS
 //
@@ -28,7 +29,6 @@
     // Do any additional setup after loading the view.
     
     trainingMaxStreamLabel.text = [NSString stringWithFormat:@"%@",_trainingMaxStream];
-
     
     //check if a database exists, if not, create one
     NSString *docsDir;
@@ -47,11 +47,12 @@
     
     NSFileManager *filemgr = [NSFileManager defaultManager];
     
-    const char *dbpath = [_databasePath UTF8String];
-    if (sqlite3_open(dbpath, &_contactDB) == SQLITE_OK)
+    if ([filemgr fileExistsAtPath: _databasePath ] == NO)
     {
-    
+        const char *dbpath = [_databasePath UTF8String];
         
+        if (sqlite3_open(dbpath, &_contactDB) == SQLITE_OK)
+        {
             char *errMsg;
             const char *sql_stmt =
             "CREATE TABLE IF NOT EXISTS LIFTS (liftDate text not null, Cycle integer, Lift text not null, Frequency text not null, First_Lift real, Second_Lift real, Third_Lift real, Training_Max integer, column_lbFlag integer)";
@@ -60,14 +61,11 @@
             {
                 _status.text = @"Failed to create table";
             }
-        [self insertData];
-        [self getData];
             sqlite3_close(_contactDB);
-        
-            
+        } else {
+            _status.text = @"Failed to open/create database";
+        }
     }
-    
-
     
 }
 
@@ -79,43 +77,53 @@
 
 -(void)insertData //there should be a barbell (maybe) object here.
 {
-    NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO LIFTS (liftDate, Lift, Frequency) VALUES (\"%@\", \"%@\", \"%@\")",  @"Shit",@"Shit", @"Shit"];
+
+    /*liftDate text not null, Cycle integer, Lift text not null, Frequency text not null, First_Lift real, Second_Lift real, Third_Lift real, Training_Max integer, column_lbFlag integer*/
+    
+    NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO Lifts (liftDate, Cycle, Lift, Frequency, First_Lift, Second_Lift, Third_Lift) VALUES (\"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\")", @"Septemburger", person.lastName, person.birthday];
     
     char *error;
-    if ( sqlite3_exec(_contactDB, [insertStatement UTF8String], NULL, NULL, &error) == SQLITE_OK)
+    if ( sqlite3_exec(databaseHandle, [insertStatement UTF8String], NULL, NULL, &error) == SQLITE_OK)
     {
-        trainingMaxStreamLabel.text = @"Values inserted";
+        
     }
     else
     {
-        trainingMaxStreamLabel.text = @"Something went fuckin wrong";
+        
     }
     
 }
 
-//add a where parameter here where user can specify a where blah = fubar
--(void)getData
-{
-  
-    // Create the query statement to find the correct address based on person ID
-    NSString *queryStatement = [NSString stringWithFormat:@"SELECT liftDate FROM LIFTS WHERE Frequency = \"%@\"", @"Shit"];
-    
-    // Prepare the query for execution
-    sqlite3_stmt *statement;
-    if (sqlite3_prepare_v2(_contactDB, [queryStatement UTF8String], -1, &statement, NULL) == SQLITE_OK)
-    {
-        // Create a new address from the found row
-        while (sqlite3_step(statement) == SQLITE_ROW) {
-            char *one = (char*) sqlite3_column_text(statement, 0);
-           
-        }
-        sqlite3_finalize(statement);
-    }
-    // Return the found address and mark for autorelease
-}
 
-
-
+//-(void) insertData
+//{
+//    sqlite3 *database;
+//    const char *dbPath= [ _databasePath UTF8String];
+//    if(sqlite3_open(dbPath,&database)==SQLITE_OK)
+//    {
+//        const char *sqlstatement = "INSERT INTO upssTable (column1, column2) VALUES (?,?)";
+//        sqlite3_stmt *compiledstatement;
+//        
+//        if(sqlite3_prepare_v2(database,sqlstatement , -1, &compiledstatement, NULL)==SQLITE_OK)
+//        {
+//            NSString *  str1 =@"1";
+//            NSString * str2 =@"1";
+//            sqlite3_bind_int(compiledstatement, 1, [str1 integerValue]);
+//            sqlite3_bind_int(compiledstatement, 2, [str2 integerValue]);
+//            if(sqlite3_step(compiledstatement)==SQLITE_DONE)
+//            {
+//                NSLog(@"done");
+//            }
+//            else NSLog(@"ERROR");
+//            sqlite3_reset(compiledstatement);
+//        }
+//        else
+//        {
+//            NSAssert1(0, @"Error . '%s'", sqlite3_errmsg(cruddb));
+//        }
+//        sqlite3_close(database);
+//    }
+//}
 
 
 
