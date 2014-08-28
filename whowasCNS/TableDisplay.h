@@ -25,8 +25,9 @@
 @property(nonatomic) NSArray *patternArray;
 
 //database properties
-- (IBAction)insertData;
+- (IBAction)addEvent;
 - (IBAction)getData;
+@property(nonatomic) NSString *dateText;
 @property (strong, nonatomic) NSString *databasePath;
 @property (nonatomic) sqlite3 *contactDB;
 @property (strong, nonatomic) IBOutlet UILabel *status;//db status

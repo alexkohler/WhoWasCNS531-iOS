@@ -6,6 +6,7 @@
 //
 
 #import "TableDisplay.h"
+#import "DateAndLiftProcessor.h"
 
 @interface TableDisplay ()
 
@@ -30,6 +31,18 @@
     trainingMaxStreamLabel.text = [NSString stringWithFormat:@"%@",_trainingMaxStream];
 
     
+    [self initDB];
+    DateAndLiftProcessor* Processor = [[DateAndLiftProcessor alloc] init];
+    [Processor setStartingDate:_dateText];
+    [Processor parseDateString];
+    [Processor incrementDay];
+    [self addEvent];
+
+    
+}
+
+-(void)initDB
+{
     //check if a database exists, if not, create one
     NSString *docsDir;
     NSArray *dirPaths;
@@ -47,28 +60,27 @@
     
     NSFileManager *filemgr = [NSFileManager defaultManager];
     
+    bool databaseAlreadyExists = [[NSFileManager defaultManager] fileExistsAtPath:_databasePath];
+    
     const char *dbpath = [_databasePath UTF8String];
     if (sqlite3_open(dbpath, &_contactDB) == SQLITE_OK)
     {
-    
+        if (!databaseAlreadyExists)
+        {
+        char *errMsg;
+        const char *sql_stmt =
+        "CREATE TABLE IF NOT EXISTS LIFTS (liftDate text not null, Cycle integer, Lift text not null, Frequency text not null, First_Lift real, Second_Lift real, Third_Lift real, Training_Max integer, column_lbFlag integer)";
         
-            char *errMsg;
-            const char *sql_stmt =
-            "CREATE TABLE IF NOT EXISTS LIFTS (liftDate text not null, Cycle integer, Lift text not null, Frequency text not null, First_Lift real, Second_Lift real, Third_Lift real, Training_Max integer, column_lbFlag integer)";
-            
             if (sqlite3_exec(_contactDB, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK)
             {
                 _status.text = @"Failed to create table";
             }
-        [self insertData];
-        [self getData];
+            [self addEvent];
+            [self getData];
             sqlite3_close(_contactDB);
+        }
         
-            
     }
-    
-
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,8 +89,17 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)insertData //there should be a barbell (maybe) object here.
+-(void)addEvent
 {
+    //WILL PROBABLY HAVE TO OPEN DATABASE TO INSERT**)(*)(*&*(&^(*&(*&^(*&^(*&^(*&^(*&^(*&^
+   /*( values.put(EventsDataSQLHelper.LIFTDATE, thirdScreen.Processor.getDate() );
+    values.put(EventsDataSQLHelper.CYCLE, thirdScreen.Processor.getCycle());
+    values.put(EventsDataSQLHelper.LIFT, thirdScreen.Processor.getLiftType());
+    values.put(EventsDataSQLHelper.FREQUENCY, thirdScreen.Processor.getFreq());
+    values.put(EventsDataSQLHelper.FIRST, thirdScreen.Processor.getFirstLift());
+    values.put(EventsDataSQLHelper.SECOND, thirdScreen.Processor.getSecondLift());
+    values.put(EventsDataSQLHelper.THIRD, thirdScreen.Processor.getThirdLift());*/
+    
     NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO LIFTS (liftDate, Lift, Frequency) VALUES (\"%@\", \"%@\", \"%@\")",  @"Shit",@"Shit", @"Shit"];
     
     char *error;

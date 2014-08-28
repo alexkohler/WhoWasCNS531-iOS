@@ -12,10 +12,8 @@
 
 @implementation DatePicker
 -(IBAction)displayDate:(id)sender {
-	NSDate * selected = [picker date];
-	NSString * date = [selected description];
-	field.text = date;
-}
+    pickerDate = [picker date];
+	}
 
 - (void)viewDidLoad {
 	NSDate *now = [NSDate date];
@@ -48,17 +46,29 @@
     return newDate;
 }
 
+-(NSString *)formatDateDate:(NSDate *)initialDate;
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+    //[dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
+    NSString* result = [dateFormatter stringFromDate:initialDate];
+    return result;
+   }
+
+
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"dateToTMSegue"]){
         TrainingMaxes *controller = (TrainingMaxes *)segue.destinationViewController;
-        pickerDateString = [self formatDate:(pickerDateString)];
-        NSString *title = [NSString stringWithFormat:@"Starting Date: %@", pickerDateString];
-        controller.dateText = title;
+//        pickerDateString = [picker description];
+        //NSString *title = [NSString stringWithFormat:@"Starting Date: %@", pickerDateString];
+        controller.dateText = [self formatDateDate:[picker date]];
         controller.patternArray = _patternArray; //Simply passing patternArray down the line 
     }
     
     if([segue.identifier isEqualToString:@"dateToPatternSegue"]){
-        //pass date back here - declare properties here and at pattern.m, implement a prepareForSegue method over at patern.m as well.
+        //pass date back here - declare properties here and at pattern.m, implement a prepareForSegue method over at :: as well.
         AdjustPattern *patternController = (AdjustPattern *)segue.destinationViewController;
         patternController.chosenDate = [picker date];
     }

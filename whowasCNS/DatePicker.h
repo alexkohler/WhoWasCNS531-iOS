@@ -13,6 +13,7 @@
 @interface DatePicker : UIViewController
 {
   
+    
 	IBOutlet UIDatePicker *picker;
 	IBOutlet UITextField  *field;
     NSDate *pickerDate;
@@ -21,6 +22,7 @@
 }
 
 -(IBAction)displayDate:(id)sender;
+
 
 -(NSString *)formatDate:(NSString *)initialDate;
 

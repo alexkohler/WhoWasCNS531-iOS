@@ -1,0 +1,35 @@
+//
+//  DateAndLiftProcessor.h
+//  whowasCNS
+//
+//  Created by Alexander Kohler on 8/27/14.
+//  Copyright (c) 2014 Kohlerbear. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface DateAndLiftProcessor
+{
+enum Lift {Bench, Squat, OHP, Deadlift, REST};
+
+
+//Frequency definitions
+    const NSString* freq5;
+    const NSString* freq3;
+    const NSString* freq1;
+
+
+    //Constants
+    const double FIVE_1;
+    const double FIVE_2;
+    const double FIVE_3;
+
+    const double TRIPLE_1;
+    const double TRIPLE_2;
+Double TRIPLE_3 = .9;
+
+Double SINGLE_1 = .75;
+Double SINGLE_2 = .85;
+Double SINGLE_3 = .95;
+}
+@end
