@@ -10,6 +10,8 @@
 		FA05536B19AD4DE3001EE3CE /* TableDisplay in Resources */ = {isa = PBXBuildFile; fileRef = FA05536A19AD4DE3001EE3CE /* TableDisplay */; };
 		FA05539F19AE9FE2001EE3CE /* DateAndLiftProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = FA05539E19AE9FE2001EE3CE /* DateAndLiftProcessor.m */; };
 		FA0553A119AEA132001EE3CE /* DateAndLiftProcessor in Resources */ = {isa = PBXBuildFile; fileRef = FA0553A019AEA132001EE3CE /* DateAndLiftProcessor */; };
+		FA0553A519B000B7001EE3CE /* KilogramPlateComputer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0553A419B000B7001EE3CE /* KilogramPlateComputer.m */; };
+		FA0553A719B005F0001EE3CE /* KilogramPlateComputer in Resources */ = {isa = PBXBuildFile; fileRef = FA0553A619B005F0001EE3CE /* KilogramPlateComputer */; };
 		FA3133AD199AE5FB00ED3D1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3133AC199AE5FB00ED3D1D /* Foundation.framework */; };
 		FA3133AF199AE5FB00ED3D1D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3133AE199AE5FB00ED3D1D /* CoreGraphics.framework */; };
 		FA3133B1199AE5FB00ED3D1D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3133B0199AE5FB00ED3D1D /* UIKit.framework */; };
@@ -49,6 +51,9 @@
 		FA05539D19AE9FE2001EE3CE /* DateAndLiftProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateAndLiftProcessor.h; sourceTree = "<group>"; };
 		FA05539E19AE9FE2001EE3CE /* DateAndLiftProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateAndLiftProcessor.m; sourceTree = "<group>"; };
 		FA0553A019AEA132001EE3CE /* DateAndLiftProcessor */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DateAndLiftProcessor; sourceTree = "<group>"; };
+		FA0553A319B000B7001EE3CE /* KilogramPlateComputer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KilogramPlateComputer.h; sourceTree = "<group>"; };
+		FA0553A419B000B7001EE3CE /* KilogramPlateComputer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KilogramPlateComputer.m; sourceTree = "<group>"; };
+		FA0553A619B005F0001EE3CE /* KilogramPlateComputer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KilogramPlateComputer; sourceTree = "<group>"; };
 		FA3133A9199AE5FB00ED3D1D /* whowasCNS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whowasCNS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3133AC199AE5FB00ED3D1D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FA3133AE199AE5FB00ED3D1D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -146,6 +151,9 @@
 				FA3133EA199C3C8E00ED3D1D /* DatePicker */,
 				FA05539D19AE9FE2001EE3CE /* DateAndLiftProcessor.h */,
 				FA05539E19AE9FE2001EE3CE /* DateAndLiftProcessor.m */,
+				FA0553A319B000B7001EE3CE /* KilogramPlateComputer.h */,
+				FA0553A419B000B7001EE3CE /* KilogramPlateComputer.m */,
+				FA0553A619B005F0001EE3CE /* KilogramPlateComputer */,
 				FA0553A019AEA132001EE3CE /* DateAndLiftProcessor */,
 				FA31344F19A6BEB700ED3D1D /* AdjustPattern.h */,
 				FA31345019A6BEB700ED3D1D /* AdjustPattern.m */,
@@ -274,6 +282,7 @@
 				FA3133ED19A4205900ED3D1D /* TrainingMaxes in Resources */,
 				FA0553A119AEA132001EE3CE /* DateAndLiftProcessor in Resources */,
 				FA05536B19AD4DE3001EE3CE /* TableDisplay in Resources */,
+				FA0553A719B005F0001EE3CE /* KilogramPlateComputer in Resources */,
 				FA31345319A6C96C00ED3D1D /* AdjustPattern in Resources */,
 				FA3133EB199C3C8E00ED3D1D /* DatePicker in Resources */,
 				FA3133C8199AE5FB00ED3D1D /* Images.xcassets in Resources */,
@@ -302,6 +311,7 @@
 				FA31345119A6BEB700ED3D1D /* AdjustPattern.m in Sources */,
 				FA3133BD199AE5FB00ED3D1D /* AppDelegate.m in Sources */,
 				FA3133B9199AE5FB00ED3D1D /* main.m in Sources */,
+				FA0553A519B000B7001EE3CE /* KilogramPlateComputer.m in Sources */,
 				FA3133E6199AE9C500ED3D1D /* DatePicker.m in Sources */,
 				FA3133F019A4251B00ED3D1D /* TableDisplay.m in Sources */,
 			);

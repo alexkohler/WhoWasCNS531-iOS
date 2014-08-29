@@ -58,6 +58,8 @@ extern NSString * const FREQ1;
 -(NSString*) getStartingDate;
 -(int) getCycle;
 -(void) setCycle:(int) myCycle;
+-(double) roundkg:(double) i and:(double) v;
+-(double) round:(double) i and:(int) v;
 -(NSString*) getLiftType;
 -(NSString*) getFreq;
 //commented moethods

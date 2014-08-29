@@ -10,22 +10,24 @@
 
 
 //Constants
-#define FIVE_1 = .65;
-#define FIVE_2 = .75;
-#define FIVE_3 = .85;
+#define FIVE_1 .65
+#define FIVE_2 .75
+#define FIVE_3 .85
 
-#define TRIPLE_1 = .7;
-#define TRIPLE_2 = .8;
-#define TRIPLE_3 = .9;
+#define TRIPLE_1 .7
+#define TRIPLE_2 .8
+#define TRIPLE_3 .9
 
-#define SINGLE_1 = .75;
-#define SINGLE_2 = .85;
-#define SINGLE_3 = .95;
+#define SINGLE_1 .75
+#define SINGLE_2 .85
+#define SINGLE_3 .95
 
-#define UNIT_CONVERSION_FACTOR = 2.20462;
+#define UNIT_CONVERSION_FACTOR 2.20462
 
 @implementation DateAndLiftProcessor
-
+NSString * const FREQ5 = @"5-5-5";
+NSString * const FREQ3 = @"3-3-3";
+NSString * const FREQ1 = @"5-3-1";
 
 //Guess this is how you make constructors in objective c...
 -(id)init
@@ -34,9 +36,6 @@
     {
     //day classification definition (Proper call syntax- String myString = Lift.Bench.name())
 
-	NSString * const FREQ5 = @"5-5-5";
-	NSString * const FREQ3 = @"3-3-3";
-    NSString * const FREQ1 = @"5-3-1";
 	//Currency definitions
     /////////////////////// fix me enumCURRENT_LIFT = [Lift ]
     NSString* DICKS = FREQ5;
@@ -55,8 +54,9 @@
     CURRENT_DATE_CAL = [gregorian dateFromComponents:comps];
     
     df = [[NSDateFormatter alloc] init];
+    NSLocale *locale = [NSLocale currentLocale];
     [df setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
-    [df setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+//    [df setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     [df setDateFormat:@"MM-dd-yyyy"];
     }
     
@@ -151,47 +151,45 @@
 }
 
 //need to implement a calculate5 function, calculate3 function, and calculate1 function
-/*-(double) getFirstLift
+-(double) getFirstLift
 {
     if (ROUND_FLAG)//if there is rounding wanted
     {
         if (UNIT_MODE_LBS)//lbs
-            CURRENT_FIRST =  round(CURRENT_FIRST, 5);//return first lift rounded to nearest 5lb
+            CURRENT_FIRST =  [self round:CURRENT_FIRST and:5];//return first lift rounded to nearest 5lb
         if (!UNIT_MODE_LBS)
-            CURRENT_FIRST = roundkg(CURRENT_FIRST, 2.5);//return first lift rounded to nearest 1kg
+            CURRENT_FIRST = [self roundkg:CURRENT_FIRST and:2.5];//return first lift rounded to nearest 1kg
     }
     
     
     return CURRENT_FIRST;
-}*/
+}
 
-/*double getSecondLift()
+-(double) getSecondLift
 {
     if (ROUND_FLAG)//if there is rounding wanted
     {
         if (UNIT_MODE_LBS)//lbs
-            CURRENT_SECOND =  round(CURRENT_SECOND, 5);//return first lift rounded to nearest 5lb
+            CURRENT_SECOND =  [self round:CURRENT_SECOND  and:5];//return first lift rounded to nearest 5lb
         if (!UNIT_MODE_LBS)
-            CURRENT_SECOND = roundkg(CURRENT_SECOND, 2.5);//return first lift rounded to nearest 2.5kg
+            CURRENT_SECOND = [self round:CURRENT_SECOND and:2.5];//return first lift rounded to nearest 2.5kg
     }
-    
     
     return CURRENT_SECOND;
 }
 
-double getThirdLift()
+-(double) getThirdLift
 {
     if (ROUND_FLAG)//if there is rounding wanted
     {
         if (UNIT_MODE_LBS)//lbs
-            CURRENT_THIRD =  round(CURRENT_THIRD, 5);//return first lift rounded to nearest 5lb
+            CURRENT_THIRD =  [self round:CURRENT_THIRD and:5];//return first lift rounded to nearest 5lb
         if (!UNIT_MODE_LBS)
-            CURRENT_THIRD = roundkg(CURRENT_THIRD, 2.5);//return first lift rounded to nearest 2.5kg
+            CURRENT_THIRD = [self round:CURRENT_THIRD  and:2.5];//return first lift rounded to nearest 2.5kg
     }
     
-    
     return CURRENT_THIRD;
-}*/
+}
 
 -(double) getBenchTM
 {
@@ -266,6 +264,7 @@ double getThirdLift()
     ROUND_FLAG = roundFlag;
 }
 
+
 //calculation/misc definitions
 
 //turns our STARTING_DATE_STRING into a more workable calendar object that we can do date arithmetic om
@@ -277,57 +276,32 @@ double getThirdLift()
     [df setLocale:locale];
   //   NSString *timeZoneName = [[NSTimeZone localTimeZone] name];
  //   [df setTimeZone:[NSTimeZone timeZoneWithName:timeZoneName]];
-    [df setDateFormat:@"MM-dd-yyyy"];
+    [df setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
     CURRENT_DATE_CAL = [df dateFromString:STARTING_DATE_STRING]; //parsed
  
-    NSDate *currentDate = [NSDate date];
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
-    [offsetComponents setDay:1];
-    CURRENT_DATE_CAL = [gregorian dateByAddingComponents:offsetComponents toDate: CURRENT_DATE_CAL options:0];
+    //TODO may need to format this guy
+    
  
  
 }
 
-
-
 //day incrementing function
 -(void) incrementDay
 {
-  /*  NSDate *now = [NSDate date];
-    int daysToAdd = 1;  // or 60 :-)
-    
-    // set up date components
-    NSDateComponents *components = [[NSDateComponents alloc] init];
-    [components setDay:daysToAdd];
-    
-    // create a calendar
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    CURRENT_DATE_CAL = [gregorian dateByAddingComponents:components toDate:now options:0];;*/
-    
     NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
     dayComponent.day = 1;
     
     NSCalendar *theCalendar = [NSCalendar currentCalendar];
     CURRENT_DATE_CAL = [theCalendar dateByAddingComponents:dayComponent toDate:[NSDate date] options:0];
-    
-    
-    
-//    CURRENT_DATE_CAL.add(Calendar.DAY_OF_MONTH, 1);  // number of days to add
-    
-//    Date myDate = CURRENT_DATE_CAL.getTime();
-//    String formattedDate = df.format(myDate);
-    
-//    setDate(formattedDate);
 }
 
 
 
 //Lift (and cycle if needed) incrementing function
 //PERCENTAGE definitions
-/*public void incrementLift(String[] myPattern, String currentLift)
+-(void) incrementLiftBasedOn:(NSArray*) myPattern whenCurrentLiftIs: (NSString*) currentLift
 {
-    //NAMES ASSIGNED ARE BASED ON ENUM::
+     //NAMES ASSIGNED ARE BASED ON ENUM::
     
     //#####****
     //enum Lift {Bench, Squat, OHP, Deadlift, REST};
@@ -342,40 +316,133 @@ double getThirdLift()
     else if ( (liftTrack + 1) == patternSize)
     {
         liftTrack = 0;//reset our liftTrack
-        incrementFreq();
+        [self incrementFreq];
     }
     
     
 }//end method incrementLift
 
+
+
 //Method to increment frequency-(only called within incrementLift)
-public void incrementFreq()
+-(void) incrementFreq
 {
     switch (freqTrack)
     {
 		case 1:
-			CURRENT_FREQUENCY = freq5;
+			CURRENT_FREQUENCY = FREQ5;
 			freqTrack++;
 			break;
             
 		case 2:
-			CURRENT_FREQUENCY = freq3;
+			CURRENT_FREQUENCY = FREQ3;
 			freqTrack++;
 			break;
             
 		case 3:
-			CURRENT_FREQUENCY = freq1;
+			CURRENT_FREQUENCY = FREQ1;
 			freqTrack = 1;
 			break;
             
 		default:
-			CURRENT_FREQUENCY = "incrementFreq ERROR:<";					
+			CURRENT_FREQUENCY = @"incrementFreq ERROR:<";
             
     }
 }//end method incrementfreq
-*/
 
 
+-(void) incrementCycleAndUpdateTMs
+{
+    CURRENT_CYCLE = CURRENT_CYCLE + 1;
+    if ([self getUnitMode])
+    {
+        BENCH_TRAINING_MAX = BENCH_TRAINING_MAX + 5; //this WILL HAVE TO CHANGE FOR KG MODE
+        OHP_TRAINING_MAX = OHP_TRAINING_MAX + 5;
+        SQUAT_TRAINING_MAX = SQUAT_TRAINING_MAX + 10;
+        DEAD_TRAINING_MAX = DEAD_TRAINING_MAX + 10;
+    }
+    
+    if (!([self getUnitMode]))
+    {
+        BENCH_TRAINING_MAX = BENCH_TRAINING_MAX + (5 / UNIT_CONVERSION_FACTOR);
+        OHP_TRAINING_MAX = OHP_TRAINING_MAX + (5 / UNIT_CONVERSION_FACTOR);
+        SQUAT_TRAINING_MAX = SQUAT_TRAINING_MAX + (10 / UNIT_CONVERSION_FACTOR);
+        DEAD_TRAINING_MAX = DEAD_TRAINING_MAX + (10 / UNIT_CONVERSION_FACTOR);
+    }
+}
+
+
+//to be called after a regular increment (just go to next day)
+
+
+//Calculation methods
+
+-(void) calculateFivesDay:(double) myLift
+{
+    CURRENT_FIRST  = myLift * FIVE_1;
+    CURRENT_SECOND = myLift * FIVE_2;
+    CURRENT_THIRD  = myLift * FIVE_3;
+}
+
+
+-(void) calculateTriplesDay:(double) myLift
+{
+    CURRENT_FIRST  = myLift * TRIPLE_1;
+    CURRENT_SECOND = myLift * TRIPLE_2;
+    CURRENT_THIRD  = myLift * TRIPLE_3;
+}
+
+-(void) calculateSingleDay:(double) myLift
+{
+    CURRENT_FIRST  = myLift * SINGLE_1;
+    CURRENT_SECOND = myLift * SINGLE_2;
+    CURRENT_THIRD  = myLift * SINGLE_3;
+}
+
+-(double) roundkg:(double) i and:(double) v //first argument is rounded,
+{
+    return v * floorf(i / v + 0.5f);
+    //return (double) (Math.round(i/v) * v);
+}
+
+-(double) round:(double) i and:(int) v //first argument is rounded,
+{
+return v * floorf(i / v + 0.5f);
+    //    return (double) (Math.round(i/v) * v);
+}
+
+-(void) initializePatternSize:(int) length
+{
+    patternSize = length;
+}
+
+
+
+//enum Lift {Bench, Squat, OHP, Deadlift, REST};
+-(void) setCurrentLift:(NSString*) lift
+{
+    if ([lift isEqualToString:@"Bench"] || [lift isEqualToString:@"Squat"] || [lift isEqualToString:@"OHP"] || [lift isEqualToString:@"Deadlift"] || [lift isEqualToString:@"Rest"])
+		CURRENT_LIFT = lift;
+    else
+        CURRENT_LIFT = @"ERROR";
+}
+
+-(double) getCurrentTM
+{
+        //since switch statements don't exist exist in objective c we're going back to cmpsc 121 for a bit :)
+		 if ([CURRENT_LIFT isEqualToString:@"Bench"])
+			return [self getBenchTM];
+		else if ([CURRENT_LIFT isEqualToString:@"Squat"])
+			return [self getSquatTM];
+		else if ([CURRENT_LIFT isEqualToString:@"OHP"])
+			return [self getOHPTM];
+        else if ([CURRENT_LIFT isEqualToString:@"Deadlift"])
+			return [self getDeadTM];
+		else if ([CURRENT_LIFT isEqualToString:@"Rest"])
+			return 0;
+        else //"Default"
+			return 999;	
+}
 
 
 

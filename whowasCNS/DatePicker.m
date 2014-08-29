@@ -35,8 +35,9 @@
 -(NSString *)formatDate:(NSString *)initialDate;
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    NSLocale *locale = [NSLocale currentLocale];
+    [dateFormatter setLocale:locale];
+//    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
     pickerDate  = [dateFormatter dateFromString:initialDate];
     
