@@ -13,7 +13,7 @@
 {
     if( self = [super init] )
     {
-        lb_mode = YES;
+        lb_mode = YES;//initial value
     }
 
     return self;
