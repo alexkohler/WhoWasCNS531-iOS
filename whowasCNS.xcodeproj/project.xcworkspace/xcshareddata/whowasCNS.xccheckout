@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>59C52B39-FCE7-436B-8F8B-3F631CE20A7B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>whowasCNS</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8A58A626-87E5-4A4B-B50C-F6DBE91D3B8F</key>
+		<string>https://github.com/aok5326/WhoWasCNS531-iOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>whowasCNS.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8A58A626-87E5-4A4B-B50C-F6DBE91D3B8F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/aok5326/WhoWasCNS531-iOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8A58A626-87E5-4A4B-B50C-F6DBE91D3B8F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8A58A626-87E5-4A4B-B50C-F6DBE91D3B8F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>whowasCNS</string>
+		</dict>
+	</array>
+</dict>
+</plist>

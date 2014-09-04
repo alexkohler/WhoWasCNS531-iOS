@@ -23,6 +23,27 @@
     return self;
 }
 
+/*-(id) init
+{
+    if( self = [super init] )
+    {
+        insertStatus = NO;
+        changedView = NO;
+        tableColorToggle = YES;
+
+        for (int i = 0; i < 7; i++){
+            kgBooleans[i] = YES;
+            lbBooleans[i] = YES;
+        }
+        
+    static CURRENT_VIEW curView = DEFAULT_V;
+    Processor  = [DateAndLiftProcessor init];
+    }
+    
+    return self;
+}*/
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -31,18 +52,21 @@
     trainingMaxStreamLabel.text = [NSString stringWithFormat:@"%@",_trainingMaxStream];
 
     
-    [self initDB];
-    DateAndLiftProcessor* Processor = [[DateAndLiftProcessor alloc] init];
+    [self openDB:YES];
+    Processor = [[DateAndLiftProcessor alloc] init];
     [Processor setStartingDate:_dateText];
     [Processor parseDateString];
     [Processor incrementDay];
+    TableDisplay *class = self;
+    [Processor calculateCycle:3 with:_patternArray withClassInstance:class];
     [self addEvent];
+    [self openDB:NO];
 
     
 }
 
--(void)initDB
-{
+-(void)openDB:(bool)yesOrNo
+    {
     //check if a database exists, if not, create one
     NSString *docsDir;
     NSArray *dirPaths;
@@ -77,8 +101,10 @@
             }
             [self addEvent];
             [self getData];
-            sqlite3_close(_contactDB);
         }
+        
+        if (!yesOrNo)
+            sqlite3_close(_contactDB);
         
     }
 }
@@ -99,8 +125,12 @@
     values.put(EventsDataSQLHelper.FIRST, thirdScreen.Processor.getFirstLift());
     values.put(EventsDataSQLHelper.SECOND, thirdScreen.Processor.getSecondLift());
     values.put(EventsDataSQLHelper.THIRD, thirdScreen.Processor.getThirdLift());*/
+    NSString* currentDate = [Processor getDate];
+    NSString* currentLift = [Processor getLiftType];
+    NSString* currentFreq = [Processor getFreq];
     
-    NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO LIFTS (liftDate, Lift, Frequency) VALUES (\"%@\", \"%@\", \"%@\")",  @"Shit",@"Shit", @"Shit"];
+    
+    NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO LIFTS (liftDate, Lift, Frequency) VALUES (\"%@\", \"%@\", \"%@\")",  currentDate, currentLift, currentFreq];
     
     char *error;
     if ( sqlite3_exec(_contactDB, [insertStatement UTF8String], NULL, NULL, &error) == SQLITE_OK)

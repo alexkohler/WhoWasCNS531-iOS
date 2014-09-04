@@ -7,7 +7,7 @@
 //
 
 #import "DateAndLiftProcessor.h"
-
+#import "TableDisplay.h"
 
 //Constants
 #define FIVE_1 .65
@@ -443,6 +443,69 @@ return v * floorf(i / v + 0.5f);
         else //"Default"
 			return 999;	
 }
+
+
+////*ThirdScreenActivity thirdScreen,*/,  ? yes... will have to add figure out how you are inserting events
+-(void) calculateCycle:(int) numberCycles with:(NSArray*) myPattern withClassInstance:(TableDisplay*) tableDisplayInstance
+{
+    //(max pattern of 7 days),
+    //String[] myPattern = {"Squat", "Rest", "Bench", "Deadlift", "Rest", "OHP"  }; //be sure to use default naming patterns (like you've used in rest of program)
+    //lets give the patern it's been dealing with since the start, however, now it's hopefully in a generalized algorithm
+    //String[] myPattern = {"Bench", "Squat", "Rest", "OHP", "Deadlift", "Rest"};
+    //String[] myPattern = {"Squat", "Bench", "Rest", "Deadlift", "OHP", "Rest" };
+    patternSize = [myPattern count];
+    [self initializePatternSize:patternSize];//separate variable from liftTrack
+    [self setCycle:1];
+    for (int i=0; i < numberCycles; i++)
+    {
+        for (int j=0; j < patternSize; j++){
+			//create setCurrentLift function that sets current lift based on an enum
+			[self setCurrentLift:myPattern[j]];//fixed names so that we can use an enum based on a switch statement
+			//calculate fives day will have to be revamped -
+            double currentTM = [self getCurrentTM];
+            if (currentTM > 0 ){//set getCurrentTM will access the variable that setCurrentLift uses. (will be set to zero for rest day{
+                double currentTM = [self getCurrentTM];
+                [self calculateFivesDay:currentTM];
+                [tableDisplayInstance addEvent]; //parameters go here or maybe in addevent.. i don't know
+                }
+			[self incrementDay];//for sake of being less cryptic i am separating increment because it was too small. if only i could fix my functions that are too big.
+			[self incrementLiftBasedOn:myPattern whenCurrentLiftIs:myPattern[j]];
+            }
+        
+        
+        for (int j=0; j < patternSize; j++){
+			//create setCurrentLift function that sets current lift based on an enum
+			[self setCurrentLift:myPattern[j]];//fixed names so that we can use an enum based on a switch statement
+			//calculate fives day will have to be revamped -
+            double currentTM = [self getCurrentTM];
+            if (currentTM > 0 ){//set getCurrentTM will access the variable that setCurrentLift uses. (will be set to zero for rest day{
+                double currentTM = [self getCurrentTM];
+                [self calculateTriplesDay:currentTM];
+                [tableDisplayInstance addEvent];
+            }
+			[self incrementDay];//no matter what the day, we still need to incrementCycleAndUpdateTMs
+			[self incrementLiftBasedOn:myPattern whenCurrentLiftIs:myPattern[j]];
+        }
+        
+        for (int j=0; j < patternSize; j++){
+			//create setCurrentLift function that sets current lift based on an enum
+			[self setCurrentLift:myPattern[j]];//fixed names so that we can use an enum based on a switch statement
+			//calculate fives day will have to be revamped -
+            double currentTM = [self getCurrentTM];
+            if (currentTM > 0 ){//set getCurrentTM will access the variable that setCurrentLift uses. (will be set to zero for rest day{
+                [self calculateSingleDay:currentTM];
+                [tableDisplayInstance addEvent];
+            }
+            [self incrementDay];//no matter what the day, we still need to incrementCycleAndUpdateTMs
+			[self incrementLiftBasedOn:myPattern whenCurrentLiftIs:myPattern[j]];
+        }
+        
+        [self incrementCycleAndUpdateTMs];//still needs to be within loop
+    }
+	
+    
+}
+
 
 
 

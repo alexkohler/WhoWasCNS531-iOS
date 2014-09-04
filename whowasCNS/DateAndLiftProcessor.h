@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TableDisplay.h"
 
 @interface DateAndLiftProcessor : NSObject
 {
@@ -54,7 +55,8 @@ extern NSString * const FREQ1;
 -(void) setStartingDate:(NSString*) myDate;
 -(NSString*) getDate;
 -(void) setDate:(NSString*) formattedDate;
--(void) setStartingLifts:(NSString*) startingBench and: (NSString*) startingSquat and: (NSString*) startingOHP;
+-(void) setStartingLifts:(NSString*) startingBench and: (NSString*) startingSquat and: (NSString*) startingOHP and: (NSString*) startingDead;
+-(void) initializePatternSize:(int) length;
 -(NSString*) getStartingDate;
 -(int) getCycle;
 -(void) setCycle:(int) myCycle;
@@ -76,7 +78,7 @@ extern NSString * const FREQ1;
 -(void) setRoundingFlag:(bool) roundFlag;
 -(void) parseDateString;
 -(void) incrementDay;
-
+-(void) calculateCycle:(int) numberCycles with:(NSArray*) myPattern withClassInstance:(TableDisplay*) tableDisplayInstance;
 
 
 

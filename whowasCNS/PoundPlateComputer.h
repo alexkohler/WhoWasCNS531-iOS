@@ -25,8 +25,7 @@
 	int fortyfivesNeeded;
 	int thirtyfivesNeeded;
 	int twentyfivesNeeded;
-	int tensNeeded;
-	int fivesNeeded;
+	int tensNeeded;	int fivesNeeded;
 	int twopointfivesNeeded;
     
 	int currentPlate_needed;
@@ -35,7 +34,6 @@
 
 -(double) getWeight;
 -(double) round:(double) i and:(double) v;
--(double) getWeight;
 -(int) getFortyFivesNeeded;
 -(int) getThirtyFivesNeeded;
 -(int) getTwentyFivesNeeded;
@@ -48,5 +46,4 @@
 -(void) setFivesNeeded:(int) needed;
 -(void) setTwopointfivesNeeded:(int) needed;
 -(int) getTwoPointFivesNeeded;
--(double) round:(double) i and:(double) v; //first argument is rounded,
 @end
