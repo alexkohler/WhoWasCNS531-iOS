@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
-#import "DateAndLiftProcessor.h"
+
+@class DateAndLiftProcessor;
+
 
 @interface TableDisplay : UIViewController <UITextFieldDelegate>
 {
@@ -48,6 +50,7 @@ typedef enum {FIVE, THREE, ONE} CURRENT_FREQ;
 @property(nonatomic) NSArray *patternArray;
 
 //database properties
+-(id) init;
 - (IBAction)addEvent;
 - (IBAction)getData;
 @property(nonatomic) NSString *dateText;

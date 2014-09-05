@@ -1,4 +1,4 @@
-//  TableDisplay.m
+ //  TableDisplay.m
 //  whowasCNS
 //
 //  Created by Alexander Kohler on 8/19/14.
@@ -12,20 +12,23 @@
 
 @end
 
+
 @implementation TableDisplay
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        int bar = 5;
         // Custom initialization
     }
     return self;
 }
 
-/*-(id) init
+-(id) init
 {
-    if( self = [super init] )
+    self = [super init];
+    if(self)
     {
         insertStatus = NO;
         changedView = NO;
@@ -37,32 +40,28 @@
         }
         
     static CURRENT_VIEW curView = DEFAULT_V;
-    Processor  = [DateAndLiftProcessor init];
+    Processor  = [[DateAndLiftProcessor alloc] init];
+        
+        trainingMaxStreamLabel.text = [NSString stringWithFormat:@"%@",_trainingMaxStream];
+        
+        
+        [self openDB:YES];
+        [Processor setStartingDate:_dateText];
+        //[Processor parseDateString];
+        [Processor setStartingLifts:_benchTM and:_squatTM and:_ohpTM and:_deadTM];
+        [Processor calculateCycle:2 with:_patternArray withDBContext:_contactDB];
+        [self openDB:NO];
     }
     
     return self;
-}*/
+}
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    trainingMaxStreamLabel.text = [NSString stringWithFormat:@"%@",_trainingMaxStream];
-
-    
-    [self openDB:YES];
-    Processor = [[DateAndLiftProcessor alloc] init];
-    [Processor setStartingDate:_dateText];
-    [Processor parseDateString];
-    [Processor incrementDay];
-    TableDisplay *class = self;
-    [Processor calculateCycle:3 with:_patternArray withClassInstance:class];
-    [self addEvent];
-    [self openDB:NO];
-
-    
+    [self init];
 }
 
 -(void)openDB:(bool)yesOrNo
@@ -115,22 +114,26 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)addEvent
+/*-(void)addEvent
 {
     //WILL PROBABLY HAVE TO OPEN DATABASE TO INSERT**)(*)(*&*(&^(*&(*&^(*&^(*&^(*&^(*&^(*&^
-   /*( values.put(EventsDataSQLHelper.LIFTDATE, thirdScreen.Processor.getDate() );
+   ( values.put(EventsDataSQLHelper.LIFTDATE, thirdScreen.Processor.getDate() );
     values.put(EventsDataSQLHelper.CYCLE, thirdScreen.Processor.getCycle());
     values.put(EventsDataSQLHelper.LIFT, thirdScreen.Processor.getLiftType());
     values.put(EventsDataSQLHelper.FREQUENCY, thirdScreen.Processor.getFreq());
     values.put(EventsDataSQLHelper.FIRST, thirdScreen.Processor.getFirstLift());
     values.put(EventsDataSQLHelper.SECOND, thirdScreen.Processor.getSecondLift());
-    values.put(EventsDataSQLHelper.THIRD, thirdScreen.Processor.getThirdLift());*/
+    values.put(EventsDataSQLHelper.THIRD, thirdScreen.Processor.getThirdLift());
+    
+    
     NSString* currentDate = [Processor getDate];
+	int currentCycle = [Processor getCycle];
     NSString* currentLift = [Processor getLiftType];
     NSString* currentFreq = [Processor getFreq];
-    
-    
-    NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO LIFTS (liftDate, Lift, Frequency) VALUES (\"%@\", \"%@\", \"%@\")",  currentDate, currentLift, currentFreq];
+    double firstLift = [Processor getFirstLift];
+    double secondLift = [Processor getSecondLift];
+	double thirdLift = [Processor getThirdLift];
+    NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO LIFTS (liftDate, Cycle, Lift, Frequency, firstLift, secondLift, thirdLift) VALUES (\"%@\", \"%i\", \"%@\", \"%@\", \"%g\", \"%g\", \"%g\")",  currentDate, currentCycle, currentLift, currentFreq, firstLift, secondLift, thirdLift];
     
     char *error;
     if ( sqlite3_exec(_contactDB, [insertStatement UTF8String], NULL, NULL, &error) == SQLITE_OK)
@@ -142,7 +145,7 @@
         trainingMaxStreamLabel.text = @"Something went fuckin wrong";
     }
     
-}
+}*/
 
 //add a where parameter here where user can specify a where blah = fubar
 -(void)getData

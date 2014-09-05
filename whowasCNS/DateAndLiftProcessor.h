@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TableDisplay.h"
+#import <sqlite3.h>
 
 @interface DateAndLiftProcessor : NSObject
 {
@@ -49,13 +49,14 @@ typedef enum {Bench, Squat, OHP, Deadlift, REST} Lift;
 extern NSString * const FREQ5;
 extern NSString * const FREQ3;
 extern NSString * const FREQ1;
+@property (nonatomic) sqlite3 *contactDB;
 
 //functions/methods/setters/getters/blah/blah/blah
 - (NSString*) convertToString:(Lift) whichLift;
 -(void) setStartingDate:(NSString*) myDate;
 -(NSString*) getDate;
 -(void) setDate:(NSString*) formattedDate;
--(void) setStartingLifts:(NSString*) startingBench and: (NSString*) startingSquat and: (NSString*) startingOHP and: (NSString*) startingDead;
+-(void) setStartingLifts:(double) startingBench and: (double) startingSquat and: (double) startingOHP and: (double) startingDead;
 -(void) initializePatternSize:(int) length;
 -(NSString*) getStartingDate;
 -(int) getCycle;
@@ -69,6 +70,9 @@ extern NSString * const FREQ1;
 -(double) getSquatTM;
 -(double) getOHPTM;
 -(double) getDeadTM;
+-(double) getFirstLift;
+-(double) getSecondLift;
+-(double) getThirdLift;
 -(BOOL) getUnitMode;
 -(NSString*) getStartingBench;
 -(NSString*) getStartingSquat;
@@ -76,9 +80,10 @@ extern NSString * const FREQ1;
 -(NSString*) getStartingDead;
 -(void) setUnitMode:(NSString*) unitMode;
 -(void) setRoundingFlag:(bool) roundFlag;
--(void) parseDateString;
+///-(void) parseDateString;
 -(void) incrementDay;
--(void) calculateCycle:(int) numberCycles with:(NSArray*) myPattern withClassInstance:(TableDisplay*) tableDisplayInstance;
+-(void) calculateCycle:(int) numberCycles with:(NSArray*) myPattern withDBContext: (sqlite3*) context;
+-(void)addEvent:(sqlite3*) context;
 
 
 

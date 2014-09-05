@@ -14,3 +14,4 @@ database info: http://www.techotopia.com/index.php/An_Example_SQLite_based_iOS_7
 9-1-14: Poundplatecomputer translation. Add your sql and start congiuring logic. 
 9-2-14: Working on translating calculateCycle methodi(thought this was already done).. Sql needs to come in soon too.
 9-3-14: Sick, got some work done on calculatecycle but I really can't focus. Adding in inserts tomorrow. 
+9-4-14: Got initial back end up and running so that is of some celebration given my lazy streak. Increment Frequency is throwing some errors, other than that I think your data is being inserted correctly. Current priority is fixing frequency error (it is throwing your "error" case within your switch statement so take a look at that on sunday/monday), after that cleaning up your decimals before insertion is next (whether or not you do this in addevent or in the calculate method is up to you, doesn't really matter

@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "whowasCNS/TableDisplay.m"
-            timestampString = "431481527.145604"
+            timestampString = "431570497.727727"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "-getData"
             landmarkType = "5">
          </BreakpointContent>
@@ -87,44 +87,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "whowasCNS/TableDisplay.m"
-            timestampString = "431475611.401854"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "whowasCNS/TableDisplay.m"
-            timestampString = "431476341.063282"
+            filePath = "whowasCNS/TableDisplay.h"
+            timestampString = "431568196.644977"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "17"
             endingLineNumber = "17"
-            landmarkName = "-initWithNibName:bundle:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "whowasCNS/TableDisplay.h"
-            timestampString = "431478060.771767"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
             landmarkName = "@interface TableDisplay"
             landmarkType = "2">
             <Locations>
@@ -135,11 +103,11 @@
                   symbolName = "-[TableDisplay individualCV]"
                   moduleName = "whowasCNS"
                   urlString = "file:///Users/alex/Documents/whowasCNS/whowasCNS/TableDisplay.h"
-                  timestampString = "431481688.913884"
+                  timestampString = "431571120.979313"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
                   offsetFromSymbolStart = "24">
                </Location>
                <Location
@@ -149,11 +117,11 @@
                   symbolName = "-[TableDisplay setIndividualCV:]"
                   moduleName = "whowasCNS"
                   urlString = "file:///Users/alex/Documents/whowasCNS/whowasCNS/TableDisplay.h"
-                  timestampString = "431481688.91417"
+                  timestampString = "431571120.979515"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
                   offsetFromSymbolStart = "31">
                </Location>
             </Locations>
@@ -166,11 +134,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "whowasCNS/TableDisplay.h"
-            timestampString = "431480206.634537"
+            timestampString = "431568196.644977"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "@interface TableDisplay"
             landmarkType = "2">
             <Locations>
@@ -181,11 +149,11 @@
                   symbolName = "-[TableDisplay individualCV]"
                   moduleName = "whowasCNS"
                   urlString = "file:///Users/alex/Documents/whowasCNS/whowasCNS/TableDisplay.h"
-                  timestampString = "431481688.9154"
+                  timestampString = "431571120.980372"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
                   offsetFromSymbolStart = "24">
                </Location>
                <Location
@@ -195,11 +163,11 @@
                   symbolName = "-[TableDisplay setIndividualCV:]"
                   moduleName = "whowasCNS"
                   urlString = "file:///Users/alex/Documents/whowasCNS/whowasCNS/TableDisplay.h"
-                  timestampString = "431481688.915708"
+                  timestampString = "431571120.980693"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
                   offsetFromSymbolStart = "31">
                </Location>
             </Locations>
@@ -212,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "whowasCNS/TableDisplay.h"
-            timestampString = "431480206.634537"
+            timestampString = "431568196.644977"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "@interface TableDisplay"
             landmarkType = "2">
             <Locations>
@@ -227,11 +195,11 @@
                   symbolName = "-[TableDisplay individualCV]"
                   moduleName = "whowasCNS"
                   urlString = "file:///Users/alex/Documents/whowasCNS/whowasCNS/TableDisplay.h"
-                  timestampString = "431481688.916844"
+                  timestampString = "431571120.981699"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
                   offsetFromSymbolStart = "24">
                </Location>
                <Location
@@ -241,11 +209,11 @@
                   symbolName = "-[TableDisplay setIndividualCV:]"
                   moduleName = "whowasCNS"
                   urlString = "file:///Users/alex/Documents/whowasCNS/whowasCNS/TableDisplay.h"
-                  timestampString = "431481688.917171"
+                  timestampString = "431571120.981945"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
                   offsetFromSymbolStart = "31">
                </Location>
             </Locations>
@@ -257,12 +225,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "whowasCNS/TableDisplay.m"
-            timestampString = "431480137.714312"
+            filePath = "whowasCNS/TrainingMaxes.m"
+            timestampString = "431566728.647048"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14">
+            startingLineNumber = "10"
+            endingLineNumber = "10">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -272,60 +240,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "whowasCNS/TableDisplay.m"
-            timestampString = "431481520.20945"
+            timestampString = "431569365.403788"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "-addEvent"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "whowasCNS/TableDisplay.m"
-            timestampString = "431481522.875096"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "-addEvent"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "whowasCNS/TableDisplay.m"
-            timestampString = "431481523.227072"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "-addEvent"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "whowasCNS/DateAndLiftProcessor.m"
-            timestampString = "431482875.093716"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "449"
-            endingLineNumber = "449"
-            landmarkName = "-calculateCycle:with:withClassInstance:"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "-init"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -7,7 +7,7 @@
 //
 
 #import "DateAndLiftProcessor.h"
-#import "TableDisplay.h"
+
 
 //Constants
 #define FIVE_1 .65
@@ -32,7 +32,8 @@ NSString * const FREQ1 = @"5-3-1";
 //Guess this is how you make constructors in objective c...
 -(id)init
 {
-    if( self = [super init] )
+    self = [super init];
+    if(self)
     {
     //day classification definition (Proper call syntax- String myString = Lift.Bench.name())
 
@@ -110,13 +111,13 @@ NSString * const FREQ1 = @"5-3-1";
 }
 
 
--(void) setStartingLifts:(NSString*) startingBench and: (NSString*) startingSquat and: (NSString*) startingOHP and: (NSString*) startingDead
+-(void) setStartingLifts:(double) startingBench and: (double) startingSquat and: (double) startingOHP and: (double) startingDead
 {
     //error handling may have to be held here, but ideally before even grouping with intent.
-    BENCH_TRAINING_MAX = [startingBench doubleValue];
-    SQUAT_TRAINING_MAX = [startingSquat doubleValue];
-    OHP_TRAINING_MAX = [startingOHP doubleValue];
-    DEAD_TRAINING_MAX = [startingDead doubleValue];
+    BENCH_TRAINING_MAX = startingBench;
+    SQUAT_TRAINING_MAX = startingSquat;
+    OHP_TRAINING_MAX = startingOHP;
+    DEAD_TRAINING_MAX = startingDead;
     
     //for sake of getStartingXXX method (title output on ThirdScreen)
     //I don't think this is needed in iOS version.
@@ -278,7 +279,7 @@ NSString * const FREQ1 = @"5-3-1";
  //   [df setTimeZone:[NSTimeZone timeZoneWithName:timeZoneName]];
     [df setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
     CURRENT_DATE_CAL = [df dateFromString:STARTING_DATE_STRING]; //parsed
- 
+    
     //TODO may need to format this guy
     
  
@@ -293,6 +294,11 @@ NSString * const FREQ1 = @"5-3-1";
     
     NSCalendar *theCalendar = [NSCalendar currentCalendar];
     CURRENT_DATE_CAL = [theCalendar dateByAddingComponents:dayComponent toDate:[NSDate date] options:0];
+    [df setDateFormat:@"MM-dd-yyyy"];
+    //format date here...
+    CURRENT_DATE_STRING = [df stringFromDate:CURRENT_DATE_CAL];
+    [self setDate:CURRENT_DATE_STRING];
+    
 }
 
 
@@ -446,7 +452,7 @@ return v * floorf(i / v + 0.5f);
 
 
 ////*ThirdScreenActivity thirdScreen,*/,  ? yes... will have to add figure out how you are inserting events
--(void) calculateCycle:(int) numberCycles with:(NSArray*) myPattern withClassInstance:(TableDisplay*) tableDisplayInstance
+-(void) calculateCycle:(int) numberCycles with:(NSArray*) myPattern withDBContext: (sqlite3*) context
 {
     //(max pattern of 7 days),
     //String[] myPattern = {"Squat", "Rest", "Bench", "Deadlift", "Rest", "OHP"  }; //be sure to use default naming patterns (like you've used in rest of program)
@@ -466,7 +472,7 @@ return v * floorf(i / v + 0.5f);
             if (currentTM > 0 ){//set getCurrentTM will access the variable that setCurrentLift uses. (will be set to zero for rest day{
                 double currentTM = [self getCurrentTM];
                 [self calculateFivesDay:currentTM];
-                [tableDisplayInstance addEvent]; //parameters go here or maybe in addevent.. i don't know
+                [self addEvent:context]; //parameters go here or maybe in addevent.. i don't know
                 }
 			[self incrementDay];//for sake of being less cryptic i am separating increment because it was too small. if only i could fix my functions that are too big.
 			[self incrementLiftBasedOn:myPattern whenCurrentLiftIs:myPattern[j]];
@@ -481,7 +487,7 @@ return v * floorf(i / v + 0.5f);
             if (currentTM > 0 ){//set getCurrentTM will access the variable that setCurrentLift uses. (will be set to zero for rest day{
                 double currentTM = [self getCurrentTM];
                 [self calculateTriplesDay:currentTM];
-                [tableDisplayInstance addEvent];
+                [self addEvent:context];
             }
 			[self incrementDay];//no matter what the day, we still need to incrementCycleAndUpdateTMs
 			[self incrementLiftBasedOn:myPattern whenCurrentLiftIs:myPattern[j]];
@@ -494,7 +500,7 @@ return v * floorf(i / v + 0.5f);
             double currentTM = [self getCurrentTM];
             if (currentTM > 0 ){//set getCurrentTM will access the variable that setCurrentLift uses. (will be set to zero for rest day{
                 [self calculateSingleDay:currentTM];
-                [tableDisplayInstance addEvent];
+                [self addEvent:context];
             }
             [self incrementDay];//no matter what the day, we still need to incrementCycleAndUpdateTMs
 			[self incrementLiftBasedOn:myPattern whenCurrentLiftIs:myPattern[j]];
@@ -505,6 +511,48 @@ return v * floorf(i / v + 0.5f);
 	
     
 }
+
+
+
+
+//database methods
+
+-(void)addEvent:(sqlite3*) context
+{
+    //WILL PROBABLY HAVE TO OPEN DATABASE TO INSERT**)(*)(*&*(&^(*&(*&^(*&^(*&^(*&^(*&^(*&^
+    /*( values.put(EventsDataSQLHelper.LIFTDATE, thirdScreen.Processor.getDate() );
+     values.put(EventsDataSQLHelper.CYCLE, thirdScreen.Processor.getCycle());
+     values.put(EventsDataSQLHelper.LIFT, thirdScreen.Processor.getLiftType());
+     values.put(EventsDataSQLHelper.FREQUENCY, thirdScreen.Processor.getFreq());
+     values.put(EventsDataSQLHelper.FIRST, thirdScreen.Processor.getFirstLift());
+     values.put(EventsDataSQLHelper.SECOND, thirdScreen.Processor.getSecondLift());
+     values.put(EventsDataSQLHelper.THIRD, thirdScreen.Processor.getThirdLift());*/
+    
+    
+    NSString* currentDate = [self getDate]; //PROBLEMO
+	int currentCycle = [self getCycle];
+    NSString* currentLift = [self getLiftType];
+    NSString* currentFreq = [self getFreq];
+    double firstLift = [self getFirstLift];
+    double secondLift = [self getSecondLift];
+	double thirdLift = [self getThirdLift];
+    NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO LIFTS (liftDate, Cycle, Lift, Frequency, First_Lift, Second_Lift, Third_Lift) VALUES (\"%@\", \"%i\", \"%@\", \"%@\", \"%g\", \"%g\", \"%g\")",  currentDate, currentCycle, currentLift, currentFreq, firstLift, secondLift, thirdLift];
+    BOOL failed;
+    char *error;
+    if ( sqlite3_exec(context, [insertStatement UTF8String], NULL, NULL, &error) == SQLITE_OK)
+    {
+        failed = NO;
+    }
+    else
+    {
+        failed = YES;
+    }
+    
+}
+
+
+
+
 
 
 
