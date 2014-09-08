@@ -80,7 +80,7 @@ extern NSString * const FREQ1;
 -(NSString*) getStartingDead;
 -(void) setUnitMode:(NSString*) unitMode;
 -(void) setRoundingFlag:(bool) roundFlag;
-///-(void) parseDateString;
+-(void) parseDateString;
 -(void) incrementDay;
 -(void) calculateCycle:(int) numberCycles with:(NSArray*) myPattern withDBContext: (sqlite3*) context;
 -(void)addEvent:(sqlite3*) context;

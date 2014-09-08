@@ -47,9 +47,10 @@
         
         [self openDB:YES];
         [Processor setStartingDate:_dateText];
-        //[Processor parseDateString];
+        [Processor parseDateString];
         [Processor setStartingLifts:_benchTM and:_squatTM and:_ohpTM and:_deadTM];
         [Processor calculateCycle:2 with:_patternArray withDBContext:_contactDB];
+        [self getData:@""];
         [self openDB:NO];
     }
     
@@ -98,8 +99,6 @@
             {
                 _status.text = @"Failed to create table";
             }
-            [self addEvent];
-            [self getData];
         }
         
         if (!yesOrNo)
@@ -147,25 +146,49 @@
     
 }*/
 
-//add a where parameter here where user can specify a where blah = fubar
--(void)getData
-{
-  
-    // Create the query statement to find the correct address based on person ID
-    NSString *queryStatement = [NSString stringWithFormat:@"SELECT liftDate FROM LIFTS WHERE Frequency = \"%@\"", @"Shit"];
-    
+
+-(void)getData:(NSString*)whereClause
+{	NSString *queryStatement = @"SELECT * FROM lifts";
+    // You're gonna have to mess with whereclause syntax, may not just be a simple string like it was in android
+	//liftDate text not null, Cycle integer, Lift text not null, Frequency text not null, First_Lift real, Second_Lift real, Third_Lift real, Training_Max integer, column_lbFlag integer
+    if (![whereClause isEqualToString:@""])//if we do not have an empty query
+    {
+        queryStatement = [queryStatement stringByAppendingString:@" "];
+        queryStatement = [queryStatement stringByAppendingString:whereClause];
+    }
+	
+	
     // Prepare the query for execution
     sqlite3_stmt *statement;
     if (sqlite3_prepare_v2(_contactDB, [queryStatement UTF8String], -1, &statement, NULL) == SQLITE_OK)
     {
         // Create a new address from the found row
-        while (sqlite3_step(statement) == SQLITE_ROW) {
-            char *one = (char*) sqlite3_column_text(statement, 0);
-           
-        }
+        while (sqlite3_step(statement) == SQLITE_ROW)
+		{
+			
+            char *liftDate = (char*) sqlite3_column_text(statement, 0);
+			int cycle = sqlite3_column_int(statement, 1);
+			char *liftType = (char*) sqlite3_column_text(statement, 2);
+			char *frequency = (char*) sqlite3_column_text(statement, 3);
+			double firstlift = (double) sqlite3_column_double(statement, 4);
+			double secondlift = (double) sqlite3_column_double(statement, 5);
+			double thirdlift = (double) sqlite3_column_double(statement, 6);
+			
+			//these may be able to go into a single statement
+            
+			NSString *liftDateString   = [NSString stringWithUTF8String:liftDate];
+			NSString* cycleString 	   = [NSString stringWithFormat:@"%i", cycle];
+			NSString *liftTypeString   = [NSString stringWithUTF8String:liftType];
+			NSString *frequencyString  = [NSString stringWithUTF8String:frequency];
+			NSString* firstliftString  = [NSString stringWithFormat:@"%g", firstlift];
+			NSString* secondliftString = [NSString stringWithFormat:@"%g", secondlift];
+			NSString* thirdliftString  = [NSString stringWithFormat:@"%g", thirdlift];
+			
+			//training max is also something you will need to worry about for when you start supporting view existing database
+			//createColumn:liftDate withCycle:cycle liftType:liftType freq:frequency first:firstlift second:secondlift third:thirdlift; //either createColumn or a addToBuffer method or the like
+		}
         sqlite3_finalize(statement);
     }
-    // Return the found address and mark for autorelease
 }
 
 

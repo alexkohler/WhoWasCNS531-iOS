@@ -43,8 +43,8 @@ NSString * const FREQ1 = @"5-3-1";
     CURRENT_FREQUENCY = FREQ5;
 	CURRENT_FREQUENCY = FREQ5;
     CURRENT_CYCLE = 1;
-	int liftTrack = 0;//because we want to progress from bench (if we stayed at one bench would happen twice at the incrementing of the lift)
-	int freqTrack = 2;//because we want to progress from fives (if we stayed at one freq would be fives twice when incrementing frequency)
+	liftTrack = 0;//because we want to progress from bench (if we stayed at one bench would happen twice at the incrementing of the lift)
+    freqTrack = 2;//because we want to progress from fives (if we stayed at one freq would be fives twice when incrementing frequency)
         
     //initialize our date to some date ( I don't think it matters what.. guess we'll find out.)
     NSDateComponents *comps = [[NSDateComponents alloc] init];
@@ -279,7 +279,9 @@ NSString * const FREQ1 = @"5-3-1";
  //   [df setTimeZone:[NSTimeZone timeZoneWithName:timeZoneName]];
     [df setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
     CURRENT_DATE_CAL = [df dateFromString:STARTING_DATE_STRING]; //parsed
-    
+    [df setDateFormat:@"MM-dd-yyyy"];
+    CURRENT_DATE_STRING = [df stringFromDate:CURRENT_DATE_CAL];
+    [self setDate:CURRENT_DATE_STRING];
     //TODO may need to format this guy
     
  
@@ -293,7 +295,7 @@ NSString * const FREQ1 = @"5-3-1";
     dayComponent.day = 1;
     
     NSCalendar *theCalendar = [NSCalendar currentCalendar];
-    CURRENT_DATE_CAL = [theCalendar dateByAddingComponents:dayComponent toDate:[NSDate date] options:0];
+    CURRENT_DATE_CAL = [theCalendar dateByAddingComponents:dayComponent toDate:CURRENT_DATE_CAL options:0];
     [df setDateFormat:@"MM-dd-yyyy"];
     //format date here...
     CURRENT_DATE_STRING = [df stringFromDate:CURRENT_DATE_CAL];
