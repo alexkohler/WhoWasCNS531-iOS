@@ -17,7 +17,6 @@
     IBOutlet UILabel *trainingMaxStreamLabel;
     NSString* MODE_FORMAT;
 	//DecimalFormat twoDForm = new DecimalFormat("#.##");
-	int NUMBER_CYCLES;
 	NSString* CURRENT_SELECT_QUERY;
 	int lbMode;
 	BOOL insertStatus;
@@ -27,14 +26,24 @@
 	NSString* lbmode;
     BOOL kgBooleans[7];
 	BOOL lbBooleans[7];
-    
+    BOOL init;
+    IBOutlet UILabel *label_Date;
 
-    
     DateAndLiftProcessor* Processor;
     
 }
 typedef enum {DEFAULT_V, BENCH_V, SQUAT_V, OHP_V, DEAD_V, FIVES_V, THREES_V, ONES_V} CURRENT_VIEW;
 typedef enum {FIVE, THREE, ONE} CURRENT_FREQ;
+
+
+//to populate tables
+@property (nonatomic, strong) NSMutableArray *dates;
+@property (nonatomic, strong) NSMutableArray *cycles;
+@property (nonatomic, strong) NSMutableArray *typeFreqs;
+@property (nonatomic, strong) NSMutableArray *firstLifts;
+@property (nonatomic, strong) NSMutableArray *secondLifts;
+@property (nonatomic, strong) NSMutableArray *thirdLifts;
+
 
 
 //data retrieved from text fields
@@ -48,7 +57,7 @@ typedef enum {FIVE, THREE, ONE} CURRENT_FREQ;
 @property(nonatomic) BOOL usingLbs;
 @property(nonatomic) BOOL usingRounding;
 @property(nonatomic) NSArray *patternArray;
-
+@property(nonatomic) NSInteger numberOfCycles;
 //database properties
 -(id) init;
 - (IBAction)addEvent;

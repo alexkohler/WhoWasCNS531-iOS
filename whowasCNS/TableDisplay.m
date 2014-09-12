@@ -7,7 +7,7 @@
 
 #import "TableDisplay.h"
 #import "DateAndLiftProcessor.h"
-
+#import "TableDisplayCell.h"
 @interface TableDisplay ()
 
 @end
@@ -15,11 +15,46 @@
 
 @implementation TableDisplay
 
+@synthesize dates = _dates;
+@synthesize cycles = _cycles;
+@synthesize firstLifts = _firstLifts;
+@synthesize secondLifts = _secondLifts;
+@synthesize thirdLifts = _thirdLifts;
+@synthesize typeFreqs = _typeFreqs;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        int bar = 5;
+    if (self)
+    {
+        insertStatus = NO;
+        changedView = NO;
+        tableColorToggle = YES;
+        self.dates = [[NSMutableArray alloc] init]; //initialize our date array
+        self.cycles = [[NSMutableArray alloc] init];
+        self.firstLifts = [[NSMutableArray alloc] init];
+        self.secondLifts  = [[NSMutableArray alloc] init];
+        self.thirdLifts = [[NSMutableArray alloc] init];
+        self.typeFreqs = [[NSMutableArray alloc] init];
+        for (int i = 0; i < 7; i++){
+            kgBooleans[i] = YES;
+            lbBooleans[i] = YES;
+        }
+        
+        static CURRENT_VIEW curView = DEFAULT_V;
+        Processor  = [[DateAndLiftProcessor alloc] init];
+        
+        trainingMaxStreamLabel.text = [NSString stringWithFormat:@"%@",_trainingMaxStream];
+        
+        
+        [self openDB:YES];
+        [Processor setStartingDate:_dateText];
+        [Processor parseDateString];
+        [Processor setStartingLifts:_benchTM and:_squatTM and:_ohpTM and:_deadTM];
+        [Processor calculateCycle:_numberOfCycles with:_patternArray withDBContext:_contactDB];
+//        [self getData:@""];
+        [self populateArrays]; //initialize our date array
+        [self openDB:NO];
         // Custom initialization
     }
     return self;
@@ -30,28 +65,6 @@
     self = [super init];
     if(self)
     {
-        insertStatus = NO;
-        changedView = NO;
-        tableColorToggle = YES;
-
-        for (int i = 0; i < 7; i++){
-            kgBooleans[i] = YES;
-            lbBooleans[i] = YES;
-        }
-        
-    static CURRENT_VIEW curView = DEFAULT_V;
-    Processor  = [[DateAndLiftProcessor alloc] init];
-        
-        trainingMaxStreamLabel.text = [NSString stringWithFormat:@"%@",_trainingMaxStream];
-        
-        
-        [self openDB:YES];
-        [Processor setStartingDate:_dateText];
-        [Processor parseDateString];
-        [Processor setStartingLifts:_benchTM and:_squatTM and:_ohpTM and:_deadTM];
-        [Processor calculateCycle:2 with:_patternArray withDBContext:_contactDB];
-        [self getData:@""];
-        [self openDB:NO];
     }
     
     return self;
@@ -63,6 +76,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self init];
+    //self.dates = [NSArray arrayWithObjects:@"9-01: Bench Triples: 430 440 450", @"9-02 Squat 5-3-1 120 140 170", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
 }
 
 -(void)openDB:(bool)yesOrNo
@@ -113,39 +127,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*-(void)addEvent
-{
-    //WILL PROBABLY HAVE TO OPEN DATABASE TO INSERT**)(*)(*&*(&^(*&(*&^(*&^(*&^(*&^(*&^(*&^
-   ( values.put(EventsDataSQLHelper.LIFTDATE, thirdScreen.Processor.getDate() );
-    values.put(EventsDataSQLHelper.CYCLE, thirdScreen.Processor.getCycle());
-    values.put(EventsDataSQLHelper.LIFT, thirdScreen.Processor.getLiftType());
-    values.put(EventsDataSQLHelper.FREQUENCY, thirdScreen.Processor.getFreq());
-    values.put(EventsDataSQLHelper.FIRST, thirdScreen.Processor.getFirstLift());
-    values.put(EventsDataSQLHelper.SECOND, thirdScreen.Processor.getSecondLift());
-    values.put(EventsDataSQLHelper.THIRD, thirdScreen.Processor.getThirdLift());
-    
-    
-    NSString* currentDate = [Processor getDate];
-	int currentCycle = [Processor getCycle];
-    NSString* currentLift = [Processor getLiftType];
-    NSString* currentFreq = [Processor getFreq];
-    double firstLift = [Processor getFirstLift];
-    double secondLift = [Processor getSecondLift];
-	double thirdLift = [Processor getThirdLift];
-    NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO LIFTS (liftDate, Cycle, Lift, Frequency, firstLift, secondLift, thirdLift) VALUES (\"%@\", \"%i\", \"%@\", \"%@\", \"%g\", \"%g\", \"%g\")",  currentDate, currentCycle, currentLift, currentFreq, firstLift, secondLift, thirdLift];
-    
-    char *error;
-    if ( sqlite3_exec(_contactDB, [insertStatement UTF8String], NULL, NULL, &error) == SQLITE_OK)
-    {
-        trainingMaxStreamLabel.text = @"Values inserted";
-    }
-    else
-    {
-        trainingMaxStreamLabel.text = @"Something went fuckin wrong";
-    }
-    
-}*/
-
 
 -(void)getData:(NSString*)whereClause
 {	NSString *queryStatement = @"SELECT * FROM lifts";
@@ -191,7 +172,121 @@
     }
 }
 
+//fix your loop initialization stuff
+-(void)populateArrays
+{	NSString *queryStatement = @"SELECT * FROM lifts";
 
+	
+    // Prepare the query for execution
+    sqlite3_stmt *statement;
+    if (sqlite3_prepare_v2(_contactDB, [queryStatement UTF8String], -1, &statement, NULL) == SQLITE_OK)
+    {
+        // Create a new address from the found row
+        while (sqlite3_step(statement) == SQLITE_ROW)
+		{
+			//date
+            char *liftDate = (char*) sqlite3_column_text(statement, 0);
+            NSString *liftDateString   = [NSString stringWithUTF8String:liftDate];
+            [self.dates addObject:liftDateString];
+            
+            //cycle
+            int cycle = sqlite3_column_int(statement, 1);
+            NSString* cycleString = [NSString stringWithFormat:@"Cycle: %i", cycle];
+            [self.cycles addObject:cycleString];
+            
+            //lift type
+            char *liftType = (char*) sqlite3_column_text(statement, 2);
+            NSString *liftTypeString   = [NSString stringWithUTF8String:liftType];
+
+            NSString* liftBuffer;
+            
+            //first ,second, third lift
+            double firstlift = (double) sqlite3_column_double(statement, 4);
+            double secondlift = (double) sqlite3_column_double(statement, 5);
+			double thirdlift = (double) sqlite3_column_double(statement, 6);
+            NSString* firstliftString;
+            NSString* secondliftString;
+            NSString* thirdliftString;
+        char *frequency = (char*) sqlite3_column_text(statement, 3);
+        NSString *frequencyString  = [NSString stringWithUTF8String:frequency];
+            
+            //may want to refactor and break this into another method 
+          if ([frequencyString isEqualToString:@"5-5-5"])
+          {
+              firstliftString  = [NSString stringWithFormat:@"%gx5", firstlift];
+              secondliftString = [NSString stringWithFormat:@"%gx5", secondlift];
+              thirdliftString =  [NSString stringWithFormat:@"%gx5", thirdlift];
+              liftBuffer = [NSString stringWithFormat:@"%@ - 5-5-5", liftTypeString];
+          }
+            else if ([frequencyString isEqualToString:@"3-3-3"])
+            {
+                firstliftString  = [NSString stringWithFormat:@"%gx3", firstlift];
+                secondliftString = [NSString stringWithFormat:@"%gx3", secondlift];
+                thirdliftString =  [NSString stringWithFormat:@"%gx3", thirdlift];
+              liftBuffer = [NSString stringWithFormat:@"%@ - 3-3-3", liftTypeString];
+            }
+            
+            else if ([frequencyString isEqualToString:@"5-3-1"])
+            {
+                firstliftString  = [NSString stringWithFormat:@"%gx5", firstlift];
+                secondliftString = [NSString stringWithFormat:@"%gx3", secondlift];
+                thirdliftString =  [NSString stringWithFormat:@"%gx1", thirdlift];
+                liftBuffer = [NSString stringWithFormat:@"%@ - 5-3-1", liftTypeString];
+            }
+            
+            [self.firstLifts addObject:firstliftString];
+            [self.secondLifts addObject:secondliftString];
+            [self.thirdLifts addObject:thirdliftString];
+            [self.typeFreqs addObject:liftBuffer];
+            
+			
+		}
+        sqlite3_finalize(statement);
+    }
+}
+
+
+
+
+
+//table display methods
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    //A complete cycle is 12 lifts - 4 5-5-5s, 4 3-3-3s, and 4 5-3-1s
+    return (_numberOfCycles * 12);
+}
+
+
+/*- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return _numberOfCycles;
+}*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"EntryCell";
+    
+    TableDisplayCell *cell = [tableView
+                                    dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[TableDisplayCell alloc]
+                initWithStyle:UITableViewCellStyleDefault
+                reuseIdentifier:CellIdentifier];
+    }
+    
+    // Configure the cell...
+    cell.date.text = [self.dates
+                      objectAtIndex:[indexPath row]];
+    cell.cycle.text = [self.cycles
+                       objectAtIndex:[indexPath row]];
+    cell.liftOne.text = [self.firstLifts objectAtIndex:[indexPath row]];
+    cell.liftTwo.text = [self.secondLifts objectAtIndex:[indexPath row]];
+    cell.liftThree.text = [self.firstLifts objectAtIndex:[indexPath row]];
+    cell.typeFreq.text = [self.typeFreqs objectAtIndex:[indexPath row]];
+    return cell;
+}
 
 
 

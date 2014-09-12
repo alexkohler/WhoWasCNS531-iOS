@@ -35,6 +35,7 @@
 		FA3133F219A576DC00ED3D1D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3133F119A576DB00ED3D1D /* libsqlite3.dylib */; };
 		FA31345119A6BEB700ED3D1D /* AdjustPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = FA31345019A6BEB700ED3D1D /* AdjustPattern.m */; };
 		FA31345319A6C96C00ED3D1D /* AdjustPattern in Resources */ = {isa = PBXBuildFile; fileRef = FA31345219A6C96C00ED3D1D /* AdjustPattern */; };
+		FAD1F39F19C2799900D3C588 /* TableDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD1F39E19C2799900D3C588 /* TableDisplayCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 		FA31344F19A6BEB700ED3D1D /* AdjustPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdjustPattern.h; sourceTree = "<group>"; };
 		FA31345019A6BEB700ED3D1D /* AdjustPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdjustPattern.m; sourceTree = "<group>"; };
 		FA31345219A6C96C00ED3D1D /* AdjustPattern */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AdjustPattern; sourceTree = "<group>"; };
+		FAD1F39D19C2799900D3C588 /* TableDisplayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableDisplayCell.h; sourceTree = "<group>"; };
+		FAD1F39E19C2799900D3C588 /* TableDisplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableDisplayCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,8 @@
 				FA3133EC19A4205900ED3D1D /* TrainingMaxes */,
 				FA3133EE19A4251B00ED3D1D /* TableDisplay.h */,
 				FA3133EF19A4251B00ED3D1D /* TableDisplay.m */,
+				FAD1F39D19C2799900D3C588 /* TableDisplayCell.h */,
+				FAD1F39E19C2799900D3C588 /* TableDisplayCell.m */,
 				FA05536A19AD4DE3001EE3CE /* TableDisplay */,
 				FA3133C7199AE5FB00ED3D1D /* Images.xcassets */,
 				FA3133C1199AE5FB00ED3D1D /* Main_iPad.storyboard */,
@@ -313,6 +318,7 @@
 			files = (
 				FA3133E9199C254500ED3D1D /* TrainingMaxes.m in Sources */,
 				FA05539F19AE9FE2001EE3CE /* DateAndLiftProcessor.m in Sources */,
+				FAD1F39F19C2799900D3C588 /* TableDisplayCell.m in Sources */,
 				FA31345119A6BEB700ED3D1D /* AdjustPattern.m in Sources */,
 				FA0553AA19B53FDE001EE3CE /* PoundPlateComputer.m in Sources */,
 				FA3133BD199AE5FB00ED3D1D /* AppDelegate.m in Sources */,

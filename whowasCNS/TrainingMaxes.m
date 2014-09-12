@@ -227,6 +227,7 @@
         controller.deadTM = deadTM;
         controller.usingRounding = usingRounding;
         controller.usingLbs = usingLbs;
+        controller.numberOfCycles = numberOfCycles;
         //just creating training max stream here
         NSString *unitString;
         usingLbs ? unitString = @"Mode: Lbs" : @"Mode: Kgs";
