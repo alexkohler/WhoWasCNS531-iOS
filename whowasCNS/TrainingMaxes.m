@@ -103,7 +103,7 @@
     ohpTM = [ohpTMField.text intValue];
     deadTM = [deadTMField.text intValue];
     
-    numberOfCycles = unitField.selectedSegmentIndex + 1; //0 indexed
+    numberOfCycles = cycleField.selectedSegmentIndex + 1; //0 indexed
     
     NSNumber *value = [NSNumber numberWithBool:roundSwitch.isOn];
     usingRounding= value != 0; // myBool is NO for 0, YES for anything else

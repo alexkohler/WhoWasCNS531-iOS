@@ -168,6 +168,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <state key="normal" title="Configure">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="showConfigMenu" destination="lg3-CD-gqs" eventType="touchUpInside" id="vLF-Bw-dRJ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start TMS: [Bench 300] [Squat 200] [Dead 100] [OHP 185] Mode: Lbs" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ky7-4O-0e9">
                                 <rect key="frame" x="0.0" y="414" width="307" height="61"/>
@@ -206,19 +209,19 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="205x3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V2g-r1-rkq">
-                                                    <rect key="frame" x="133" y="0.0" width="47" height="21"/>
+                                                    <rect key="frame" x="133" y="0.0" width="69" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="245x3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UGC-UB-3dm">
-                                                    <rect key="frame" x="133" y="17" width="47" height="21"/>
+                                                    <rect key="frame" x="133" y="17" width="69" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="285x3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mK7-gv-epG">
-                                                    <rect key="frame" x="133" y="35" width="47" height="21"/>
+                                                    <rect key="frame" x="133" y="35" width="69" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
@@ -245,6 +248,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </view>
                     <navigationItem key="navigationItem" id="ORU-6k-RhH"/>
                     <connections>
+                        <outlet property="liftTableView" destination="Wdf-xO-fbP" id="ERH-gk-NaD"/>
                         <outlet property="trainingMaxStreamLabel" destination="ky7-4O-0e9" id="4do-WM-jc0"/>
                     </connections>
                 </viewController>
@@ -382,13 +386,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <segment title="5"/>
                                 </segments>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hYV-am-aoO">
-                                <rect key="frame" x="27" y="433" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Test">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -396,7 +393,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <connections>
                         <outlet property="Screen" destination="y4n-rG-V5J" id="jqE-kG-ntw"/>
                         <outlet property="benchTMField" destination="fp3-Es-rHm" id="qvc-3v-pzL"/>
-                        <outlet property="cycleField" destination="Ktl-Q9-Rt5" id="FGP-Ov-Bh1"/>
+                        <outlet property="cycleField" destination="Ktl-Q9-Rt5" id="ZAs-gd-PCy"/>
                         <outlet property="deadTMField" destination="3ab-8L-KIv" id="4Mr-mb-fuh"/>
                         <outlet property="errorStreamField" destination="bkD-gr-pGR" id="lyO-AH-oef"/>
                         <outlet property="ohpTMField" destination="HVy-dA-lJT" id="oUr-S5-OM3"/>

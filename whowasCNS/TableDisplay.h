@@ -28,9 +28,8 @@
 	BOOL lbBooleans[7];
     BOOL init;
     IBOutlet UILabel *label_Date;
-
-    DateAndLiftProcessor* Processor;
-    
+      DateAndLiftProcessor* Processor;
+    IBOutlet UITableView * liftTableView;
 }
 typedef enum {DEFAULT_V, BENCH_V, SQUAT_V, OHP_V, DEAD_V, FIVES_V, THREES_V, ONES_V} CURRENT_VIEW;
 typedef enum {FIVE, THREE, ONE} CURRENT_FREQ;
@@ -43,7 +42,6 @@ typedef enum {FIVE, THREE, ONE} CURRENT_FREQ;
 @property (nonatomic, strong) NSMutableArray *firstLifts;
 @property (nonatomic, strong) NSMutableArray *secondLifts;
 @property (nonatomic, strong) NSMutableArray *thirdLifts;
-
 
 
 //data retrieved from text fields
@@ -62,6 +60,7 @@ typedef enum {FIVE, THREE, ONE} CURRENT_FREQ;
 -(id) init;
 - (IBAction)addEvent;
 - (IBAction)getData;
+-(IBAction) showConfigMenu;
 @property(nonatomic) NSString *dateText;
 @property (strong, nonatomic) NSString *databasePath;
 @property (nonatomic) sqlite3 *contactDB;
