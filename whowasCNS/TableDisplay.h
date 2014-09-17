@@ -30,6 +30,7 @@
     IBOutlet UILabel *label_Date;
       DateAndLiftProcessor* Processor;
     IBOutlet UITableView * liftTableView;
+    
 }
 typedef enum {DEFAULT_V, BENCH_V, SQUAT_V, OHP_V, DEAD_V, FIVES_V, THREES_V, ONES_V} CURRENT_VIEW;
 typedef enum {FIVE, THREE, ONE} CURRENT_FREQ;
@@ -45,6 +46,7 @@ typedef enum {FIVE, THREE, ONE} CURRENT_FREQ;
 
 
 //data retrieved from text fields
+@property (nonatomic, assign) CURRENT_VIEW curView;
 @property(nonatomic, assign) CURRENT_VIEW individualCV; //for individual view
 @property(nonatomic, assign) CURRENT_FREQ individualFreq;
 @property(nonatomic) NSString  *trainingMaxStream;
@@ -61,6 +63,7 @@ typedef enum {FIVE, THREE, ONE} CURRENT_FREQ;
 - (IBAction)addEvent;
 - (IBAction)getData;
 -(IBAction) showConfigMenu;
+-(void) clearArrays;
 @property(nonatomic) NSString *dateText;
 @property (strong, nonatomic) NSString *databasePath;
 @property (nonatomic) sqlite3 *contactDB;

@@ -35,7 +35,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    NSArray *intermediate = @[@"Bench",@"Squat",@"Rest",@"OHP",@"Dead", @"Rest"];
+    NSArray *intermediate = @[@"Bench",@"Squat",@"Rest",@"OHP",@"Deadlift", @"Rest"];
     self.tableData = [NSMutableArray arrayWithArray:(intermediate)];
     self.editing = YES; //always enable editing
     //mutable arrays allow us to add/remove data, which we will need to do

@@ -14,7 +14,6 @@
 
 
 @implementation TableDisplay
-
 @synthesize dates = _dates;
 @synthesize cycles = _cycles;
 @synthesize firstLifts = _firstLifts;
@@ -42,7 +41,7 @@
             lbBooleans[i] = YES;
         }
         
-        static CURRENT_VIEW curView = DEFAULT_V;
+        _curView = DEFAULT_V; //the fact that this isn't static may open up a can of worms
         Processor  = [[DateAndLiftProcessor alloc] init];
         
         trainingMaxStreamLabel.text = [NSString stringWithFormat:@"%@",_trainingMaxStream];
@@ -50,6 +49,11 @@
         
         [self openDB:YES];
         [Processor setStartingDate:_dateText];
+        [Processor setRoundingFlag:_usingRounding];
+        if (_usingLbs)
+            [Processor setUnitMode:@"Lbs"];
+        if (!_usingLbs)
+            [Processor setUnitMode:@"Kgs"];
         [Processor parseDateString];
         [Processor setStartingLifts:_benchTM and:_squatTM and:_ohpTM and:_deadTM];
         [Processor calculateCycle:_numberOfCycles with:_patternArray withDBContext:_contactDB];
@@ -120,6 +124,27 @@
             sqlite3_close(_contactDB);
         
     }
+}
+
+
+-(void) clearDB
+{
+        const char *dbpath = [_databasePath UTF8String];
+    if(sqlite3_open(dbpath, &_contactDB) == SQLITE_OK)
+    {
+        const char *sql = "DELETE FROM lifts";
+        sqlite3_stmt *statement;
+        if(sqlite3_prepare_v2(_contactDB, sql,-1, &statement, NULL) == SQLITE_OK)
+        {
+            if(sqlite3_step(statement) == SQLITE_DONE){
+                // executed
+            }else{
+                //NSLog(@"%s",sqlite3_errmsg(db))
+            }
+        }
+        sqlite3_finalize(statement);
+    }
+    sqlite3_close(_contactDB);
 }
 
 - (void)didReceiveMemoryWarning
@@ -306,23 +331,50 @@
             //may want to refactor and break this into another method
             if ([frequencyString isEqualToString:@"5-5-5"])
             {
+                if (_usingRounding) //change me to proper logic
+                {
                 firstliftString = [NSString stringWithFormat:@"%gx5", firstlift];
                 secondliftString = [NSString stringWithFormat:@"%gx5", secondlift];
                 thirdliftString = [NSString stringWithFormat:@"%gx5", thirdlift];
+                }
+                else
+                {
+                firstliftString = [NSString stringWithFormat:@"%.2fx5", firstlift];
+                secondliftString = [NSString stringWithFormat:@"%.2fx5", secondlift];
+                thirdliftString = [NSString stringWithFormat:@"%.2f5", thirdlift];
+                }
                 liftBuffer = [NSString stringWithFormat:@"%@ - 5-5-5", liftTypeString];
             }
             else if ([frequencyString isEqualToString:@"3-3-3"])
             {
-                firstliftString = [NSString stringWithFormat:@"%gx3", firstlift];
-                secondliftString = [NSString stringWithFormat:@"%gx3", secondlift];
-                thirdliftString = [NSString stringWithFormat:@"%gx3", thirdlift];
+                if (_usingRounding)
+                {
+                    firstliftString = [NSString stringWithFormat:@"%gx3", firstlift];
+                    secondliftString = [NSString stringWithFormat:@"%gx3", secondlift];
+                    thirdliftString = [NSString stringWithFormat:@"%gx3", thirdlift];
+                }
+                else
+                {
+                firstliftString = [NSString stringWithFormat:@"%.2fx3", firstlift];
+                secondliftString = [NSString stringWithFormat:@"%.2fx3", secondlift];
+                thirdliftString = [NSString stringWithFormat:@"%.2fx3", thirdlift];
+                }
                 liftBuffer = [NSString stringWithFormat:@"%@ - 3-3-3", liftTypeString];
             }
             else if ([frequencyString isEqualToString:@"5-3-1"])
             {
+                if (_usingRounding)
+                {
                 firstliftString = [NSString stringWithFormat:@"%gx5", firstlift];
                 secondliftString = [NSString stringWithFormat:@"%gx3", secondlift];
                 thirdliftString = [NSString stringWithFormat:@"%gx1", thirdlift];
+                }
+                else
+                {
+                    firstliftString = [NSString stringWithFormat:@"%.2fx5", firstlift];
+                    secondliftString = [NSString stringWithFormat:@"%.2fx3", secondlift];
+                    thirdliftString = [NSString stringWithFormat:@"%.2fx1", thirdlift];
+                }
                 liftBuffer = [NSString stringWithFormat:@"%@ - 5-3-1", liftTypeString];
             }
             [self.firstLifts addObject:firstliftString];
@@ -357,7 +409,8 @@
         switch(buttonIndex)
         {
             case 0:  // adjust lifts
-                [[self navigationController] popViewControllerAnimated:YES];
+                //DB clearing is currently the responsiblity of your magicial view disappeared method however we will have to see how that plays with view existing projection feature
+                [[self navigationController] popViewControllerAnimated:YES];//essentially hit back button : NOTE: NEED TO OVERRIDE THIS METHOD FOR TRADITIONAL
                 break;
             case 1://View By
                 [self showViewByMenu];
@@ -371,47 +424,75 @@
     else if (actionSheet.tag == 2)
     {
         [self openDB:YES];
+        [self.dates removeAllObjects];
+        [self.cycles removeAllObjects];
+        [self.firstLifts removeAllObjects];
+        [self.secondLifts removeAllObjects];
+        [self.thirdLifts removeAllObjects];
+        [self.typeFreqs removeAllObjects];
         switch(buttonIndex)
         {
             case 0:  // Bench only
-                
                 [self populateArrays:@"where lift = 'Bench'"];
+                _curView = BENCH_V;
                 break;
             case 1://Squat only
                 [self populateArrays:@"where lift = 'Squat'"];
+                _curView = SQUAT_V;
                 break;
             case 2: //OHP only
                 [self populateArrays:@"where lift = 'OHP'"];
+                _curView = OHP_V;
                 break;
             case 3: //Deadlift only
                 [self populateArrays:@"where lift = 'Deadlift'"];
+                _curView = DEAD_V;
                 break;
             case 4: //5-5-5 only
                 [self populateArrays:@"where Frequency = '5-5-5'"];
+                _curView = FIVES_V;
                 break;
             case 5: //3-3-3 only
                 [self populateArrays:@"where Frequency = '3-3-3'"];
+                _curView = THREES_V;
                 break;
             case 6: //5-3-1 only
                 [self populateArrays:@"where Frequency = '5-3-1'"];
+                _curView = ONES_V;
                 break;
         }
-        [tableView reloadData];
+        [liftTableView reloadData];
         [self openDB:NO];
     }
     
-    
-    
-    
-    
 }
-
+                 
+//for sake of back button override
+ - (void)viewWillDisappear:(BOOL)animated
+{
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    if (viewControllers.count > 1 && [viewControllers objectAtIndex:viewControllers.count-2] == self)
+    {
+        // View is disappearing because a new view controller was pushed onto the stack
+        NSLog(@"New view controller was pushed"); //remove me eventually
+    }
+    else if ([viewControllers indexOfObject:self] == NSNotFound)
+    {
+        [self clearDB];
+        NSLog(@"View controller was popped"); //remove me eventually
+    }
+}
 
 //table display methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
     //A complete cycle is 12 lifts - 4 5-5-5s, 4 3-3-3s, and 4 5-3-1s
+    if (_curView == BENCH_V || _curView == SQUAT_V || _curView == DEAD_V || _curView == OHP_V)
+        return _numberOfCycles * 3;
+    else if (_curView == FIVES_V || _curView == THREES_V || _curView == ONES_V)
+        return _numberOfCycles * 4;
+    else
     return (_numberOfCycles * 12);
 }
 
@@ -435,13 +516,14 @@
     }
     
     // Configure the cell...
+    
     cell.date.text = [self.dates
                       objectAtIndex:[indexPath row]];
     cell.cycle.text = [self.cycles
                        objectAtIndex:[indexPath row]];
     cell.liftOne.text = [self.firstLifts objectAtIndex:[indexPath row]];
     cell.liftTwo.text = [self.secondLifts objectAtIndex:[indexPath row]];
-    cell.liftThree.text = [self.firstLifts objectAtIndex:[indexPath row]];
+    cell.liftThree.text = [self.thirdLifts objectAtIndex:[indexPath row]];
     cell.typeFreq.text = [self.typeFreqs objectAtIndex:[indexPath row]];
     
     //initialize our tableview variable
