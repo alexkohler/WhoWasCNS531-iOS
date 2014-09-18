@@ -72,6 +72,7 @@
         //pass date back here - declare properties here and at pattern.m, implement a prepareForSegue method over at :: as well.
         AdjustPattern *patternController = (AdjustPattern *)segue.destinationViewController;
         patternController.chosenDate = [picker date];
+        patternController.patternArray = _patternArray;
     }
 }
 

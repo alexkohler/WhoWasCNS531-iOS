@@ -12,7 +12,7 @@
 @property (nonatomic, strong) NSMutableArray *tableData;
 @property (weak, nonatomic) IBOutlet UILabel *errorStream;
 @property(nonatomic) NSDate *chosenDate;
-
+@property (nonatomic) NSArray *patternArray;
 
 
 @end

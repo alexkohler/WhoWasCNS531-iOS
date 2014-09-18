@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "whowasCNS/TrainingMaxes.m"
-            timestampString = "430364495.273029"
+            timestampString = "432694374.234576"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "-cancelSquat"
             landmarkType = "5">
          </BreakpointContent>
@@ -126,6 +126,22 @@
             startingLineNumber = "435"
             endingLineNumber = "435"
             landmarkName = "-setCurrentLift:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "whowasCNS/DateAndLiftProcessor.m"
+            timestampString = "432695247.689225"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "541"
+            endingLineNumber = "541"
+            landmarkName = "-addEvent:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

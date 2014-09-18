@@ -173,7 +173,7 @@ NSString * const FREQ1 = @"5-3-1";
         if (UNIT_MODE_LBS)//lbs
             CURRENT_SECOND =  [self round:CURRENT_SECOND  and:5];//return first lift rounded to nearest 5lb
         if (!UNIT_MODE_LBS)
-            CURRENT_SECOND = [self round:CURRENT_SECOND and:2.5];//return first lift rounded to nearest 2.5kg
+            CURRENT_SECOND = [self roundkg:CURRENT_SECOND and:2.5];//return first lift rounded to nearest 2.5kg
     }
     
     return CURRENT_SECOND;
@@ -186,7 +186,7 @@ NSString * const FREQ1 = @"5-3-1";
         if (UNIT_MODE_LBS)//lbs
             CURRENT_THIRD =  [self round:CURRENT_THIRD and:5];//return first lift rounded to nearest 5lb
         if (!UNIT_MODE_LBS)
-            CURRENT_THIRD = [self round:CURRENT_THIRD  and:2.5];//return first lift rounded to nearest 2.5kg
+            CURRENT_THIRD = [self roundkg:CURRENT_THIRD  and:2.5];//return first lift rounded to nearest 2.5kg
     }
     
     return CURRENT_THIRD;

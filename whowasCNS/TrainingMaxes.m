@@ -106,8 +106,10 @@
     numberOfCycles = cycleField.selectedSegmentIndex + 1; //0 indexed
     
     NSNumber *value = [NSNumber numberWithBool:roundSwitch.isOn];
-    usingRounding= value != 0; // myBool is NO for 0, YES for anything else
-    
+      if ([value intValue] == 0)
+        usingRounding = NO;
+    else
+        usingRounding = YES;
     int intermediateValue = unitField.selectedSegmentIndex;
     usingLbs = intermediateValue == 0; // myBool is YES for 0, NO for anything else
     
@@ -230,10 +232,10 @@
         controller.numberOfCycles = numberOfCycles;
         //just creating training max stream here
         NSString *unitString;
-        usingLbs ? unitString = @"Mode: Lbs" : @"Mode: Kgs";
+        unitString = usingLbs ? @"Mode: Lbs" : @"Mode: Kgs";
         
         NSString *modeString;
-        usingRounding ? modeString = @"YES" : @"NO";
+        modeString = usingRounding ? @"YES" : @"NO";
         
         
         

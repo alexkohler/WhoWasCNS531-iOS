@@ -341,7 +341,7 @@
                 {
                 firstliftString = [NSString stringWithFormat:@"%.2fx5", firstlift];
                 secondliftString = [NSString stringWithFormat:@"%.2fx5", secondlift];
-                thirdliftString = [NSString stringWithFormat:@"%.2f5", thirdlift];
+                thirdliftString = [NSString stringWithFormat:@"%.2fx5", thirdlift];
                 }
                 liftBuffer = [NSString stringWithFormat:@"%@ - 5-5-5", liftTypeString];
             }
@@ -409,7 +409,7 @@
         switch(buttonIndex)
         {
             case 0:  // adjust lifts
-                //DB clearing is currently the responsiblity of your magicial view disappeared method however we will have to see how that plays with view existing projection feature
+                //DB clearing is currently the responsiblity of your magicial view disappeared method however we will have to see how that plays with view existing projection feature - remember to OPEN AND CLOSE THE DATABASE IF DECIDE TO CLEAR HERE AGAIN ;)
                 [[self navigationController] popViewControllerAnimated:YES];//essentially hit back button : NOTE: NEED TO OVERRIDE THIS METHOD FOR TRADITIONAL
                 break;
             case 1://View By
@@ -478,7 +478,9 @@
     }
     else if ([viewControllers indexOfObject:self] == NSNotFound)
     {
+        [self openDB:YES];
         [self clearDB];
+        [self openDB:NO];
         NSLog(@"View controller was popped"); //remove me eventually
     }
 }
