@@ -39,7 +39,6 @@ NSString * const FREQ1 = @"5-3-1";
 
 	//Currency definitions
     /////////////////////// fix me enumCURRENT_LIFT = [Lift ]
-    NSString* DICKS = FREQ5;
     CURRENT_FREQUENCY = FREQ5;
 	CURRENT_FREQUENCY = FREQ5;
     CURRENT_CYCLE = 1;
@@ -55,7 +54,7 @@ NSString * const FREQ1 = @"5-3-1";
     CURRENT_DATE_CAL = [gregorian dateFromComponents:comps];
     
     df = [[NSDateFormatter alloc] init];
-    NSLocale *locale = [NSLocale currentLocale];
+    NSLocale *locale = [NSLocale currentLocale];//check on this..
     [df setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
 //    [df setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     [df setDateFormat:@"MM-dd-yyyy"];

@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "DatePicker.h"
 #import "TrainingMaxes.h"
+#import "GAITrackedViewController.h"
 
-@interface DatePicker : UIViewController
+@interface DatePicker : GAITrackedViewController
 {
   
     

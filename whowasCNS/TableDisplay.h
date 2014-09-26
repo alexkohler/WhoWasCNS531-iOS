@@ -60,10 +60,7 @@ typedef enum {FIVE, THREE, ONE} CURRENT_FREQ;
 @property(nonatomic) NSInteger numberOfCycles;
 //database properties
 -(id) init;
-- (IBAction)addEvent;
-- (IBAction)getData;
 -(IBAction) showConfigMenu;
--(void) clearArrays;
 @property(nonatomic) NSString *dateText;
 @property (strong, nonatomic) NSString *databasePath;
 @property (nonatomic) sqlite3 *contactDB;

@@ -9,6 +9,7 @@
 #import "DatePicker.h"
 #import "TrainingMaxes.h"
 #import "AdjustPattern.h"
+#import "GAI.h"
 
 @implementation DatePicker
 -(IBAction)displayDate:(id)sender {
@@ -31,6 +32,11 @@
     currentPatternField.text = [[_patternArray valueForKey:@"description"] componentsJoinedByString:@" - "];
     
 }
+//Analytics
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.screenName = @"Date picker";
+   }
 
 -(NSString *)formatDate:(NSString *)initialDate;
 {
@@ -75,6 +81,9 @@
         patternController.patternArray = _patternArray;
     }
 }
+
+
+
 
 
     

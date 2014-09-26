@@ -8,6 +8,7 @@
 #import "TableDisplay.h"
 #import "DateAndLiftProcessor.h"
 #import "TableDisplayCell.h"
+#import "IndividualViewController.h"
 @interface TableDisplay ()
 
 @end
@@ -100,8 +101,7 @@
     _databasePath = [[NSString alloc]
                      initWithString: [docsDir stringByAppendingPathComponent:
                                       @"lifts.db"]];
-    
-    NSFileManager *filemgr = [NSFileManager defaultManager];
+
     
     bool databaseAlreadyExists = [[NSFileManager defaultManager] fileExistsAtPath:_databasePath];
     
@@ -154,7 +154,7 @@
 }
 
 
--(void)getData:(NSString*)whereClause
+/*-(void)getData:(NSString*)whereClause
 {	NSString *queryStatement = @"SELECT * FROM lifts";
     // You're gonna have to mess with whereclause syntax, may not just be a simple string like it was in android
 	//liftDate text not null, Cycle integer, Lift text not null, Frequency text not null, First_Lift real, Second_Lift real, Third_Lift real, Training_Max integer, column_lbFlag integer
@@ -196,82 +196,8 @@
 		}
         sqlite3_finalize(statement);
     }
-}
-
-
-/*
-//fix your loop initialization stuff
--(void)populateArrays
-{	NSString *queryStatement = @"SELECT * FROM lifts";
-
-	
-    // Prepare the query for execution
-    sqlite3_stmt *statement;
-    if (sqlite3_prepare_v2(_contactDB, [queryStatement UTF8String], -1, &statement, NULL) == SQLITE_OK)
-    {
-        // Create a new address from the found row
-        while (sqlite3_step(statement) == SQLITE_ROW)
-		{
-			//date
-            char *liftDate = (char*) sqlite3_column_text(statement, 0);
-            NSString *liftDateString   = [NSString stringWithUTF8String:liftDate];
-            [self.dates addObject:liftDateString];
-            
-            //cycle
-            int cycle = sqlite3_column_int(statement, 1);
-            NSString* cycleString = [NSString stringWithFormat:@"Cycle: %i", cycle];
-            [self.cycles addObject:cycleString];
-            
-            //lift type
-            char *liftType = (char*) sqlite3_column_text(statement, 2);
-            NSString *liftTypeString   = [NSString stringWithUTF8String:liftType];
-
-            NSString* liftBuffer;
-            
-            //first ,second, third lift
-            double firstlift = (double) sqlite3_column_double(statement, 4);
-            double secondlift = (double) sqlite3_column_double(statement, 5);
-			double thirdlift = (double) sqlite3_column_double(statement, 6);
-            NSString* firstliftString;
-            NSString* secondliftString;
-            NSString* thirdliftString;
-        char *frequency = (char*) sqlite3_column_text(statement, 3);
-        NSString *frequencyString  = [NSString stringWithUTF8String:frequency];
-            
-            //may want to refactor and break this into another method 
-          if ([frequencyString isEqualToString:@"5-5-5"])
-          {
-              firstliftString  = [NSString stringWithFormat:@"%gx5", firstlift];
-              secondliftString = [NSString stringWithFormat:@"%gx5", secondlift];
-              thirdliftString =  [NSString stringWithFormat:@"%gx5", thirdlift];
-              liftBuffer = [NSString stringWithFormat:@"%@ - 5-5-5", liftTypeString];
-          }
-            else if ([frequencyString isEqualToString:@"3-3-3"])
-            {
-                firstliftString  = [NSString stringWithFormat:@"%gx3", firstlift];
-                secondliftString = [NSString stringWithFormat:@"%gx3", secondlift];
-                thirdliftString =  [NSString stringWithFormat:@"%gx3", thirdlift];
-              liftBuffer = [NSString stringWithFormat:@"%@ - 3-3-3", liftTypeString];
-            }
-            
-            else if ([frequencyString isEqualToString:@"5-3-1"])
-            {
-                firstliftString  = [NSString stringWithFormat:@"%gx5", firstlift];
-                secondliftString = [NSString stringWithFormat:@"%gx3", secondlift];
-                thirdliftString =  [NSString stringWithFormat:@"%gx1", thirdlift];
-                liftBuffer = [NSString stringWithFormat:@"%@ - 5-3-1", liftTypeString];
-            }
-            
-            [self.firstLifts addObject:firstliftString];
-            [self.secondLifts addObject:secondliftString];
-            [self.thirdLifts addObject:thirdliftString];
-            [self.typeFreqs addObject:liftBuffer];
-            
-			
-		}
-        sqlite3_finalize(statement);
-    }
 }*/
+
 
 -(void)populateArrays:(NSString*) whereClause
 {
@@ -533,6 +459,28 @@
 }
 
 
+//Touch listeners for cell
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"individualViewSegue" sender:self];
+    //TableDisplayCell *touchedCell = [liftTableView cellForRowAtIndexPath:indexPath];
+    //touchedCell.date.text, cell.cycle.text, cell.liftOne.text, cell.liftTwo.text, cell.liftThree.text, cell.typeFreq.text
+}
+
+//Segue that opens new view individual view
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"individualViewSegue"]) {
+        NSIndexPath *indexPath = [liftTableView indexPathForSelectedRow];
+        TableDisplayCell *touchedCell = [liftTableView cellForRowAtIndexPath:indexPath];
+        IndividualViewController *destViewController = segue.destinationViewController;
+        destViewController.date = touchedCell.date.text;
+        destViewController.cycle = touchedCell.cycle.text;
+        destViewController.typeFreq = touchedCell.typeFreq.text;
+        destViewController.liftOne = touchedCell.liftOne.text;
+        destViewController.liftTwo = touchedCell.liftTwo.text;
+        destViewController.liftThree = touchedCell.liftThree.text;
+    }
+}
 
 
 
