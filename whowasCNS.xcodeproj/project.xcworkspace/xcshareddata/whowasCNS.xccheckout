@@ -10,29 +10,29 @@
 	<string>whowasCNS</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>8A58A626-87E5-4A4B-B50C-F6DBE91D3B8F</key>
+		<key>B05F68363CF8A4B0B10132FF9326C9DEAA47D2E8</key>
 		<string>https://github.com/aok5326/WhoWasCNS531-iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>whowasCNS.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>8A58A626-87E5-4A4B-B50C-F6DBE91D3B8F</key>
+		<key>B05F68363CF8A4B0B10132FF9326C9DEAA47D2E8</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/aok5326/WhoWasCNS531-iOS.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>8A58A626-87E5-4A4B-B50C-F6DBE91D3B8F</string>
+	<string>B05F68363CF8A4B0B10132FF9326C9DEAA47D2E8</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>8A58A626-87E5-4A4B-B50C-F6DBE91D3B8F</string>
+			<string>B05F68363CF8A4B0B10132FF9326C9DEAA47D2E8</string>
 			<key>IDESourceControlWCCName</key>
 			<string>whowasCNS</string>
 		</dict>

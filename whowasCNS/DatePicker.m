@@ -10,6 +10,9 @@
 #import "TrainingMaxes.h"
 #import "AdjustPattern.h"
 #import "GAI.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAIFields.h"
 
 @implementation DatePicker
 -(IBAction)displayDate:(id)sender {
@@ -34,8 +37,8 @@
 }
 //Analytics
 - (void)viewWillAppear:(BOOL)animated {
+     self.screenName = @"Home Screen"; // set screenName prior to calling super
     [super viewWillAppear:animated];
-    self.screenName = @"Date picker";
    }
 
 -(NSString *)formatDate:(NSString *)initialDate;

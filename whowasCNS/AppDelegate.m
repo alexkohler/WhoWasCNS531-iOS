@@ -13,6 +13,7 @@
 
 //Google analytics
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     // Optional: automatically send uncaught exceptions to Google Analytics.
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     
@@ -23,7 +24,7 @@
     [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
     
     // Initialize tracker. Replace with your tracking ID.
-    [[GAI sharedInstance] trackerWithTrackingId:@"UA-55018534-2"];
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-55018534-3"];
     return YES;
 }
 							

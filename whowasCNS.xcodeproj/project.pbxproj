@@ -204,9 +204,9 @@
 				FA3133C7199AE5FB00ED3D1D /* Images.xcassets */,
 				FA3133C1199AE5FB00ED3D1D /* Main_iPad.storyboard */,
 				FA3133BC199AE5FB00ED3D1D /* AppDelegate.m */,
-				FA3133BB199AE5FB00ED3D1D /* AppDelegate.h */,
 				FAEDAC3B19D4C942006265A9 /* IndividualViewController.h */,
 				FAEDAC3C19D4C942006265A9 /* IndividualViewController.m */,
+				FA4976FD19DB8914001F7802 /* Google Analytics Libs */,
 				FA3133B3199AE5FB00ED3D1D /* Supporting Files */,
 			);
 			path = whowasCNS;
@@ -215,16 +215,10 @@
 		FA3133B3199AE5FB00ED3D1D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FAEDAC4D19D4E97B006265A9 /* libGoogleAnalyticsServices.a */,
-				FAEDAC3E19D4E4CF006265A9 /* GAI.h */,
-				FAEDAC3F19D4E4CF006265A9 /* GAIDictionaryBuilder.h */,
+				FA3133BB199AE5FB00ED3D1D /* AppDelegate.h */,
 				FAEDAC4019D4E4CF006265A9 /* GAIEcommerceProduct.h */,
 				FAEDAC4119D4E4CF006265A9 /* GAIEcommerceProductAction.h */,
 				FAEDAC4219D4E4CF006265A9 /* GAIEcommercePromotion.h */,
-				FAEDAC4319D4E4CF006265A9 /* GAIFields.h */,
-				FAEDAC4419D4E4CF006265A9 /* GAILogger.h */,
-				FAEDAC4519D4E4CF006265A9 /* GAITrackedViewController.h */,
-				FAEDAC4619D4E4CF006265A9 /* GAITracker.h */,
 				FA3133B4199AE5FB00ED3D1D /* whowasCNS-Info.plist */,
 				FA3133B5199AE5FB00ED3D1D /* InfoPlist.strings */,
 				FA3133B8199AE5FB00ED3D1D /* main.m */,
@@ -249,6 +243,20 @@
 				FA3133D7199AE5FB00ED3D1D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA4976FD19DB8914001F7802 /* Google Analytics Libs */ = {
+			isa = PBXGroup;
+			children = (
+				FAEDAC3E19D4E4CF006265A9 /* GAI.h */,
+				FAEDAC3F19D4E4CF006265A9 /* GAIDictionaryBuilder.h */,
+				FAEDAC4319D4E4CF006265A9 /* GAIFields.h */,
+				FAEDAC4419D4E4CF006265A9 /* GAILogger.h */,
+				FAEDAC4519D4E4CF006265A9 /* GAITrackedViewController.h */,
+				FAEDAC4619D4E4CF006265A9 /* GAITracker.h */,
+				FAEDAC4D19D4E97B006265A9 /* libGoogleAnalyticsServices.a */,
+			);
+			name = "Google Analytics Libs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

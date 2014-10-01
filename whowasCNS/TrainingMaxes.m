@@ -8,6 +8,10 @@
 
 #import "TrainingMaxes.h"
 #import "TableDisplay.h"
+#import "GAI.h"
+#import "GAITrackedViewController.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAIFields.h"
 
 @interface TrainingMaxes ()
 
@@ -78,7 +82,14 @@
     
     deadTMField.inputAccessoryView = numberToolbarDeadTM;
     
+    id tracker = [[GAI sharedInstance] defaultTracker];
     
+    // This screen name value will remain set on the tracker and sent with
+    // hits until it is set to a new value or to nil.
+    [tracker set:kGAIScreenName
+           value:@"Training maxes"];
+    
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
     
     
 }
