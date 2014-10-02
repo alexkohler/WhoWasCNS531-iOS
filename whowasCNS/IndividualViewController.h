@@ -21,4 +21,11 @@
 @property (strong, nonatomic)  NSString *liftTwo;
 @property (strong, nonatomic)  NSString *liftThree;
 @property (strong, nonatomic)  NSString *cycle;
+@property (nonatomic)  BOOL usingLbs;
+
+
+//Plate positions
+@property (strong, nonatomic) IBOutlet UIImageView *liftOneplatePos1R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftOneplatePos1L;
+
 @end

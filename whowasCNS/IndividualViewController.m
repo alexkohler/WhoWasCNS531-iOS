@@ -7,6 +7,7 @@
 //
 
 #import "IndividualViewController.h"
+#import "DateAndLiftProcessor.h"
 
 @interface IndividualViewController ()
 
@@ -33,6 +34,8 @@
     _liftTwoLabel.text = _liftTwo;
     _liftThreeLabel.text = _liftThree;
     _cycleLabel.text = _cycle;
+    [self handlePlates];
+
 }
 
 
@@ -41,6 +44,30 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+-(void) handlePlates
+{
+    int liftOneVal = [_liftOne integerValue];
+    
+    if (liftOneVal > 95 && liftOneVal < 135)
+    {
+        [self setPlateImageAtRow:1 withImage:@"plate_fourtyfive_lbs.png"];
+    }
+}
+
+-(void) setPlateImageAtRow:(int) row withImage:(NSString*)plateImage
+{
+    switch (row)
+    {
+        case 1:
+             _liftOneplatePos1R.image = [UIImage imageNamed:plateImage];
+            _liftOneplatePos1L.image = [UIImage imageNamed:plateImage];
+                break;
+            
+            
+    }
 }
 
 /*

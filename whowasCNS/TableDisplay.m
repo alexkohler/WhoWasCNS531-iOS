@@ -82,7 +82,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self init];
-    //self.dates = [NSArray arrayWithObjects:@"9-01: Bench Triples: 430 440 450", @"9-02 Squat 5-3-1 120 140 170", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
+
 }
 
 -(void)openDB:(bool)yesOrNo
@@ -197,6 +197,33 @@
         sqlite3_finalize(statement);
     }
 }*/
+
+//query to grab lbMode
+//select column_lbFlag from lifts limit 1
+-(BOOL) getUnitModeFromDatabase //sanity check after nightmare bug with android
+{
+    NSString *queryStatement = @"select column_lbFlag from lifts limit 1";
+    
+    sqlite3_stmt *statement;
+    int cycle = 1; // In case anything goes wrong, just use lbs
+    if (sqlite3_prepare_v2(_contactDB, [queryStatement UTF8String], -1, &statement, NULL) == SQLITE_OK)
+    {
+        // Create a new address from the found row
+        while (sqlite3_step(statement) == SQLITE_ROW)
+        {
+            cycle = sqlite3_column_int(statement, 0);
+            
+        }
+        sqlite3_finalize(statement);
+    }
+    
+    if (cycle == 0)
+        return NO;
+    else
+        return YES;
+    
+    
+}
 
 
 -(void)populateArrays:(NSString*) whereClause
@@ -479,6 +506,10 @@
         destViewController.liftOne = touchedCell.liftOne.text;
         destViewController.liftTwo = touchedCell.liftTwo.text;
         destViewController.liftThree = touchedCell.liftThree.text;
+        [self openDB:YES];
+        destViewController.usingLbs = [self getUnitModeFromDatabase];
+        [self openDB:NO];
+        
     }
 }
 

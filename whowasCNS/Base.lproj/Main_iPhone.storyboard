@@ -246,50 +246,144 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XX/XX/XX" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cBS-s9-vz0">
-                                <rect key="frame" x="20" y="20" width="142" height="21"/>
+                                <rect key="frame" x="11" y="75" width="142" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TypeFreq" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xge-oJ-c85">
-                                <rect key="frame" x="52" y="41" width="71" height="21"/>
+                                <rect key="frame" x="199" y="75" width="123" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lift One: 333x5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D1D-e1-MUi">
-                                <rect key="frame" x="20" y="155" width="177" height="21"/>
+                                <rect key="frame" x="0.0" y="210" width="177" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lift Two: 444x3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nyh-Nu-8eN">
-                                <rect key="frame" x="20" y="296" width="160" height="21"/>
+                                <rect key="frame" x="0.0" y="359" width="160" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lift Three: 333x5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QMG-qe-xQw">
-                                <rect key="frame" x="20" y="417" width="177" height="21"/>
+                                <rect key="frame" x="0.0" y="503" width="177" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cycle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xW3-OC-a9n">
-                                <rect key="frame" x="250" y="41" width="44" height="21"/>
+                                <rect key="frame" x="120" y="75" width="109" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbell.png" id="A4b-cZ-2vy">
+                                <rect key="frame" x="89" y="155" width="141" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbell.png" id="GBi-BZ-igv">
+                                <rect key="frame" x="0.0" y="229" width="320" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbell.png" id="BZW-cy-Rpb">
+                                <rect key="frame" x="0.0" y="378" width="320" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="RxW-Wn-hgR" userLabel="liftOneplatePos2R">
+                                <rect key="frame" x="242" y="125" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="r1l-y1-xqT" userLabel="liftOneplatePos3R">
+                                <rect key="frame" x="252" y="125" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Vgg-uP-BMw" userLabel="liftOneplatePos4R">
+                                <rect key="frame" x="262" y="125" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="l64-Gw-L4B" userLabel="liftOneplatePos5R">
+                                <rect key="frame" x="272" y="125" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="MRw-Yu-C57" userLabel="liftOneplatePos6R">
+                                <rect key="frame" x="282" y="125" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="PWd-3A-PBM" userLabel="liftOneplatePos7R">
+                                <rect key="frame" x="292" y="125" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="bcR-bV-njj" userLabel="liftOneplatePos8R">
+                                <rect key="frame" x="302" y="125" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="kmB-G9-5nD" userLabel="liftOneplatePos1R">
+                                <rect key="frame" x="232" y="125" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="l7G-Gu-wcK" userLabel="liftOneplatePos6L">
+                                <rect key="frame" x="27" y="125" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="hMd-pT-YMD" userLabel="liftOneplatePos4L">
+                                <rect key="frame" x="47" y="125" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="WYz-fI-S2p" userLabel="liftOneplatePos3L">
+                                <rect key="frame" x="57" y="125" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="eLa-TR-yzY" userLabel="liftOneplatePos2L">
+                                <rect key="frame" x="67" y="125" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="4Da-qC-aTM" userLabel="liftOneplatePos5L">
+                                <rect key="frame" x="37" y="125" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="XV1-42-e2c" userLabel="liftOneplatePos1L">
+                                <rect key="frame" x="77" y="125" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="7bx-th-f9l" userLabel="liftOneplatePos7L">
+                                <rect key="frame" x="17" y="125" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbell.png" id="1R7-5U-ukE">
+                                <rect key="frame" x="0.0" y="522" width="320" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="AiK-yL-jk9" userLabel="liftOneplatePos8L">
+                                <rect key="frame" x="7" y="125" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Cd6-DP-nFu" userLabel="liftOneplatePos9R">
+                                <rect key="frame" x="312" y="125" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ubn-2V-tyb" userLabel="liftOneplatePos9L">
+                                <rect key="frame" x="-3" y="125" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbell.png" id="nDU-nA-jUQ">
+                                <rect key="frame" x="2" y="99" width="320" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="2nI-on-kGn"/>
                     <connections>
-                        <outlet property="cycleOutlet" destination="xW3-OC-a9n" id="JyB-r7-cC1"/>
+                        <outlet property="cycleLabel" destination="xW3-OC-a9n" id="PQJ-rr-Phi"/>
                         <outlet property="dateLabel" destination="cBS-s9-vz0" id="3D8-fZ-eWL"/>
                         <outlet property="liftOneLabel" destination="D1D-e1-MUi" id="zrU-og-4Hp"/>
+                        <outlet property="liftOneplatePos1L" destination="XV1-42-e2c" id="kDn-bm-VTS"/>
+                        <outlet property="liftOneplatePos1R" destination="kmB-G9-5nD" id="mjo-Tp-v09"/>
                         <outlet property="liftThreeLabel" destination="QMG-qe-xQw" id="euW-1l-nM9"/>
                         <outlet property="liftTwoLabel" destination="nyh-Nu-8eN" id="0jl-k2-be8"/>
                         <outlet property="typeFreqLabel" destination="Xge-oJ-c85" id="dn8-uv-lRM"/>
@@ -479,13 +573,16 @@
             <point key="canvasLocation" x="-277" y="1631"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="barbell.png" width="152" height="8"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="6Kp-Uv-AFR"/>
         <segue reference="HvK-FR-An4"/>
+        <segue reference="6Kp-Uv-AFR"/>
     </inferredMetricsTieBreakers>
 </document>

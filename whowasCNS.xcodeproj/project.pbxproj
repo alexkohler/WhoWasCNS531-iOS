@@ -35,6 +35,12 @@
 		FA3133F219A576DC00ED3D1D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3133F119A576DB00ED3D1D /* libsqlite3.dylib */; };
 		FA31345119A6BEB700ED3D1D /* AdjustPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = FA31345019A6BEB700ED3D1D /* AdjustPattern.m */; };
 		FA31345319A6C96C00ED3D1D /* AdjustPattern in Resources */ = {isa = PBXBuildFile; fileRef = FA31345219A6C96C00ED3D1D /* AdjustPattern */; };
+		FA49770319DCAB07001F7802 /* barbell.png in Resources */ = {isa = PBXBuildFile; fileRef = FA49770219DCAB07001F7802 /* barbell.png */; };
+		FA49770619DCB43C001F7802 /* plate_fourtyfive_lbs.png in Resources */ = {isa = PBXBuildFile; fileRef = FA49770519DCB43C001F7802 /* plate_fourtyfive_lbs.png */; };
+		FA49770C19DCC9C2001F7802 /* plate_twentyfive_lbs.png in Resources */ = {isa = PBXBuildFile; fileRef = FA49770B19DCC9C2001F7802 /* plate_twentyfive_lbs.png */; };
+		FA49770E19DCCA01001F7802 /* plate_ten_lbs.png in Resources */ = {isa = PBXBuildFile; fileRef = FA49770D19DCCA01001F7802 /* plate_ten_lbs.png */; };
+		FA49771019DCCA0B001F7802 /* plate_five_lbs.png in Resources */ = {isa = PBXBuildFile; fileRef = FA49770F19DCCA0B001F7802 /* plate_five_lbs.png */; };
+		FA49771219DCCA19001F7802 /* plate_twopointfive_lbs.png in Resources */ = {isa = PBXBuildFile; fileRef = FA49771119DCCA19001F7802 /* plate_twopointfive_lbs.png */; };
 		FAD1F39F19C2799900D3C588 /* TableDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD1F39E19C2799900D3C588 /* TableDisplayCell.m */; };
 		FAEDAC3D19D4C942006265A9 /* IndividualViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEDAC3C19D4C942006265A9 /* IndividualViewController.m */; };
 		FAEDAC4819D4E5C1006265A9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEDAC4719D4E5C1006265A9 /* CoreData.framework */; };
@@ -93,6 +99,12 @@
 		FA31344F19A6BEB700ED3D1D /* AdjustPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdjustPattern.h; sourceTree = "<group>"; };
 		FA31345019A6BEB700ED3D1D /* AdjustPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdjustPattern.m; sourceTree = "<group>"; };
 		FA31345219A6C96C00ED3D1D /* AdjustPattern */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AdjustPattern; sourceTree = "<group>"; };
+		FA49770219DCAB07001F7802 /* barbell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barbell.png; sourceTree = "<group>"; };
+		FA49770519DCB43C001F7802 /* plate_fourtyfive_lbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plate_fourtyfive_lbs.png; sourceTree = "<group>"; };
+		FA49770B19DCC9C2001F7802 /* plate_twentyfive_lbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plate_twentyfive_lbs.png; path = "../../../Downloads/cns/WhoWasCNS531-master/res/drawable-mdpi/plate_twentyfive_lbs.png"; sourceTree = "<group>"; };
+		FA49770D19DCCA01001F7802 /* plate_ten_lbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plate_ten_lbs.png; path = "../../../Downloads/cns/WhoWasCNS531-master/res/drawable-mdpi/plate_ten_lbs.png"; sourceTree = "<group>"; };
+		FA49770F19DCCA0B001F7802 /* plate_five_lbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plate_five_lbs.png; path = "../../../Downloads/cns/WhoWasCNS531-master/res/drawable-mdpi/plate_five_lbs.png"; sourceTree = "<group>"; };
+		FA49771119DCCA19001F7802 /* plate_twopointfive_lbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plate_twopointfive_lbs.png; path = "../../../Downloads/cns/WhoWasCNS531-master/res/drawable-mdpi/plate_twopointfive_lbs.png"; sourceTree = "<group>"; };
 		FAD1F39D19C2799900D3C588 /* TableDisplayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableDisplayCell.h; sourceTree = "<group>"; };
 		FAD1F39E19C2799900D3C588 /* TableDisplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableDisplayCell.m; sourceTree = "<group>"; };
 		FAEDAC3B19D4C942006265A9 /* IndividualViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndividualViewController.h; sourceTree = "<group>"; };
@@ -202,10 +214,11 @@
 				FAD1F39E19C2799900D3C588 /* TableDisplayCell.m */,
 				FA05536A19AD4DE3001EE3CE /* TableDisplay */,
 				FA3133C7199AE5FB00ED3D1D /* Images.xcassets */,
-				FA3133C1199AE5FB00ED3D1D /* Main_iPad.storyboard */,
 				FA3133BC199AE5FB00ED3D1D /* AppDelegate.m */,
 				FAEDAC3B19D4C942006265A9 /* IndividualViewController.h */,
 				FAEDAC3C19D4C942006265A9 /* IndividualViewController.m */,
+				FA49770419DCAB0D001F7802 /* Images - Lbs */,
+				FA3133C1199AE5FB00ED3D1D /* Main_iPad.storyboard */,
 				FA4976FD19DB8914001F7802 /* Google Analytics Libs */,
 				FA3133B3199AE5FB00ED3D1D /* Supporting Files */,
 			);
@@ -257,6 +270,19 @@
 				FAEDAC4D19D4E97B006265A9 /* libGoogleAnalyticsServices.a */,
 			);
 			name = "Google Analytics Libs";
+			sourceTree = "<group>";
+		};
+		FA49770419DCAB0D001F7802 /* Images - Lbs */ = {
+			isa = PBXGroup;
+			children = (
+				FA49771119DCCA19001F7802 /* plate_twopointfive_lbs.png */,
+				FA49770F19DCCA0B001F7802 /* plate_five_lbs.png */,
+				FA49770D19DCCA01001F7802 /* plate_ten_lbs.png */,
+				FA49770B19DCC9C2001F7802 /* plate_twentyfive_lbs.png */,
+				FA49770519DCB43C001F7802 /* plate_fourtyfive_lbs.png */,
+				FA49770219DCAB07001F7802 /* barbell.png */,
+			);
+			name = "Images - Lbs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,6 +361,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA49771219DCCA19001F7802 /* plate_twopointfive_lbs.png in Resources */,
+				FA49770319DCAB07001F7802 /* barbell.png in Resources */,
+				FA49770C19DCC9C2001F7802 /* plate_twentyfive_lbs.png in Resources */,
+				FA49771019DCCA0B001F7802 /* plate_five_lbs.png in Resources */,
 				FA3133C3199AE5FB00ED3D1D /* Main_iPad.storyboard in Resources */,
 				FA3133ED19A4205900ED3D1D /* TrainingMaxes in Resources */,
 				FA0553A119AEA132001EE3CE /* DateAndLiftProcessor in Resources */,
@@ -345,6 +375,8 @@
 				FA3133C8199AE5FB00ED3D1D /* Images.xcassets in Resources */,
 				FA3133C0199AE5FB00ED3D1D /* Main_iPhone.storyboard in Resources */,
 				FA3133B7199AE5FB00ED3D1D /* InfoPlist.strings in Resources */,
+				FA49770E19DCCA01001F7802 /* plate_ten_lbs.png in Resources */,
+				FA49770619DCB43C001F7802 /* plate_fourtyfive_lbs.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

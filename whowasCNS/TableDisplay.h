@@ -61,6 +61,7 @@ typedef enum {FIVE, THREE, ONE} CURRENT_FREQ;
 //database properties
 -(id) init;
 -(IBAction) showConfigMenu;
+-(BOOL) getUnitModeFromDatabase;
 @property(nonatomic) NSString *dateText;
 @property (strong, nonatomic) NSString *databasePath;
 @property (nonatomic) sqlite3 *contactDB;
