@@ -24,8 +24,78 @@
 @property (nonatomic)  BOOL usingLbs;
 
 
-//Plate positions
+//Plate positions - Lift one
 @property (strong, nonatomic) IBOutlet UIImageView *liftOneplatePos1R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftOnePlatePos2R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftOnePlatePos3R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftOnePlatePos4R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftOnePlatePos5R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftOnePlatePos6R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftOnePlatePos7R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftOnePlatePos8R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftOneplatePos9R;
+
 @property (strong, nonatomic) IBOutlet UIImageView *liftOneplatePos1L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftOneplatePos2L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftOneplatePos3L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftOneplatePos4L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftOneplatePos5L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftOneplatePos6L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftOneplatePos7L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftOneplatePos8L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftOneplatePos9L;
+
+
+
+//Plate positions - lift two
+@property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos1R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos2R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos3R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos4R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos5R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos6R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos7R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos8R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos9R;
+
+@property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos1L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos2L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos3L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos4L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos5L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos6L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos7L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos8L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos9L;
+
+//Plate positions - lift three
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreeplatePos1R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreeplatePos2R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreeplatePos3R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreeplatePos4R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreeplatePos5R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreeplatePos6R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreeplatePos7R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreeplatePos8R;
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreeplatePos9R;
+
+
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreeplatePos1L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreeplatePos2L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreeplatePos3L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreeplatePos4L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreeplatePos5L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreeplatePos6L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreeplatePos7L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreeplatePos8L;
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreeplatePos9L;
+
+
+
+
+//Methods
+-(void) generateWeights:(int) weight;
+
+- (void)didReceiveMemoryWarning;
 
 @end

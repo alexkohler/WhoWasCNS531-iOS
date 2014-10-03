@@ -283,7 +283,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbell.png" id="A4b-cZ-2vy">
-                                <rect key="frame" x="89" y="155" width="141" height="22"/>
+                                <rect key="frame" x="90" y="155" width="141" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbell.png" id="pw7-zj-rJq">
+                                <rect key="frame" x="90" y="215" width="141" height="181"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbell.png" id="VTE-p6-tHp">
+                                <rect key="frame" x="88" y="359" width="141" height="181"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbell.png" id="GBi-BZ-igv">
@@ -327,31 +335,31 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="l7G-Gu-wcK" userLabel="liftOneplatePos6L">
-                                <rect key="frame" x="27" y="125" width="10" height="82"/>
+                                <rect key="frame" x="28" y="125" width="10" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="hMd-pT-YMD" userLabel="liftOneplatePos4L">
-                                <rect key="frame" x="47" y="125" width="10" height="82"/>
+                                <rect key="frame" x="48" y="125" width="10" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="WYz-fI-S2p" userLabel="liftOneplatePos3L">
-                                <rect key="frame" x="57" y="125" width="10" height="82"/>
+                                <rect key="frame" x="58" y="125" width="10" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="eLa-TR-yzY" userLabel="liftOneplatePos2L">
-                                <rect key="frame" x="67" y="125" width="10" height="82"/>
+                                <rect key="frame" x="68" y="125" width="10" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="4Da-qC-aTM" userLabel="liftOneplatePos5L">
-                                <rect key="frame" x="37" y="125" width="10" height="82"/>
+                                <rect key="frame" x="38" y="125" width="10" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="XV1-42-e2c" userLabel="liftOneplatePos1L">
-                                <rect key="frame" x="77" y="125" width="10" height="82"/>
+                                <rect key="frame" x="78" y="125" width="10" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="7bx-th-f9l" userLabel="liftOneplatePos7L">
-                                <rect key="frame" x="17" y="125" width="10" height="82"/>
+                                <rect key="frame" x="18" y="125" width="10" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbell.png" id="1R7-5U-ukE">
@@ -359,7 +367,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="AiK-yL-jk9" userLabel="liftOneplatePos8L">
-                                <rect key="frame" x="7" y="125" width="10" height="82"/>
+                                <rect key="frame" x="8" y="125" width="10" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Cd6-DP-nFu" userLabel="liftOneplatePos9R">
@@ -367,11 +375,155 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ubn-2V-tyb" userLabel="liftOneplatePos9L">
-                                <rect key="frame" x="-3" y="125" width="10" height="82"/>
+                                <rect key="frame" x="-2" y="125" width="10" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbell.png" id="nDU-nA-jUQ">
                                 <rect key="frame" x="2" y="99" width="320" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="b4p-1g-GzR" userLabel="liftTwoplatePos2R">
+                                <rect key="frame" x="242" y="265" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="j2n-2l-4Yc" userLabel="liftTwoplatePos3R">
+                                <rect key="frame" x="252" y="265" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="W7V-AH-f52" userLabel="liftTwoplatePos4R">
+                                <rect key="frame" x="262" y="265" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="xY2-Ut-v4g" userLabel="liftTwoplatePos5R">
+                                <rect key="frame" x="272" y="265" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="I0O-Jf-XVY" userLabel="liftTwoplatePos6R">
+                                <rect key="frame" x="282" y="265" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2yT-dE-BTR" userLabel="liftTwoplatePos7R">
+                                <rect key="frame" x="292" y="265" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="LWz-4b-jez" userLabel="liftTwoplatePos8R">
+                                <rect key="frame" x="302" y="265" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Omd-gs-ARw" userLabel="liftTwoplatePos1R">
+                                <rect key="frame" x="232" y="265" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="OBO-9X-B1V" userLabel="liftTwoplatePos9R">
+                                <rect key="frame" x="312" y="265" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="aTd-tx-bDw" userLabel="liftThreeplatePos2R">
+                                <rect key="frame" x="242" y="409" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Etg-qa-fJN" userLabel="liftThreeplatePos3R">
+                                <rect key="frame" x="252" y="409" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Mrf-dK-aaj" userLabel="liftThreeplatePos4R">
+                                <rect key="frame" x="262" y="409" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="UuS-uK-v5Z" userLabel="liftThreeplatePos6R">
+                                <rect key="frame" x="282" y="409" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="DD8-Ax-4Ec" userLabel="liftThreeplatePos7R">
+                                <rect key="frame" x="292" y="409" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Pej-yT-aVF" userLabel="liftThreeplatePos8R">
+                                <rect key="frame" x="302" y="409" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="VRP-ER-WLw" userLabel="liftThreeplatePos1R">
+                                <rect key="frame" x="232" y="409" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="sQb-VJ-GAZ" userLabel="liftThreeplatePos9R">
+                                <rect key="frame" x="312" y="409" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="jhA-ef-oNm" userLabel="liftTwoplatePos6L">
+                                <rect key="frame" x="28" y="265" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="F3D-BK-uEw" userLabel="liftTwoplatePos4L">
+                                <rect key="frame" x="48" y="265" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Box-xx-zzn" userLabel="liftTwoplatePos3L">
+                                <rect key="frame" x="58" y="265" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="hid-27-rBc" userLabel="liftTwoplatePos2L">
+                                <rect key="frame" x="68" y="265" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ZJJ-ci-sTc" userLabel="liftTwoplatePos5L">
+                                <rect key="frame" x="38" y="265" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="GDk-Yr-1Qa" userLabel="liftTwoplatePos1L">
+                                <rect key="frame" x="78" y="265" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Xcc-ds-KN6" userLabel="liftTwoplatePos7L">
+                                <rect key="frame" x="18" y="265" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="LHk-7J-SCx" userLabel="liftTwoplatePos8L">
+                                <rect key="frame" x="8" y="265" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="l9R-RO-T04" userLabel="liftTwoplatePos9L">
+                                <rect key="frame" x="-2" y="265" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="GfO-Xr-DT3" userLabel="liftThreeplatePos6L">
+                                <rect key="frame" x="28" y="409" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="gee-vY-dfl" userLabel="liftThreeplatePos4L">
+                                <rect key="frame" x="48" y="409" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="wNR-Zy-uyv" userLabel="liftThreeplatePos3L">
+                                <rect key="frame" x="58" y="409" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="37a-ei-dwt" userLabel="liftThreeplatePos2L">
+                                <rect key="frame" x="68" y="409" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="7Pd-Zv-ugT" userLabel="liftThreeplatePos5L">
+                                <rect key="frame" x="38" y="409" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="6ku-05-OUN" userLabel="liftThreeplatePos1L">
+                                <rect key="frame" x="78" y="409" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="7ci-Y5-37q" userLabel="liftThreeplatePos7L">
+                                <rect key="frame" x="18" y="409" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="P5i-L1-vSU" userLabel="liftThreeplatePos8L">
+                                <rect key="frame" x="8" y="409" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fdr-Ey-Z8q" userLabel="liftThreeplatePos9L">
+                                <rect key="frame" x="-2" y="409" width="10" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="QyP-e7-BL4" userLabel="liftThreeplatePos5R">
+                                <rect key="frame" x="272" y="409" width="10" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -382,10 +534,62 @@
                         <outlet property="cycleLabel" destination="xW3-OC-a9n" id="PQJ-rr-Phi"/>
                         <outlet property="dateLabel" destination="cBS-s9-vz0" id="3D8-fZ-eWL"/>
                         <outlet property="liftOneLabel" destination="D1D-e1-MUi" id="zrU-og-4Hp"/>
+                        <outlet property="liftOnePlatePos2R" destination="RxW-Wn-hgR" id="ZFD-iZ-zA6"/>
+                        <outlet property="liftOnePlatePos3R" destination="r1l-y1-xqT" id="tJO-qX-fVT"/>
+                        <outlet property="liftOnePlatePos4R" destination="Vgg-uP-BMw" id="NCp-88-3W7"/>
+                        <outlet property="liftOnePlatePos5R" destination="l64-Gw-L4B" id="KGU-wE-SKz"/>
+                        <outlet property="liftOnePlatePos6R" destination="MRw-Yu-C57" id="4N7-9h-ws1"/>
+                        <outlet property="liftOnePlatePos7R" destination="PWd-3A-PBM" id="obu-i2-VM1"/>
+                        <outlet property="liftOnePlatePos8R" destination="bcR-bV-njj" id="A57-yQ-kyy"/>
                         <outlet property="liftOneplatePos1L" destination="XV1-42-e2c" id="kDn-bm-VTS"/>
                         <outlet property="liftOneplatePos1R" destination="kmB-G9-5nD" id="mjo-Tp-v09"/>
+                        <outlet property="liftOneplatePos2L" destination="eLa-TR-yzY" id="Sfk-Ei-ddN"/>
+                        <outlet property="liftOneplatePos3L" destination="WYz-fI-S2p" id="dZF-Hm-a7Z"/>
+                        <outlet property="liftOneplatePos4L" destination="hMd-pT-YMD" id="gdj-8t-dyg"/>
+                        <outlet property="liftOneplatePos5L" destination="4Da-qC-aTM" id="k58-ht-yX5"/>
+                        <outlet property="liftOneplatePos6L" destination="l7G-Gu-wcK" id="0bI-TZ-YBt"/>
+                        <outlet property="liftOneplatePos7L" destination="7bx-th-f9l" id="KHt-Yp-lsI"/>
+                        <outlet property="liftOneplatePos8L" destination="AiK-yL-jk9" id="7o1-Ch-Lha"/>
+                        <outlet property="liftOneplatePos9L" destination="ubn-2V-tyb" id="Imt-O5-ySe"/>
+                        <outlet property="liftOneplatePos9R" destination="Cd6-DP-nFu" id="HV4-JM-AeP"/>
                         <outlet property="liftThreeLabel" destination="QMG-qe-xQw" id="euW-1l-nM9"/>
+                        <outlet property="liftThreeplatePos1L" destination="6ku-05-OUN" id="bkq-3g-Vsc"/>
+                        <outlet property="liftThreeplatePos1R" destination="VRP-ER-WLw" id="s9j-Xv-M2o"/>
+                        <outlet property="liftThreeplatePos2L" destination="37a-ei-dwt" id="1c7-SI-bGh"/>
+                        <outlet property="liftThreeplatePos2R" destination="aTd-tx-bDw" id="PVf-wS-tFB"/>
+                        <outlet property="liftThreeplatePos3L" destination="wNR-Zy-uyv" id="4FX-hh-Oqq"/>
+                        <outlet property="liftThreeplatePos3R" destination="Etg-qa-fJN" id="lWt-Xt-K38"/>
+                        <outlet property="liftThreeplatePos4L" destination="gee-vY-dfl" id="CMf-5V-NqQ"/>
+                        <outlet property="liftThreeplatePos4R" destination="Mrf-dK-aaj" id="vaq-bg-DZX"/>
+                        <outlet property="liftThreeplatePos5L" destination="7Pd-Zv-ugT" id="8bh-hk-J6c"/>
+                        <outlet property="liftThreeplatePos5R" destination="QyP-e7-BL4" id="f4S-PW-DXq"/>
+                        <outlet property="liftThreeplatePos6L" destination="GfO-Xr-DT3" id="haO-df-ebt"/>
+                        <outlet property="liftThreeplatePos6R" destination="UuS-uK-v5Z" id="tPH-H1-Zwo"/>
+                        <outlet property="liftThreeplatePos7L" destination="7ci-Y5-37q" id="3hU-e3-mF4"/>
+                        <outlet property="liftThreeplatePos7R" destination="DD8-Ax-4Ec" id="6Gz-jO-AEq"/>
+                        <outlet property="liftThreeplatePos8L" destination="P5i-L1-vSU" id="TZp-oh-Ojv"/>
+                        <outlet property="liftThreeplatePos8R" destination="Pej-yT-aVF" id="2RG-B8-ANN"/>
+                        <outlet property="liftThreeplatePos9L" destination="fdr-Ey-Z8q" id="K4m-R1-D1v"/>
+                        <outlet property="liftThreeplatePos9R" destination="sQb-VJ-GAZ" id="feT-Sm-9Jw"/>
                         <outlet property="liftTwoLabel" destination="nyh-Nu-8eN" id="0jl-k2-be8"/>
+                        <outlet property="liftTwoPlatePos1L" destination="GDk-Yr-1Qa" id="eVf-xf-bJ2"/>
+                        <outlet property="liftTwoPlatePos1R" destination="Omd-gs-ARw" id="H1x-T5-Ln8"/>
+                        <outlet property="liftTwoPlatePos2L" destination="hid-27-rBc" id="jHJ-bY-vRW"/>
+                        <outlet property="liftTwoPlatePos2R" destination="b4p-1g-GzR" id="Tcf-cv-Dqr"/>
+                        <outlet property="liftTwoPlatePos3L" destination="Box-xx-zzn" id="xgO-D0-Nca"/>
+                        <outlet property="liftTwoPlatePos3R" destination="j2n-2l-4Yc" id="CJZ-bO-9vK"/>
+                        <outlet property="liftTwoPlatePos4L" destination="F3D-BK-uEw" id="rD9-Gf-5N2"/>
+                        <outlet property="liftTwoPlatePos4R" destination="W7V-AH-f52" id="dOn-r2-8ug"/>
+                        <outlet property="liftTwoPlatePos5L" destination="ZJJ-ci-sTc" id="RC9-Sg-RbN"/>
+                        <outlet property="liftTwoPlatePos5R" destination="xY2-Ut-v4g" id="Pwo-DH-iFs"/>
+                        <outlet property="liftTwoPlatePos6L" destination="jhA-ef-oNm" id="3ui-7e-I3S"/>
+                        <outlet property="liftTwoPlatePos6R" destination="I0O-Jf-XVY" id="TrE-9A-E1s"/>
+                        <outlet property="liftTwoPlatePos7L" destination="Xcc-ds-KN6" id="snM-F1-9HG"/>
+                        <outlet property="liftTwoPlatePos7R" destination="2yT-dE-BTR" id="iYT-JE-Q4v"/>
+                        <outlet property="liftTwoPlatePos8L" destination="LHk-7J-SCx" id="Vrn-ix-kqy"/>
+                        <outlet property="liftTwoPlatePos8R" destination="LWz-4b-jez" id="xTi-Cl-gPA"/>
+                        <outlet property="liftTwoPlatePos9L" destination="l9R-RO-T04" id="MUO-uC-3ud"/>
+                        <outlet property="liftTwoPlatePos9R" destination="OBO-9X-B1V" id="vOC-xZ-906"/>
                         <outlet property="typeFreqLabel" destination="Xge-oJ-c85" id="dn8-uv-lRM"/>
                     </connections>
                 </viewController>

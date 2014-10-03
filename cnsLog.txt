@@ -26,10 +26,14 @@ database info: http://www.techotopia.com/index.php/An_Example_SQLite_based_iOS_7
 9-25-14: Releasing by end of month probably isn't happening and shouldn't be rushed anyway. Implemented a click listener which is basically a segue wrapper to open an individual view with the clicked (touched?) table cell in question. Cleaned up code a bit, fixed obvious warnings, left some that need to be looked at closer. Analytics not currently working, need to take a look at that and support decimal entries, and if I end up coming up with a decision for either of my current considerations below, tackling them will be on my tasklist as well.
 9-30-14: Finally got analytics to (somewhat) work - the real time stuff seems to be working properly, however the regular metrics do not seem to be showing up, hoping it's just a lag issue but will double check analytics in morning. Got decimal entries supported, did not really test much. UI testing might be something good to get into. Barbell generation needs finished and then possibly some cutesy UI changes and I think this is good to go for a more or less bare bones version 1.0. Just make sure the UI is smooth before your initial release. You may want to end up including dashboard after prototyping on android
 10-1-14: Got solid base started for barbell image generation, just need to think about the best way to implement the logic so it doesn't become procedural and horribly ugly like the android version did. This app is going to mean lean and clean unlike its brother. iPhone 4s will not be able to run the individual view stuff but it's not worth smushing features when it looks about right on both the 5 and 6. Add in pretty logic and dashboarding and its buttons are next. Think about plate logic tomorrow. Or even implement it if you have time:) 
+Don't forget about kilogram support and the odd database previous entry bug you've been seeing.
+10-2-14: Got pound barbell generation completely done, one or two methods need to be added for kilograms (basically define the indexed images with a switch and give the array of weights 25kg, 20kg etc..)
 TODO:
-Barbell generation
+Cleanup - move the array declarations to be class variables. you're losing performance having them redeclared every single time that method is called. 
+Add a rounding function to generateWeights or you're gonna have a bad time.
+Add kg support
 Some sort of dashboard (Prototyping on android perhaps?)
 SMALL CONCERN: When you start supporting "View exisiting pattern" will your currently "View disappeared" code get in the way?
 CONSIDERATION:
  How will you support view existing projection?
- How will you do barbell generation?
+ How will you do barbell generation? in one day ;) 
