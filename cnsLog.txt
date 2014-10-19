@@ -28,6 +28,7 @@ database info: http://www.techotopia.com/index.php/An_Example_SQLite_based_iOS_7
 10-1-14: Got solid base started for barbell image generation, just need to think about the best way to implement the logic so it doesn't become procedural and horribly ugly like the android version did. This app is going to mean lean and clean unlike its brother. iPhone 4s will not be able to run the individual view stuff but it's not worth smushing features when it looks about right on both the 5 and 6. Add in pretty logic and dashboarding and its buttons are next. Think about plate logic tomorrow. Or even implement it if you have time:) 
 Don't forget about kilogram support and the odd database previous entry bug you've been seeing.
 10-2-14: Got pound barbell generation completely done, one or two methods need to be added for kilograms (basically define the indexed images with a switch and give the array of weights 25kg, 20kg etc..)
+10-18-14: Started to add back end to next butotn, translation is the only thing really worried about but it is mildly hairy just because of how you deal with dates in iOS compared to android. Your incrementDay function is broken and I imagine there will be some other stuff once you get past that
 TODO:
 Cleanup - move the array declarations to be class variables. you're losing performance having them redeclared every single time that method is called. 
 Add a rounding function to generateWeights or you're gonna have a bad time.

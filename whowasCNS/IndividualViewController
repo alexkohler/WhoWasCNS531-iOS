@@ -38,7 +38,7 @@
     [self generateWeights:[_liftOne integerValue] forLift:1];
     [self generateWeights:[_liftTwo integerValue] forLift:2];
     [self generateWeights:[_liftThree integerValue] forLift:3];
-    //don't forget about rounding ###############################################################################################################################
+    //don't forget about rounding
 }
 
 - (IBAction)getNextLift:(id)sender {
@@ -213,20 +213,8 @@
         //call our methods with our new database toys here.
         //to start, let's just try to open the database.
         ConfigTool* configtool = [[ConfigTool alloc] init];
-        
-        NSArray* predata =[configtool getNextLift:_date withPattern:_pattern andCurrentLift:_typeFreq withMode:_viewMode];
-       // result = helper.getNextLift(c1, liftPattern, liftType, viewMode);//getNextLiftDefault returns a result array which has nextLift and incrementedString
-        //nextLift = result[0];
-      //  incrementedString = result[1];
-        
-        
         [configtool openDB:YES withContactDB:_contactDB];
-        
         //grab our data here....
-        NSArray* data = [configtool configureNextSetWithDate:_date withLift:_typeFreq withView:_viewMode /*withUnitMode:_usingLbs*/ withPattern:_pattern withContactDB:_contactDB withRounding:_rounding]; //will have to parse out typefreq
-        [configtool openDB:NO withContactDB:_contactDB];
-
-        
         destViewController.date = @"9-machy-93";
         destViewController.cycle = @"3";
         destViewController.typeFreq = @"typeofway";
@@ -236,8 +224,6 @@
         destViewController.usingLbs = _usingLbs;
     }
 }
-
-
 
 
 

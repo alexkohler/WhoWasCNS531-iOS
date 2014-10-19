@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "whowasCNS/TableDisplay.m"
-            timestampString = "433903698.053684"
+            timestampString = "435370190.673019"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "417"
-            endingLineNumber = "417"
+            startingLineNumber = "381"
+            endingLineNumber = "381"
             landmarkName = "-actionSheet:clickedButtonAtIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -88,11 +88,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "whowasCNS/TableDisplay.m"
-            timestampString = "433903698.053684"
+            timestampString = "435370190.673019"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "287"
-            endingLineNumber = "287"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "-populateArrays:"
             landmarkType = "5">
          </BreakpointContent>
@@ -110,6 +110,38 @@
             startingLineNumber = "434"
             endingLineNumber = "434"
             landmarkName = "-setCurrentLift:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "whowasCNS/ConfigTool.m"
+            timestampString = "435372086.163151"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "-configureNextSetWithDate:withLift:withView:withPattern:withContactDB:withRounding:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "whowasCNS/ConfigTool.m"
+            timestampString = "435372294.50191"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "-incrementCal:withDays:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

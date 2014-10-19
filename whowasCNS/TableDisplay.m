@@ -43,6 +43,7 @@
         }
         
         _curView = DEFAULT_V; //the fact that this isn't static may open up a can of worms
+        curViewString = @"DEFAULT_V";
         Processor  = [[DateAndLiftProcessor alloc] init];
         
         trainingMaxStreamLabel.text = [NSString stringWithFormat:@"%@",_trainingMaxStream];
@@ -154,49 +155,6 @@
 }
 
 
-/*-(void)getData:(NSString*)whereClause
-{	NSString *queryStatement = @"SELECT * FROM lifts";
-    // You're gonna have to mess with whereclause syntax, may not just be a simple string like it was in android
-	//liftDate text not null, Cycle integer, Lift text not null, Frequency text not null, First_Lift real, Second_Lift real, Third_Lift real, Training_Max integer, column_lbFlag integer
-    if (![whereClause isEqualToString:@""])//if we do not have an empty query
-    {
-        queryStatement = [queryStatement stringByAppendingString:@" "];
-        queryStatement = [queryStatement stringByAppendingString:whereClause];
-    }
-	
-	
-    // Prepare the query for execution
-    sqlite3_stmt *statement;
-    if (sqlite3_prepare_v2(_contactDB, [queryStatement UTF8String], -1, &statement, NULL) == SQLITE_OK)
-    {
-        // Create a new address from the found row
-        while (sqlite3_step(statement) == SQLITE_ROW)
-		{
-			
-            char *liftDate = (char*) sqlite3_column_text(statement, 0);
-			int cycle = sqlite3_column_int(statement, 1);
-			char *liftType = (char*) sqlite3_column_text(statement, 2);
-			char *frequency = (char*) sqlite3_column_text(statement, 3);
-			double firstlift = (double) sqlite3_column_double(statement, 4);
-			double secondlift = (double) sqlite3_column_double(statement, 5);
-			double thirdlift = (double) sqlite3_column_double(statement, 6);
-			
-			//these may be able to go into a single statement
-            
-			NSString *liftDateString   = [NSString stringWithUTF8String:liftDate];
-			NSString* cycleString 	   = [NSString stringWithFormat:@"%i", cycle];
-			NSString *liftTypeString   = [NSString stringWithUTF8String:liftType];
-			NSString *frequencyString  = [NSString stringWithUTF8String:frequency];
-			NSString* firstliftString  = [NSString stringWithFormat:@"%g", firstlift];
-			NSString* secondliftString = [NSString stringWithFormat:@"%g", secondlift];
-			NSString* thirdliftString  = [NSString stringWithFormat:@"%g", thirdlift];
-			
-			//training max is also something you will need to worry about for when you start supporting view existing database
-			//createColumn:liftDate withCycle:cycle liftType:liftType freq:frequency first:firstlift second:secondlift third:thirdlift; //either createColumn or a addToBuffer method or the like
-		}
-        sqlite3_finalize(statement);
-    }
-}*/
 
 //query to grab lbMode
 //select column_lbFlag from lifts limit 1
@@ -224,7 +182,6 @@
     
     
 }
-
 
 -(void)populateArrays:(NSString*) whereClause
 {
@@ -388,30 +345,37 @@
             case 0:  // Bench only
                 [self populateArrays:@"where lift = 'Bench'"];
                 _curView = BENCH_V;
+                curViewString = @"BENCH_V";
                 break;
             case 1://Squat only
                 [self populateArrays:@"where lift = 'Squat'"];
                 _curView = SQUAT_V;
+                curViewString = @"SQUAT_V";
                 break;
             case 2: //OHP only
                 [self populateArrays:@"where lift = 'OHP'"];
                 _curView = OHP_V;
+                curViewString = @"OHP_V";
                 break;
             case 3: //Deadlift only
                 [self populateArrays:@"where lift = 'Deadlift'"];
                 _curView = DEAD_V;
+                curViewString = @"DEAD_V";
                 break;
             case 4: //5-5-5 only
                 [self populateArrays:@"where Frequency = '5-5-5'"];
                 _curView = FIVES_V;
+                curViewString = @"FIVES_V";
                 break;
             case 5: //3-3-3 only
                 [self populateArrays:@"where Frequency = '3-3-3'"];
                 _curView = THREES_V;
+                curViewString = @"THREES_V";
                 break;
             case 6: //5-3-1 only
                 [self populateArrays:@"where Frequency = '5-3-1'"];
                 _curView = ONES_V;
+                curViewString = @"ONES_V";
                 break;
         }
         [liftTableView reloadData];
@@ -509,6 +473,16 @@
         [self openDB:YES];
         destViewController.usingLbs = [self getUnitModeFromDatabase];
         [self openDB:NO];
+        
+        //db dependencies
+        destViewController.databasePath = _databasePath;
+        destViewController.contactDB = _contactDB;
+        destViewController.status = _status;
+        
+        //also need lift type, pattern, and rounding boolean
+        destViewController.pattern = _patternArray;
+        destViewController.rounding = _usingRounding;
+        destViewController.viewMode = curViewString;
         
     }
 }

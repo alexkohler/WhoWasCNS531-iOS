@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <sqlite3.h>
 
 @interface IndividualViewController : UIViewController
+{
+    
+}
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) IBOutlet UILabel *typeFreqLabel;
 @property (strong, nonatomic) IBOutlet UILabel *liftOneLabel;
@@ -23,7 +27,15 @@
 @property (strong, nonatomic)  NSString *cycle;
 @property (nonatomic)  BOOL usingLbs;
 
+// for sake of accessing db
+@property (strong, nonatomic) NSString *databasePath;
+@property (nonatomic) sqlite3 *contactDB;
+@property (strong, nonatomic) IBOutlet UILabel *status;
 
+//additional params needed for ConfigTool
+@property (strong, nonatomic) NSArray *pattern;
+@property (nonatomic) BOOL rounding;
+@property (nonatomic) NSString* viewMode;
 //Plate positions - Lift one
 @property (strong, nonatomic) IBOutlet UIImageView *liftOneplatePos1R;
 @property (strong, nonatomic) IBOutlet UIImageView *liftOnePlatePos2R;

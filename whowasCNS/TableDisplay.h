@@ -31,6 +31,9 @@
       DateAndLiftProcessor* Processor;
     IBOutlet UITableView * liftTableView;
     
+    
+    NSString* curViewString; //because I'm too lazy to create a string to enum method
+    
 }
 typedef enum {DEFAULT_V, BENCH_V, SQUAT_V, OHP_V, DEAD_V, FIVES_V, THREES_V, ONES_V} CURRENT_VIEW;
 typedef enum {FIVE, THREE, ONE} CURRENT_FREQ;
