@@ -59,7 +59,7 @@
 -(NSString *)formatDateDate:(NSDate *)initialDate;
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];//change locale bullshit
     //[dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
     NSString* result = [dateFormatter stringFromDate:initialDate];

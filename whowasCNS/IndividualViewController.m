@@ -220,20 +220,22 @@
       //  incrementedString = result[1];
         
         
-        [configtool openDB:YES withContactDB:_contactDB];
-        
-        //grab our data here....
-        NSArray* data = [configtool configureNextSetWithDate:_date withLift:_typeFreq withView:_viewMode /*withUnitMode:_usingLbs*/ withPattern:_pattern withContactDB:_contactDB withRounding:_rounding]; //will have to parse out typefreq
+     
+             //grab our data here....
+        NSArray* data = [configtool configureNextSetWithDate:predata[1] withLift:predata[0] withView:_viewMode /*withUnitMode:_usingLbs*/ withPattern:_pattern withContactDB:_contactDB withRounding:_rounding]; //will have to parse out typefreq
         [configtool openDB:NO withContactDB:_contactDB];
-
+        //date, freq, 1,2,3 cycle
         
-        destViewController.date = @"9-machy-93";
-        destViewController.cycle = @"3";
-        destViewController.typeFreq = @"typeofway";
-        destViewController.liftOne = @"123";
-        destViewController.liftTwo = @"234";
-        destViewController.liftThree = @"456";
+        destViewController.date = data[0];
+        destViewController.typeFreq = [[predata[0] stringByAppendingString:@" - "] stringByAppendingString:data[1]];
+        destViewController.liftOne = data[2];
+        destViewController.liftTwo = data[3];
+        destViewController.liftThree = data[4];
+        destViewController.cycle = data[5];
         destViewController.usingLbs = _usingLbs;
+        destViewController.pattern = _pattern;
+        destViewController.viewMode = _viewMode;
+
     }
 }
 
