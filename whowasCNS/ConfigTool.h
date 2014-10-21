@@ -22,6 +22,6 @@
 -(NSString*) incrementCal:(NSString*)CURRENT_DATE_CAL withDays:(int) days;
 -(void) setDate:(NSString*) formattedDate;
 -(void)openDB:(bool)yesOrNo withContactDB:(sqlite3*) contactDB;
--(NSArray*) configureNextSetWithDate:(NSString*) myDate withLift:(NSString*)myNextLift withView:(NSString*)viewMode /*withUnitMode:(NSString*)lbMode*/ withPattern:(NSArray*) pattern withContactDB:(sqlite3*) contactDB withRounding:(BOOL) usingRounding;
+-(NSArray*) configureNextSetWithDate:(NSString*) myDate withLift:(NSString*)myNextLift withView:(NSString*)viewMode /*withUnitMode:(NSString*)lbMode*/ withPattern:(NSArray*) pattern withContactDB:(sqlite3*) contactDB withRounding:(BOOL) usingRounding withDirection:(NSString*) nextOrBack;
 -(NSArray*) getNextLift:(NSString*) c1 withPattern:(NSArray*) myPattern andCurrentLift:(NSString*) currentLift withMode:(NSString*) viewMode;
 @end

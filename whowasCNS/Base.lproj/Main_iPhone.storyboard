@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="M0u-I3-CoH">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -289,6 +290,10 @@
                                 <rect key="frame" x="90" y="215" width="141" height="181"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbell.png" id="VTE-p6-tHp">
+                                <rect key="frame" x="88" y="359" width="141" height="181"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbell.png" id="GBi-BZ-igv">
                                 <rect key="frame" x="0.0" y="229" width="320" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -529,7 +534,6 @@
                                 </state>
                                 <connections>
                                     <action selector="getNextLift:" destination="v76-3y-nYY" eventType="touchUpInside" id="bIi-wT-enn"/>
-                                    <segue destination="v76-3y-nYY" kind="push" identifier="indViewNextSegue" id="dBn-Q7-79J"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="olb-zv-cYI">
@@ -539,10 +543,27 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbell.png" id="VTE-p6-tHp">
-                                <rect key="frame" x="88" y="359" width="141" height="181"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reached end of Projection!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zhq-F1-iHq" userLabel="EOFSOFText">
+                                <rect key="frame" x="56" y="387" width="208" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ByH-HH-qDl">
+                                <rect key="frame" x="143" y="269" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="segueButton">
+                                    <accessibilityTraits key="traits" none="YES" button="YES" notEnabled="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="v76-3y-nYY" kind="push" identifier="indViewNextSegue" id="alx-7z-W5x"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -550,6 +571,7 @@
                     <connections>
                         <outlet property="cycleLabel" destination="xW3-OC-a9n" id="PQJ-rr-Phi"/>
                         <outlet property="dateLabel" destination="cBS-s9-vz0" id="3D8-fZ-eWL"/>
+                        <outlet property="eofText" destination="Zhq-F1-iHq" id="W6a-pG-xNk"/>
                         <outlet property="liftOneLabel" destination="D1D-e1-MUi" id="zrU-og-4Hp"/>
                         <outlet property="liftOnePlatePos2R" destination="RxW-Wn-hgR" id="ZFD-iZ-zA6"/>
                         <outlet property="liftOnePlatePos3R" destination="r1l-y1-xqT" id="tJO-qX-fVT"/>
@@ -607,6 +629,7 @@
                         <outlet property="liftTwoPlatePos8R" destination="LWz-4b-jez" id="xTi-Cl-gPA"/>
                         <outlet property="liftTwoPlatePos9L" destination="l9R-RO-T04" id="MUO-uC-3ud"/>
                         <outlet property="liftTwoPlatePos9R" destination="OBO-9X-B1V" id="vOC-xZ-906"/>
+                        <outlet property="segueButton" destination="ByH-HH-qDl" id="Lf8-NN-T6E"/>
                         <outlet property="typeFreqLabel" destination="Xge-oJ-c85" id="dn8-uv-lRM"/>
                     </connections>
                 </viewController>

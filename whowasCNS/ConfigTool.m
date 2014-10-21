@@ -133,52 +133,29 @@
 
 //why is lbMode not used?
 
--(NSArray*) configureNextSetWithDate:(NSString*) myDate withLift:(NSString*)myNextLift withView:(NSString*)viewMode /*withUnitMode:(NSString*)lbMode*/ withPattern:(NSArray*) pattern withContactDB:(sqlite3*) contactDB withRounding:(BOOL) usingRounding
+-(NSArray*) configureNextSetWithDate:(NSString*) myDate withLift:(NSString*)myNextLift withView:(NSString*)viewMode /*withUnitMode:(NSString*)lbMode*/ withPattern:(NSArray*) pattern withContactDB:(sqlite3*) contactDB withRounding:(BOOL) usingRounding withDirection:(NSString*) nextOrBack
+
 {
     sqlite3_stmt *statement;
     char *liftDate;
-    NSString *liftDateString;
+    NSString *liftDateString = @"";
     int cycle;
-    NSString* cycleString;
+    NSString* cycleString = @"";
     char *liftType;
     NSString *liftTypeString;
     NSString* liftBuffer;
     double firstlift;
     double secondlift;
     double thirdlift;
-    NSString* firstliftString;
-    NSString* secondliftString;
-    NSString* thirdliftString;
+    NSString* firstliftString = @"";
+    NSString* secondliftString = @"";
+    NSString* thirdliftString = @"";
     char *frequency;
-    NSString *frequencyString;
+    NSString *frequencyString = @"";
+    NSString *eofText  =  @"";//initialized for sake of passing array back in case of edge case
+
     
- /*   if (sqlite3_open(dbpath, &contactDB) == SQLITE_OK)
-    {
-        NSLog(@"Opened DB");
-        NSString *querySQL = [NSString stringWithFormat:@"SELECT name FROM contacts"];
-        
-        const char *query_stmt = [querySQL UTF8String];
-        NSLog(@"could not prepare statement: %s\n", sqlite3_errmsg(contactDB));
-        
-        if (sqlite3_prepare_v2(contactDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
-            //if (sqlite3_step(query_stmt) == SQLITE_DONE)
-        {
-            //NSLog(@"SQLite OK");
-            NSLog(@"SQLite ok");
-            //if (sqlite3_step(statement) == SQLITE_ROW)
-            //{
-            while(sqlite3_step(statement) == SQLITE_ROW) {
-                NSLog(@"SQLite ROW");
-                NSString *person = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
-                [personsList addObject:person];
-            }
-            //} else {
-            //    NSLog(@"Emtpy list");
-            //}
-            sqlite3_finalize(statement);
-        }
-        sqlite3_close(contactDB);
-    }*/
+    //    NSArray* resultsForward = @[liftDateString, frequencyString, firstliftString, secondliftString, thirdliftString, cycleString, eofText];
     
     // NEED TO WORRY ABOUT EDGE CASES - see how ios sqlite3 handles a bad query
    NSArray* dirPaths = NSSearchPathForDirectoriesInDomains(
@@ -192,13 +169,14 @@
       if (sqlite3_open(dbpath, &contactDB) == SQLITE_OK)
     {
     //    NSLog(@"Opened DB");
-        
+        bool atLeastOneIteratation = NO;
         NSString* queryStatement = [NSString stringWithFormat:@"SELECT * FROM LIFTS WHERE liftDate = '%@' AND Lift = '%@'", myDate, myNextLift];
         if (sqlite3_prepare_v2(contactDB, [queryStatement UTF8String], -1, &statement, NULL) == SQLITE_OK)
         {
             // Create a new address from the found row
             while (sqlite3_step(statement) == SQLITE_ROW)
             {
+                atLeastOneIteratation = YES;
                 //date
                 liftDate = (char*) sqlite3_column_text(statement, 0);
                 liftDateString = [NSString stringWithUTF8String:liftDate];
@@ -265,8 +243,22 @@
                     }
                     liftBuffer = [NSString stringWithFormat:@"%@ - 5-3-1", liftTypeString];
                 }
-
+                eofText = @"";
            
+            }
+            if (!atLeastOneIteratation)
+            {
+                if ([nextOrBack isEqualToString:@"Next"])
+                {
+                 NSLog(@"Bad query");
+                 eofText = @"End of projection.";
+                }
+                else if ([nextOrBack isEqualToString:@"Prev"])
+                {
+                    NSLog(@"Bad query");
+                    eofText = @"This is the start of your projection.";
+                }
+
             }
             sqlite3_finalize(statement);
         }
@@ -282,7 +274,7 @@
     
  
 
-    NSArray* resultsForward = @[liftDateString, frequencyString, firstliftString, secondliftString, thirdliftString, cycleString];
+    NSArray* resultsForward = @[liftDateString, frequencyString, firstliftString, secondliftString, thirdliftString, cycleString, eofText];
     return resultsForward;
 
 }

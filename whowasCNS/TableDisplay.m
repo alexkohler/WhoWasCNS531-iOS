@@ -484,6 +484,8 @@
         destViewController.rounding = _usingRounding;
         destViewController.viewMode = curViewString;
         
+        destViewController.eofString = @"";
+        
     }
 }
 

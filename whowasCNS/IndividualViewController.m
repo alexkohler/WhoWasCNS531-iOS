@@ -35,13 +35,31 @@
     _liftTwoLabel.text = _liftTwo;
     _liftThreeLabel.text = _liftThree;
     _cycleLabel.text = _cycle;
+    _eofText.text = _eofString;
     [self generateWeights:[_liftOne integerValue] forLift:1];
     [self generateWeights:[_liftTwo integerValue] forLift:2];
     [self generateWeights:[_liftThree integerValue] forLift:3];
+    [_segueButton setUserInteractionEnabled:NO];
     //don't forget about rounding ###############################################################################################################################
 }
 
 - (IBAction)getNextLift:(id)sender {
+    
+        ConfigTool* configtool = [[ConfigTool alloc] init];
+        NSArray* predata =[configtool getNextLift:_date withPattern:_pattern andCurrentLift:_typeFreq withMode:_viewMode];
+    // result = helper.getNextLift(c1, liftPattern, liftType, viewMode);//getNextLiftDefault returns a result array which has nextLift and incrementedString
+    //nextLift = result[0];
+    //  incrementedString = result[1];
+    
+    
+    
+    //grab our data here....
+    NSArray* data = [configtool configureNextSetWithDate:predata[1] withLift:predata[0] withView:_viewMode /*withUnitMode:_usingLbs*/ withPattern:_pattern withContactDB:_contactDB withRounding:_rounding withDirection:@"Next"]; //will have to parse out typefreq
+    [configtool openDB:NO withContactDB:_contactDB];
+    if (![data[6] containsString:@"End"])
+    [self performSegueWithIdentifier:@"indViewNextSegue" sender:sender];
+    else
+        self.eofText.text = data[6];
 }
 
 
@@ -205,6 +223,8 @@
     }
 }
 
+
+
 //segue prep - mock hookup for 'next' segue with ID indViewNextSegue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"indViewNextSegue"]) {
@@ -222,10 +242,14 @@
         
      
              //grab our data here....
-        NSArray* data = [configtool configureNextSetWithDate:predata[1] withLift:predata[0] withView:_viewMode /*withUnitMode:_usingLbs*/ withPattern:_pattern withContactDB:_contactDB withRounding:_rounding]; //will have to parse out typefreq
+        NSArray* data = [configtool configureNextSetWithDate:predata[1] withLift:predata[0] withView:_viewMode /*withUnitMode:_usingLbs*/ withPattern:_pattern withContactDB:_contactDB withRounding:_rounding withDirection:@"Next"]; //will have to parse out typefreq
         [configtool openDB:NO withContactDB:_contactDB];
         //date, freq, 1,2,3 cycle
         
+       
+     
+    
+   
         destViewController.date = data[0];
         destViewController.typeFreq = [[predata[0] stringByAppendingString:@" - "] stringByAppendingString:data[1]];
         destViewController.liftOne = data[2];
@@ -235,6 +259,7 @@
         destViewController.usingLbs = _usingLbs;
         destViewController.pattern = _pattern;
         destViewController.viewMode = _viewMode;
+   
 
     }
 }

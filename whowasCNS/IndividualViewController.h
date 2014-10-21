@@ -19,13 +19,18 @@
 @property (strong, nonatomic) IBOutlet UILabel *liftTwoLabel;
 @property (strong, nonatomic) IBOutlet UILabel *liftThreeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *cycleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *eofText;
 @property (strong, nonatomic)  NSString *date;
 @property (strong, nonatomic)  NSString *typeFreq;
 @property (strong, nonatomic)  NSString *liftOne;
 @property (strong, nonatomic)  NSString *liftTwo;
 @property (strong, nonatomic)  NSString *liftThree;
 @property (strong, nonatomic)  NSString *cycle;
+@property (strong, nonatomic) NSString *eofString;
 @property (nonatomic)  BOOL usingLbs;
+@property (strong, nonatomic) IBOutlet UIButton *segueButton;
+
+-(IBAction)nextButtonClicked:(id)sender;
 
 // for sake of accessing db
 @property (strong, nonatomic) NSString *databasePath;
