@@ -33,6 +33,28 @@
 }
 
 
+-(NSString*) decrementCal:(NSString*)CURRENT_DATE_CAL withDays:(NSInteger) days
+{
+    NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
+    dayComponent.day = ( -1 * days);
+    
+    NSCalendar *theCalendar = [NSCalendar currentCalendar];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setTimeZone:[NSTimeZone systemTimeZone]];
+    [dateFormat setLocale:[NSLocale currentLocale]];
+    [dateFormat setDateFormat:@"MM-dd-yyyy"];
+    [dateFormat setFormatterBehavior:NSDateFormatterBehaviorDefault];
+    
+    NSDate* intermediateDate = [dateFormat dateFromString:CURRENT_DATE_CAL];
+    
+    NSDate* incrementedDate = [theCalendar dateByAddingComponents:dayComponent toDate:intermediateDate options:0];
+    [dateFormat setDateFormat:@"MM-dd-yyyy"];
+    //format date here...
+    INCREMENTED_DATE_STRING = [dateFormat stringFromDate:incrementedDate];
+    return INCREMENTED_DATE_STRING;
+}
+
+
 
 -(void) setDate:(NSString*) formattedDate
 {
@@ -98,6 +120,79 @@
     NSArray* resultsForward = @[nextLift, incrementedString];
     return resultsForward;
 }
+
+
+-(NSArray*) getPrevLift:(NSString*) c1 withPattern:(NSArray*) myPattern andCurrentLift:(NSString*) currentLift withMode:(NSString*) viewMode
+{
+    
+    //String[] myPattern = {"Squat", "Rest", "Bench", "Deadlift", "Rest", "OHP"  };
+    //each case: getnextliftfunctiondefault that finds the lift we are at case of, gets the column index, increments (or decrements) that column indexes WHILE incrementing or decrementing the day until it runs into a day that isn't rest.
+    if ([currentLift containsString:@"OHP"])
+        currentLift = @"OHP";
+    else if ([currentLift containsString:@"Bench"])
+        currentLift = @"Bench";
+    else if ([currentLift containsString:@"Squat"])
+        currentLift = @"Squat";
+    else if ([currentLift containsString:@"Dead"])
+        currentLift = @"Deadlift";
+    
+    
+    //returns a 2 dimensioned array, with the first value being nextLift and the second value being incremented string
+    if ([viewMode isEqualToString:@"BENCH_V"] || [viewMode isEqualToString:@"SQUAT_V"] || [viewMode  isEqualToString:@"DEAD_V"] || [viewMode isEqualToString:@"OHP_V"] )
+    {
+        
+        NSString* decrementedString =  [self decrementCal:c1 withDays:[myPattern count]];
+        NSArray* resultsBackward = @[currentLift, decrementedString];
+        return resultsBackward;
+    }
+    
+    
+    
+    int i = 0;
+    NSString* decrementedString = [self incrementCal:c1 withDays:0];
+    //find our column index of our current lift...
+    while (![myPattern[i] isEqualToString:currentLift])
+        i++;
+    //we need to increment at least once, but there may be more than one rest day we we have loop implemented..
+    int j = i - 1;//set a new incrementer for i
+    if (j < 0){//don't allow negatives
+        j = [myPattern count] - 1; // put j back at the top
+        if ([viewMode isEqualToString:@"FIVES_V"] || [viewMode isEqualToString:@"THREES_V"] || [viewMode isEqualToString:@"ONES_V"])
+            decrementedString = [self decrementCal:decrementedString  withDays:(2 * [myPattern count])];//so we must run through a full cycle twice.
+    }
+    decrementedString = [self decrementCal:decrementedString withDays:1];
+    if (j == 0 && [myPattern[j] isEqualToString:@"Rest"]){//rest part is for bounds protection, if it is not equal to rest we don't need to worry about it going into the next while loop, we already found our prevlift
+        j = [myPattern count] - 1; //start at the top
+            if ([viewMode isEqualToString:@"FIVES_V"] || [viewMode isEqualToString:@"THREES_V"] || [viewMode isEqualToString:@"ONES_V"])
+                decrementedString = [self decrementCal:decrementedString withDays:(2 * [myPattern count])];//so we must run through a full cycle twice.
+    }
+    while ([myPattern[j] isEqualToString:@"Rest"])
+    {
+        j--;
+        decrementedString = [self decrementCal:decrementedString withDays:1];
+        if (j == 0  && [myPattern[j] isEqualToString:@"Rest"])
+        {
+            j = [myPattern count] - 1; //go back to top (based on index)
+            if ([viewMode isEqualToString:@"FIVES_V"] || [viewMode isEqualToString:@"THREES_V"] || [viewMode isEqualToString:@"ONES_V"])
+                decrementedString = [self decrementCal:decrementedString withDays:(2 * [myPattern count])];//so we must run through a full cycle twice.
+        }
+    }
+    //assert: if we broke out of this loop then myPattern[j] is NOT a rest day, and hence our next lift
+    NSString* prevLift = myPattern[j];
+    
+   // resultsBackward[0] = prevLift;
+    //resultsBackward[1] = decrementedString;
+    NSArray* resultsBackward = @[prevLift, decrementedString];
+    
+    
+    return resultsBackward;
+    
+    
+    
+    
+}
+
+
 
 
 -(void)openDB:(bool)yesOrNo withContactDB:(sqlite3*) contactDB 
@@ -256,7 +351,7 @@
                 else if ([nextOrBack isEqualToString:@"Prev"])
                 {
                     NSLog(@"Bad query");
-                    eofText = @"This is the start of your projection.";
+                    eofText = @"Start of your projection.";
                 }
 
             }

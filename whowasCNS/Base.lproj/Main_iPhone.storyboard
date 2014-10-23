@@ -240,7 +240,7 @@
         <!--Individual View-->
         <scene sceneID="5Rk-tV-whU">
             <objects>
-                <viewController id="v76-3y-nYY" userLabel="Individual View" customClass="IndividualViewController" sceneMemberID="viewController">
+                <viewController title="IndividualView" id="v76-3y-nYY" userLabel="Individual View" customClass="IndividualViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CUP-4H-LqG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -289,6 +289,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbell.png" id="pw7-zj-rJq">
                                 <rect key="frame" x="90" y="215" width="141" height="181"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                </accessibility>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barbell.png" id="VTE-p6-tHp">
                                 <rect key="frame" x="88" y="359" width="141" height="181"/>
@@ -542,6 +545,9 @@
                                 <state key="normal" title="Prev">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="getPrevLift:" destination="v76-3y-nYY" eventType="touchUpInside" id="PqK-bV-2Ed"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reached end of Projection!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zhq-F1-iHq" userLabel="EOFSOFText">
                                 <rect key="frame" x="56" y="387" width="208" height="21"/>
@@ -553,7 +559,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ByH-HH-qDl">
                                 <rect key="frame" x="143" y="269" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" label="segueButton">
+                                <accessibility key="accessibilityConfiguration" label="nextSegueButton">
                                     <accessibilityTraits key="traits" none="YES" button="YES" notEnabled="YES"/>
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
@@ -562,6 +568,20 @@
                                 </state>
                                 <connections>
                                     <segue destination="v76-3y-nYY" kind="push" identifier="indViewNextSegue" id="alx-7z-W5x"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bsS-gw-KeS">
+                                <rect key="frame" x="173" y="269" width="28" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="prevSegueButton">
+                                    <accessibilityTraits key="traits" none="YES" button="YES" notEnabled="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="v76-3y-nYY" kind="custom" identifier="indViewPrevSegue" customClass="ZHCustomSegue" id="LWG-Sf-ycb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -629,7 +649,8 @@
                         <outlet property="liftTwoPlatePos8R" destination="LWz-4b-jez" id="xTi-Cl-gPA"/>
                         <outlet property="liftTwoPlatePos9L" destination="l9R-RO-T04" id="MUO-uC-3ud"/>
                         <outlet property="liftTwoPlatePos9R" destination="OBO-9X-B1V" id="vOC-xZ-906"/>
-                        <outlet property="segueButton" destination="ByH-HH-qDl" id="Lf8-NN-T6E"/>
+                        <outlet property="nextSegueButton" destination="ByH-HH-qDl" id="bVM-gL-DsX"/>
+                        <outlet property="prevSegueButton" destination="bsS-gw-KeS" id="ptf-Dx-Wyq"/>
                         <outlet property="typeFreqLabel" destination="Xge-oJ-c85" id="dn8-uv-lRM"/>
                     </connections>
                 </viewController>

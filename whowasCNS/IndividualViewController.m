@@ -39,8 +39,49 @@
     [self generateWeights:[_liftOne integerValue] forLift:1];
     [self generateWeights:[_liftTwo integerValue] forLift:2];
     [self generateWeights:[_liftThree integerValue] forLift:3];
-    [_segueButton setUserInteractionEnabled:NO];
+    [_nextSegueButton setUserInteractionEnabled:NO];
     //don't forget about rounding ###############################################################################################################################
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        // back button was pressed.  We know this is true because self is no longer
+        // in the navigation stack.
+        NSLog(@"Back button pressed");
+        int viewControllerArraySize = [self.navigationController.viewControllers count];
+        for (int i = 1; i < viewControllerArraySize; i++)
+        {
+        NSString* s = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-i];
+         UIViewController* controller = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-i];
+            NSString* woo = [controller title];
+        }
+         NSString* s = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
+        UIViewController* controller = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 1];
+        NSString* q = [controller title];
+        int viewCount = 2;
+        while ([q containsString:@"IndividualView"])
+             {
+                 [self.navigationController popViewControllerAnimated:NO];
+                 controller = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count- viewCount];
+                 q = [controller title];
+                 NSLog(@"Current view Controller is %@",controller);
+                 viewCount++;
+             UIViewController* controllerTwo = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count- viewCount];
+                 NSLog(@"Next view Controller is %@", controllerTwo);
+                 
+                 if ([[controllerTwo title] containsString:@"ThirdScreen"])
+                 {
+                     [self.navigationController popViewControllerAnimated:NO];
+                     [self.navigationController popViewControllerAnimated:YES];
+                     break;
+                 }
+              //   [self.navigationController popViewControllerAnimated:NO];
+                 
+             }
+       
+        //[self.navigationController pushViewController:controller animated:YES];
+    }
+    [super viewWillDisappear:animated];
 }
 
 - (IBAction)getNextLift:(id)sender {
@@ -61,6 +102,28 @@
     else
         self.eofText.text = data[6];
 }
+
+
+
+-(IBAction)getPrevLift:(id)sender {
+    
+    ConfigTool* configtool = [[ConfigTool alloc] init];
+    NSArray* predata =[configtool getPrevLift:_date withPattern:_pattern andCurrentLift:_typeFreq withMode:_viewMode];
+    NSLog(@"Next lift is %@         %@", predata[0], predata[1]);
+
+    
+    
+    
+    //grab our data here....
+   NSArray* data = [configtool configureNextSetWithDate:predata[1] withLift:predata[0] withView:_viewMode /*withUnitMode:_usingLbs*/ withPattern:_pattern withContactDB:_contactDB withRounding:_rounding withDirection:@"Prev"]; //will have to parse out typefreq
+    [configtool openDB:NO withContactDB:_contactDB];
+    if (![data[6] containsString:@"End"] && ![data[6] containsString:@"Start"])
+        [self performSegueWithIdentifier:@"indViewNextSegue" sender:sender]; //may want to rename segue. it is direction agnostic.
+   else
+        self.eofText.text = data[6];
+}
+
+
 
 
 - (void)didReceiveMemoryWarning
@@ -104,11 +167,10 @@
         if (currentNeeded > 0)
         {
             plateWeight = (double) (plateWeight - (2 * currentNeeded * [currentPlateVal[plateValIterator] doubleValue]));
-            //System.out.println(currentPlateVal[plateValIterator] + " needed per side " + currentNeeded);
             int numberOfTimesToAddPlateToEachSide = currentNeeded;
             while (numberOfTimesToAddPlateToEachSide >= 1)
             {
-               NSLog(@"Added %@ s to plate position %i", currentPlateVal[plateValIterator], platePosition);
+           //    NSLog(@"Added %@ s to plate position %i", currentPlateVal[plateValIterator], platePosition);
                 [self setPlateImageAtRow:platePosition withPlateIndex:plateValIterator forLift:liftOneTwoOrThree];
                 platePosition++;
                 numberOfTimesToAddPlateToEachSide--;

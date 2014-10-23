@@ -28,7 +28,8 @@
 @property (strong, nonatomic)  NSString *cycle;
 @property (strong, nonatomic) NSString *eofString;
 @property (nonatomic)  BOOL usingLbs;
-@property (strong, nonatomic) IBOutlet UIButton *segueButton;
+@property (strong, nonatomic) IBOutlet UIButton *nextSegueButton;
+@property (strong, nonatomic) IBOutlet UIButton *prevSegueButton;
 
 -(IBAction)nextButtonClicked:(id)sender;
 

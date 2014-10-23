@@ -43,6 +43,8 @@
 		FA49771219DCCA19001F7802 /* plate_twopointfive_lbs.png in Resources */ = {isa = PBXBuildFile; fileRef = FA49771119DCCA19001F7802 /* plate_twopointfive_lbs.png */; };
 		FA4C788519F1DA6D0094D46C /* ConfigTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C788419F1DA6D0094D46C /* ConfigTool.m */; };
 		FA4C788819F3272E0094D46C /* IndividualViewController in Resources */ = {isa = PBXBuildFile; fileRef = FA4C788719F3272E0094D46C /* IndividualViewController */; };
+		FA4C788D19F9C86E0094D46C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4C788C19F9C86E0094D46C /* QuartzCore.framework */; };
+		FA4C788F19F9CA0C0094D46C /* ZHCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C788E19F9CA0C0094D46C /* ZHCustomSegue.m */; };
 		FAADEA4E19F1252500809F9F /* plate_fifteen_kg.png in Resources */ = {isa = PBXBuildFile; fileRef = FAADEA4719F1252500809F9F /* plate_fifteen_kg.png */; };
 		FAADEA4F19F1252500809F9F /* plate_five_kg.png in Resources */ = {isa = PBXBuildFile; fileRef = FAADEA4819F1252500809F9F /* plate_five_kg.png */; };
 		FAADEA5119F1252500809F9F /* plate_ten_kg.png in Resources */ = {isa = PBXBuildFile; fileRef = FAADEA4A19F1252500809F9F /* plate_ten_kg.png */; };
@@ -117,6 +119,9 @@
 		FA4C788419F1DA6D0094D46C /* ConfigTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigTool.m; sourceTree = "<group>"; };
 		FA4C788619F1DBA40094D46C /* ConfigTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigTool.h; sourceTree = "<group>"; };
 		FA4C788719F3272E0094D46C /* IndividualViewController */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IndividualViewController; sourceTree = "<group>"; };
+		FA4C788C19F9C86E0094D46C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FA4C788E19F9CA0C0094D46C /* ZHCustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHCustomSegue.m; sourceTree = "<group>"; };
+		FA4C789019F9CA270094D46C /* ZHCustomSegue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHCustomSegue.h; sourceTree = "<group>"; };
 		FAADEA4719F1252500809F9F /* plate_fifteen_kg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plate_fifteen_kg.png; path = "../../../Downloads/cns/WhoWasCNS531-master/res/drawable-mdpi/plate_fifteen_kg.png"; sourceTree = "<group>"; };
 		FAADEA4819F1252500809F9F /* plate_five_kg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plate_five_kg.png; path = "../../../Downloads/cns/WhoWasCNS531-master/res/drawable-mdpi/plate_five_kg.png"; sourceTree = "<group>"; };
 		FAADEA4A19F1252500809F9F /* plate_ten_kg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plate_ten_kg.png; path = "../../../Downloads/cns/WhoWasCNS531-master/res/drawable-mdpi/plate_ten_kg.png"; sourceTree = "<group>"; };
@@ -148,12 +153,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA4C788D19F9C86E0094D46C /* QuartzCore.framework in Frameworks */,
 				FAEDAC4C19D4E5DC006265A9 /* libz.dylib in Frameworks */,
 				FAEDAC4A19D4E5CF006265A9 /* SystemConfiguration.framework in Frameworks */,
 				FAEDAC4819D4E5C1006265A9 /* CoreData.framework in Frameworks */,
+				FA3133AF199AE5FB00ED3D1D /* CoreGraphics.framework in Frameworks */,
 				FAEDAC4E19D4E97B006265A9 /* libGoogleAnalyticsServices.a in Frameworks */,
 				FA3133F219A576DC00ED3D1D /* libsqlite3.dylib in Frameworks */,
-				FA3133AF199AE5FB00ED3D1D /* CoreGraphics.framework in Frameworks */,
 				FA3133B1199AE5FB00ED3D1D /* UIKit.framework in Frameworks */,
 				FA3133AD199AE5FB00ED3D1D /* Foundation.framework in Frameworks */,
 			);
@@ -194,6 +200,7 @@
 		FA3133AB199AE5FB00ED3D1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA4C788C19F9C86E0094D46C /* QuartzCore.framework */,
 				FAEDAC4B19D4E5DC006265A9 /* libz.dylib */,
 				FAEDAC4919D4E5CF006265A9 /* SystemConfiguration.framework */,
 				FAEDAC4719D4E5C1006265A9 /* CoreData.framework */,
@@ -237,6 +244,8 @@
 				FA3133C7199AE5FB00ED3D1D /* Images.xcassets */,
 				FA3133BC199AE5FB00ED3D1D /* AppDelegate.m */,
 				FAEDAC3B19D4C942006265A9 /* IndividualViewController.h */,
+				FA4C788E19F9CA0C0094D46C /* ZHCustomSegue.m */,
+				FA4C789019F9CA270094D46C /* ZHCustomSegue.h */,
 				FAEDAC3C19D4C942006265A9 /* IndividualViewController.m */,
 				FA4C788719F3272E0094D46C /* IndividualViewController */,
 				FA49770419DCAB0D001F7802 /* Images - Lbs */,
@@ -448,6 +457,7 @@
 				FA3133BD199AE5FB00ED3D1D /* AppDelegate.m in Sources */,
 				FA3133B9199AE5FB00ED3D1D /* main.m in Sources */,
 				FA0553A519B000B7001EE3CE /* KilogramPlateComputer.m in Sources */,
+				FA4C788F19F9CA0C0094D46C /* ZHCustomSegue.m in Sources */,
 				FA3133E6199AE9C500ED3D1D /* DatePicker.m in Sources */,
 				FAEDAC3D19D4C942006265A9 /* IndividualViewController.m in Sources */,
 				FA3133F019A4251B00ED3D1D /* TableDisplay.m in Sources */,
