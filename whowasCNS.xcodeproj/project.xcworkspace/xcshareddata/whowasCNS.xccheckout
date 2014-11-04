@@ -14,7 +14,7 @@
 		<string>https://github.com/aok5326/WhoWasCNS531-iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>whowasCNS.xcodeproj/project.xcworkspace</string>
+	<string>whowasCNS.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>B05F68363CF8A4B0B10132FF9326C9DEAA47D2E8</key>

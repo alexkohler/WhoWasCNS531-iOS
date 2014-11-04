@@ -10,6 +10,7 @@
 #import "DatePicker.h"
 #import "TrainingMaxes.h"
 #import "GAITrackedViewController.h"
+#import <sqlite3.h>
 
 @interface DatePicker : GAITrackedViewController
 {
@@ -20,6 +21,7 @@
     NSDate *pickerDate;
     NSString *pickerDateString;
     UILabel *currentPatternField;
+    IBOutlet UILabel *existingProjectionErrorText;
 }
 
 -(IBAction)displayDate:(id)sender;
@@ -29,5 +31,6 @@
 
 @property(nonatomic) NSDate *storedDate;
 @property(nonatomic) NSArray *patternArray;
+@property (nonatomic) sqlite3 *contactDB;
 
 @end

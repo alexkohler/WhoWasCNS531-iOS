@@ -33,13 +33,16 @@ Don't forget about kilogram support and the odd database previous entry bug you'
 10-20-14: Corner case uglier than I thought. I had to rig up an invisible button to get a "manual" segue to get the view to be able to create a segue to itself, then programatically called that segue and some other stupidness that I can probably ameloriate tomorrow. Clean up that code and either add back button support and/or get started on translating code for getPrevLift
 10-21-14: putting 12s for all tms crashes this nigga. Recursive viewwilldisappear function no fucking idea how to fix it
 10-21-14: Got prev button completely working with corner cases (easy enough to do just some translating and then robbing the getnextlift method for prevlifts too. Back button and custom segue need done
+10-27-14: Got custom segue working properly, was just a matter of not calling the segue and still trying to use next's segue. Also got back button working simply by rephrasing my question on google. All about framing problem correctly :) Also got reset button working properly.
+11-03-14: Deletion upon pressing "Get TMs now happens", also now actually happens when you reset. Got view existing projection working. There is an odd date exception being thrown when you actually view existing projection (by analytics) -- look into this.
 TODO:
-Back button actually needs to go back to tableview
+[refactor: remove getUnitModeFromDatabase from tableDisplay.m]
+
+Resolving rounding needs to (maybe) eventually be done at database level
+Get view existing projection working and then start wrapping up with whatever outstanding bugs there currently are
+Actually delete database on reset
 I think there's some rounding stuff somewhere along the line that needs to be taken care of in your individualview screen
 Locale bullshit on previous dateformats (model of of the one on configtool's increment day... Primarily we want to make sure we are catering to all locales and not just the US)
-Some sort of dashboard (Prototyping on android perhaps?)
-SMALL CONCERN: When you start supporting "View exisiting pattern" will your currently "View disappeared" code get in the way?
+May want to speed up segue transitions
 SMALL CONCERN: Quartzcore only supports ios8, do you want to shut out other users for a custom segue?
-Perhaps future caviat: Your corner case flag
-CONSIDERATION:
- How will you support view existing projection?
+Some sort of dashboard (Prototyping on android perhaps?)

@@ -537,9 +537,10 @@ return v * floorf(i / v + 0.5f);
     double firstLift = [self getFirstLift];
     double secondLift = [self getSecondLift];
 	double thirdLift = [self getThirdLift];
+    double currentTM = [self getCurrentTM];
     int unitFlag = [self getUnitMode] ? 1:0;
 
-    NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO LIFTS (liftDate, Cycle, Lift, Frequency, First_Lift, Second_Lift, Third_Lift, column_lbFlag) VALUES (\"%@\", \"%i\", \"%@\", \"%@\", \"%g\", \"%g\", \"%g\", \"%i\")",  currentDate, currentCycle, currentLift, currentFreq, firstLift, secondLift, thirdLift, unitFlag];
+    NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO LIFTS (liftDate, Cycle, Lift, Frequency, First_Lift, Second_Lift, Third_Lift, column_lbFlag, Training_Max) VALUES (\"%@\", \"%i\", \"%@\", \"%@\", \"%g\", \"%g\", \"%g\", \"%i\", \"%g\")",  currentDate, currentCycle, currentLift, currentFreq, firstLift, secondLift, thirdLift, unitFlag, currentTM];
     BOOL failed;
     char *error;
     if ( sqlite3_exec(context, [insertStatement UTF8String], NULL, NULL, &error) == SQLITE_OK)

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="M0u-I3-CoH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="M0u-I3-CoH">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--FirstScreen-->
@@ -46,6 +46,9 @@
                                 <state key="normal" title="View exisiting projection">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="viewExistingProjection:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="WJ6-wy-WIX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tXX-yC-n3G">
                                 <rect key="frame" x="98" y="415" width="124" height="30"/>
@@ -69,13 +72,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No existing projection found!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HXF-hg-Xxe">
+                                <rect key="frame" x="50" y="485" width="221" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="errorText"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Select Starting Date" id="JFH-85-8xc"/>
                     <connections>
                         <outlet property="currentPatternField" destination="for-Qc-nN7" id="pQr-uN-SMf"/>
+                        <outlet property="existingProjectionErrorText" destination="HXF-hg-Xxe" id="jYl-Zn-pai"/>
                         <outlet property="picker" destination="CLZ-yo-Lcr" id="IhP-AN-KHC"/>
+                        <segue destination="lg3-CD-gqs" kind="push" identifier="existingProjectionSegue" id="N3c-lK-cbM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -159,7 +172,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="22" sectionFooterHeight="22" id="Wdf-xO-fbP">
-                                <rect key="frame" x="0.0" y="66" width="320" height="360"/>
+                                <rect key="frame" x="0.0" y="68" width="320" height="338"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -847,8 +860,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="0ZV-gB-hmp"/>
-        <segue reference="6Kp-Uv-AFR"/>
+        <segue reference="HvK-FR-An4"/>
+        <segue reference="Mdj-jJ-IHb"/>
+        <segue reference="N3c-lK-cbM"/>
         <segue reference="Fjy-gD-CJy"/>
     </inferredMetricsTieBreakers>
 </document>

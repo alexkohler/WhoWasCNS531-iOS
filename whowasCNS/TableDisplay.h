@@ -12,7 +12,7 @@
 @class DateAndLiftProcessor;
 
 
-@interface TableDisplay : UIViewController <UITextFieldDelegate>
+@interface TableDisplay : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>
 {
     IBOutlet UILabel *trainingMaxStreamLabel;
     NSString* MODE_FORMAT;
@@ -65,6 +65,8 @@ typedef enum {FIVE, THREE, ONE} CURRENT_FREQ;
 -(id) init;
 -(IBAction) showConfigMenu;
 -(BOOL) getUnitModeFromDatabase;
+-(void) clearDB;
+-(void)openDB:(bool)yesOrNo;
 @property(nonatomic) NSString *dateText;
 @property (strong, nonatomic) NSString *databasePath;
 @property (nonatomic) sqlite3 *contactDB;

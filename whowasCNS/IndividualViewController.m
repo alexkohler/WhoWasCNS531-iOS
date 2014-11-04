@@ -40,48 +40,37 @@
     [self generateWeights:[_liftTwo integerValue] forLift:2];
     [self generateWeights:[_liftThree integerValue] forLift:3];
     [_nextSegueButton setUserInteractionEnabled:NO];
+    [_prevSegueButton setUserInteractionEnabled:NO];
     //don't forget about rounding ###############################################################################################################################
+    
+    // change the back button and add an event handler
+    self.navigationItem.leftBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:@"Back"
+                                     style:UIBarButtonItemStyleBordered
+                                    target:self
+                                    action:@selector(handleBack:)];
+    
 }
 
--(void) viewWillDisappear:(BOOL)animated {
-    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
-        // back button was pressed.  We know this is true because self is no longer
-        // in the navigation stack.
-        NSLog(@"Back button pressed");
-        int viewControllerArraySize = [self.navigationController.viewControllers count];
-        for (int i = 1; i < viewControllerArraySize; i++)
-        {
-        NSString* s = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-i];
-         UIViewController* controller = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-i];
-            NSString* woo = [controller title];
-        }
-         NSString* s = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
-        UIViewController* controller = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 1];
+-(void)handleBack:(id)sender
+{
+     // [self.navigationController popToRootViewControllerAnimated:TRUE];
+    
+      
+    UIViewController* controller = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 1];
         NSString* q = [controller title];
-        int viewCount = 2;
-        while ([q containsString:@"IndividualView"])
-             {
-                 [self.navigationController popViewControllerAnimated:NO];
-                 controller = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count- viewCount];
-                 q = [controller title];
-                 NSLog(@"Current view Controller is %@",controller);
-                 viewCount++;
-             UIViewController* controllerTwo = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count- viewCount];
-                 NSLog(@"Next view Controller is %@", controllerTwo);
-                 
-                 if ([[controllerTwo title] containsString:@"ThirdScreen"])
-                 {
-                     [self.navigationController popViewControllerAnimated:NO];
-                     [self.navigationController popViewControllerAnimated:YES];
-                     break;
-                 }
-              //   [self.navigationController popViewControllerAnimated:NO];
-                 
-             }
-       
-        //[self.navigationController pushViewController:controller animated:YES];
+    int c  = 2;
+    while ([q containsString:@"IndividualView"])
+    {
+         UIViewController* controller = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - c];
+      //  NSLog(@"Current view Controller is %@",controller);
+        q = [controller title];
+        c++;
+        
     }
-    [super viewWillDisappear:animated];
+  
+    int tableDisplayIndex = self.navigationController.viewControllers.count - c + 1;
+    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:tableDisplayIndex] animated:YES];
 }
 
 - (IBAction)getNextLift:(id)sender {
@@ -118,7 +107,7 @@
    NSArray* data = [configtool configureNextSetWithDate:predata[1] withLift:predata[0] withView:_viewMode /*withUnitMode:_usingLbs*/ withPattern:_pattern withContactDB:_contactDB withRounding:_rounding withDirection:@"Prev"]; //will have to parse out typefreq
     [configtool openDB:NO withContactDB:_contactDB];
     if (![data[6] containsString:@"End"] && ![data[6] containsString:@"Start"])
-        [self performSegueWithIdentifier:@"indViewNextSegue" sender:sender]; //may want to rename segue. it is direction agnostic.
+        [self performSegueWithIdentifier:@"indViewPrevSegue" sender:sender]; 
    else
         self.eofText.text = data[6];
 }
@@ -289,7 +278,7 @@
 
 //segue prep - mock hookup for 'next' segue with ID indViewNextSegue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"indViewNextSegue"]) {
+    if ([segue.identifier isEqualToString:@"indViewNextSegue"] || [segue.identifier isEqualToString:@"indViewPrevSegue"]) {
         IndividualViewController *destViewController = segue.destinationViewController;
         
         //call our methods with our new database toys here.

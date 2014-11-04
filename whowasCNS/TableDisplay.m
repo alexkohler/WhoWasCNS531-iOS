@@ -9,6 +9,7 @@
 #import "DateAndLiftProcessor.h"
 #import "TableDisplayCell.h"
 #import "IndividualViewController.h"
+#import "DatabaseHelper.h"
 @interface TableDisplay ()
 
 @end
@@ -179,9 +180,8 @@
         return NO;
     else
         return YES;
-    
-    
 }
+
 
 -(void)populateArrays:(NSString*) whereClause
 {
@@ -310,6 +310,22 @@
     [actionSheet showInView:self.view];
 }
 
+-(IBAction) showAlertView
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Are you sure you want to delete this projection?" delegate:self cancelButtonTitle:@"Delete" otherButtonTitles:@"Cancel", nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0){
+        DatabaseHelper *dh = [[DatabaseHelper alloc] init];
+        [dh openDB:YES];
+        [dh clearDB];
+        [dh openDB:NO];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
+
 
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -321,12 +337,15 @@
             case 0:  // adjust lifts
                 //DB clearing is currently the responsiblity of your magicial view disappeared method however we will have to see how that plays with view existing projection feature - remember to OPEN AND CLOSE THE DATABASE IF DECIDE TO CLEAR HERE AGAIN ;)
                 [[self navigationController] popViewControllerAnimated:YES];//essentially hit back button : NOTE: NEED TO OVERRIDE THIS METHOD FOR TRADITIONAL
+                [self openDB:YES];
+                [self clearDB];
+                [self openDB:NO];
                 break;
             case 1://View By
                 [self showViewByMenu];
                 break;
             case 2: //reset
-                //clear table, go back to first screen - have an ARE YOU SURE popup
+                [self showAlertView];
                 break;
             }
     }
@@ -395,9 +414,9 @@
     }
     else if ([viewControllers indexOfObject:self] == NSNotFound)
     {
-        [self openDB:YES];
-        [self clearDB];
-        [self openDB:NO];
+        //[self openDB:YES];
+        //[self clearDB];
+        //[self openDB:NO];
         NSLog(@"View controller was popped"); //remove me eventually
     }
 }

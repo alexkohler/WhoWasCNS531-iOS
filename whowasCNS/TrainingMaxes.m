@@ -12,6 +12,7 @@
 #import "GAITrackedViewController.h"
 #import "GAIDictionaryBuilder.h"
 #import "GAIFields.h"
+#import "DatabaseHelper.h"
 
 @interface TrainingMaxes ()
 
@@ -231,6 +232,7 @@
 
     if([segue.identifier isEqualToString:@"maxesToTableSegue"]){
         TableDisplay *controller;
+        
         controller = (TableDisplay *)segue.destinationViewController;
         controller.patternArray = _patternArray;
         controller.dateText = _dateText; 
@@ -252,6 +254,12 @@
         
         NSString *title = [NSString stringWithFormat:@"Starting TMS Bench[%zd] Squat[%zd], OHP[%zd], Dead[%zd] Rounding? [%@] %@", benchTM, squatTM, ohpTM, deadTM, modeString, unitString];
         controller.trainingMaxStream = title;
+        
+        //clear db before we head over to accomodate the new data :)
+        DatabaseHelper *dh = [[DatabaseHelper alloc]init];
+        [dh openDB:YES]; //todo refactor these methods into something more usable
+        [dh clearDB]; //clear our database
+        [dh openDB:NO];
     }
     
     

@@ -35,6 +35,8 @@
 		FA3133F219A576DC00ED3D1D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3133F119A576DB00ED3D1D /* libsqlite3.dylib */; };
 		FA31345119A6BEB700ED3D1D /* AdjustPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = FA31345019A6BEB700ED3D1D /* AdjustPattern.m */; };
 		FA31345319A6C96C00ED3D1D /* AdjustPattern in Resources */ = {isa = PBXBuildFile; fileRef = FA31345219A6C96C00ED3D1D /* AdjustPattern */; };
+		FA4590E21A0840920044299E /* DatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4590E11A0840920044299E /* DatabaseHelper.m */; };
+		FA4590E51A0843EF0044299E /* DatabaseHelper in Resources */ = {isa = PBXBuildFile; fileRef = FA4590E41A0843EF0044299E /* DatabaseHelper */; };
 		FA49770319DCAB07001F7802 /* barbell.png in Resources */ = {isa = PBXBuildFile; fileRef = FA49770219DCAB07001F7802 /* barbell.png */; };
 		FA49770619DCB43C001F7802 /* plate_fourtyfive_lbs.png in Resources */ = {isa = PBXBuildFile; fileRef = FA49770519DCB43C001F7802 /* plate_fourtyfive_lbs.png */; };
 		FA49770C19DCC9C2001F7802 /* plate_twentyfive_lbs.png in Resources */ = {isa = PBXBuildFile; fileRef = FA49770B19DCC9C2001F7802 /* plate_twentyfive_lbs.png */; };
@@ -110,6 +112,9 @@
 		FA31344F19A6BEB700ED3D1D /* AdjustPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdjustPattern.h; sourceTree = "<group>"; };
 		FA31345019A6BEB700ED3D1D /* AdjustPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdjustPattern.m; sourceTree = "<group>"; };
 		FA31345219A6C96C00ED3D1D /* AdjustPattern */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AdjustPattern; sourceTree = "<group>"; };
+		FA4590E11A0840920044299E /* DatabaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseHelper.m; sourceTree = "<group>"; };
+		FA4590E31A0840D80044299E /* DatabaseHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseHelper.h; sourceTree = "<group>"; };
+		FA4590E41A0843EF0044299E /* DatabaseHelper */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DatabaseHelper; sourceTree = "<group>"; };
 		FA49770219DCAB07001F7802 /* barbell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barbell.png; sourceTree = "<group>"; };
 		FA49770519DCB43C001F7802 /* plate_fourtyfive_lbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plate_fourtyfive_lbs.png; sourceTree = "<group>"; };
 		FA49770B19DCC9C2001F7802 /* plate_twentyfive_lbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plate_twentyfive_lbs.png; path = "../../../Downloads/cns/WhoWasCNS531-master/res/drawable-mdpi/plate_twentyfive_lbs.png"; sourceTree = "<group>"; };
@@ -219,8 +224,11 @@
 				FA3133BE199AE5FB00ED3D1D /* Main_iPhone.storyboard */,
 				FA4C788419F1DA6D0094D46C /* ConfigTool.m */,
 				FA4C788619F1DBA40094D46C /* ConfigTool.h */,
-				FA3133E4199AE9C500ED3D1D /* DatePicker.h */,
+				FA4590E11A0840920044299E /* DatabaseHelper.m */,
+				FA4590E31A0840D80044299E /* DatabaseHelper.h */,
+				FA4590E41A0843EF0044299E /* DatabaseHelper */,
 				FA3133E5199AE9C500ED3D1D /* DatePicker.m */,
+				FA3133E4199AE9C500ED3D1D /* DatePicker.h */,
 				FA3133EA199C3C8E00ED3D1D /* DatePicker */,
 				FA05539D19AE9FE2001EE3CE /* DateAndLiftProcessor.h */,
 				FA05539E19AE9FE2001EE3CE /* DateAndLiftProcessor.m */,
@@ -425,6 +433,7 @@
 				FA3133EB199C3C8E00ED3D1D /* DatePicker in Resources */,
 				FAADEA5319F1252500809F9F /* plate_twentyfive_kg.png in Resources */,
 				FA3133C8199AE5FB00ED3D1D /* Images.xcassets in Resources */,
+				FA4590E51A0843EF0044299E /* DatabaseHelper in Resources */,
 				FA3133C0199AE5FB00ED3D1D /* Main_iPhone.storyboard in Resources */,
 				FA3133B7199AE5FB00ED3D1D /* InfoPlist.strings in Resources */,
 				FA49770E19DCCA01001F7802 /* plate_ten_lbs.png in Resources */,
@@ -461,6 +470,7 @@
 				FA3133E6199AE9C500ED3D1D /* DatePicker.m in Sources */,
 				FAEDAC3D19D4C942006265A9 /* IndividualViewController.m in Sources */,
 				FA3133F019A4251B00ED3D1D /* TableDisplay.m in Sources */,
+				FA4590E21A0840920044299E /* DatabaseHelper.m in Sources */,
 				FA4C788519F1DA6D0094D46C /* ConfigTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
