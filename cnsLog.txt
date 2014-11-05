@@ -38,17 +38,28 @@ Don't forget about kilogram support and the odd database previous entry bug you'
 11-03-14: Deletion upon pressing "Get TMs" now happens, also now actually happens when you reset. Got view existing projection working. There is an odd date exception being thrown when you actually view existing projection (by analytics) -- look into this. Your adjust lifts button is now broken when you come from view existing projection. You are probably popping a view controller. When you use popping to go back, your "No projection found!" is not disappearing. You'll probably want to hide it in viewDidDisappear (allowing it to be hidden multiple times) as opposed to viewDidLoad(hiding it only the first time the view loads or any other instance where it is loaded and not simply shown by popping off the view controller stack.
 
 11-04-14: Adjust lifts button now works when coming from existing projection. Initial TM data (only bench, squat, deadlift)  is currently supported when viewing an existing projection and then adjusting lift. Also implemented it to adjust the segmented controls for unit mode and number of cycles. Rounding will be very easy once the schema change is in.
+
 TODO:
-Dates are null on reprojection...? Pursue this and your individual view bug with bloodthirstiness, you can't let this stuff through.
-look into bad access exception. used 400 450 500 550 on kilogram mode and an exception was thrown.
-Schema change for rounding mode. Definitely needs to be done. After you have this you can choose to display data properly on viewing an existing projection
+:::Dates are null on reprojection...? Pursue this and your individual view bug with bloodthirstiness, you can't let this stuff through.
+
+:::look into bad access exception on individual view. used 400 450 500 550 on kilogram mode and an exception was thrown.
+
+:::Schema change for rounding mode. Definitely needs to be done. After you have this you can choose to display data properly on viewing an existing projection
+
 [refactor: remove getUnitModeFromDatabase from tableDisplay.m]
 
-When you do your view bys, it changes almost instantly, you may possibly want a cutesy animation or something 
-I think there's some rounding stuff somewhere along the line that needs to be taken care of in your individualview screen
+[cleanup: remove/comment out any NSLog messages. There is at least a "View controller has popped that needs to disappear"
 
 Locale bullshit on previous dateformats (model of of the one on configtool's increment day... Primarily we want to make sure we are catering to all locales and not just the US)
 
+CONSIDERATIONS:
+When you do your view bys, it changes almost instantly, you may possibly want a cutesy animation or something 
+I think there's some rounding stuff somewhere along the line that needs to be taken care of in your individualview screen
+
+
 May want to speed up segue transitions
-SMALL CONCERN: Quartzcore only supports ios8, do you want to shut out other users for a custom segue?
+
 Some sort of dashboard (Prototyping on android perhaps?)
+
+CONCERNS:
+Quartzcore only supports ios8, do you want to shut out other users for a custom segue?
