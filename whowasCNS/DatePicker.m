@@ -138,7 +138,6 @@
         //NSString *title = [NSString stringWithFormat:@"Starting Date: %@", pickerDateString];
         controller.dateText = [self formatDateDate:[picker date]];
         controller.patternArray = _patternArray; //Simply passing patternArray down the line
-        [self liftsTableExists];
     }
     
     if([segue.identifier isEqualToString:@"dateToPatternSegue"]){

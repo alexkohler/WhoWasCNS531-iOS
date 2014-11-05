@@ -10,6 +10,7 @@
 #import "TableDisplayCell.h"
 #import "IndividualViewController.h"
 #import "DatabaseHelper.h"
+#import "TrainingMaxes.h"
 @interface TableDisplay ()
 
 @end
@@ -335,11 +336,12 @@
         switch(buttonIndex)
         {
             case 0:  // adjust lifts
-                //DB clearing is currently the responsiblity of your magicial view disappeared method however we will have to see how that plays with view existing projection feature - remember to OPEN AND CLOSE THE DATABASE IF DECIDE TO CLEAR HERE AGAIN ;)
-                [[self navigationController] popViewControllerAnimated:YES];//essentially hit back button : NOTE: NEED TO OVERRIDE THIS METHOD FOR TRADITIONAL
-                [self openDB:YES];
-                [self clearDB];
-                [self openDB:NO];
+                //call on segue tableToAdjustTMS
+                //[[self navigationController] popViewControllerAnimated:YES];//essentially hit back button : NOTE: NEED TO OVERRIDE THIS METHOD FOR TRADITIONAL
+                //[self openDB:YES];
+                //[self clearDB];
+                //[self openDB:NO]; I don't think this is needed - if you're no longer popping your view controller a user can still hit back to go to his lifts. They should really be deleted at the last second possible, which they currently are. (On press of "Get TMs")
+                [self performSegueWithIdentifier:@"tableToAdjustTMS" sender:self];
                 break;
             case 1://View By
                 [self showViewByMenu];
@@ -506,6 +508,23 @@
         destViewController.eofString = @"";
         
     }
+     if ([segue.identifier isEqualToString:@"tableToAdjustTMS"]) {
+         TrainingMaxes *controller = (TrainingMaxes *)segue.destinationViewController;
+         DatabaseHelper* dh = [[DatabaseHelper alloc] init];
+         controller.dateText = [dh getStartingDate];
+         [dh openDB:YES];
+         controller.patternArray = _patternArray; //Simply passing patternArray down the line
+         controller.benchTMFieldText = [NSString stringWithFormat:@"%d", (int) [dh getTrainingMaxFor:@"Bench"]];
+         controller.squatTMFieldText = [NSString stringWithFormat:@"%d", (int) [dh getTrainingMaxFor:@"Squat"]];
+         controller.ohpTMFieldText = [NSString stringWithFormat:@"%d", (int) [dh getTrainingMaxFor:@"OHP"]];
+         controller.deadTMFieldText = [NSString stringWithFormat:@"%d", (int) [dh getTrainingMaxFor:@"Deadlift"]];
+         controller.usingLbsFieldStatus = [dh getUnitModeFromDatabase];
+         controller.numberOfCycles = [dh getNumberOfCycles];
+     
+     
+         [dh openDB:NO];
+     }
+    
 }
 
 

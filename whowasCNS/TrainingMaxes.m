@@ -25,7 +25,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        //if we are coming from "Adjust Lifts" on the third screen, make sure we remember user's previos inputs
+
     }
     return self;
 }
@@ -35,6 +36,31 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setDateText];
+    if (_benchTMFieldText != nil && _squatTMFieldText != nil && _ohpTMFieldText != nil && deadTMField != nil)
+    {
+        benchTMField.text = _benchTMFieldText;
+        squatTMField.text = _squatTMFieldText;
+        ohpTMField.text = _ohpTMFieldText;
+        deadTMField.text = _deadTMFieldText;
+    }
+    
+    if ((_usingLbsFieldStatus == YES || _usingLbsFieldStatus == NO)  && _numberOfCycles > 0 && _numberOfCycles <= 5)
+    {
+        _numberOfCycles = _numberOfCycles - 1; //change number of cycles to match our zero'd index
+        [cycleField setSelectedSegmentIndex:(NSInteger) _numberOfCycles];
+        
+        if (_usingLbsFieldStatus)
+            [unitField setSelectedSegmentIndex:0];
+        else
+            [unitField setSelectedSegmentIndex:1];
+    }
+    
+    
+    //Cycles, rounding, pounds and kilograms
+
+    
+    
+    
     //handle next and cancel buttons for bench
     
     UIToolbar* numberToolbarBenchTM = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];

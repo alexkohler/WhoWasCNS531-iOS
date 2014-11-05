@@ -244,6 +244,7 @@
                         <outlet property="liftTableView" destination="Wdf-xO-fbP" id="ERH-gk-NaD"/>
                         <outlet property="trainingMaxStreamLabel" destination="ky7-4O-0e9" id="4do-WM-jc0"/>
                         <segue destination="v76-3y-nYY" kind="push" identifier="individualViewSegue" id="Fjy-gD-CJy"/>
+                        <segue destination="gna-x6-9XC" kind="push" identifier="tableToAdjustTMS" id="s9h-qH-4Ly"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e24-Mf-FBd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -860,9 +861,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="gMU-gg-T2r"/>
+        <segue reference="s9h-qH-4Ly"/>
+        <segue reference="Fjy-gD-CJy"/>
         <segue reference="HvK-FR-An4"/>
         <segue reference="Mdj-jJ-IHb"/>
-        <segue reference="N3c-lK-cbM"/>
-        <segue reference="Fjy-gD-CJy"/>
     </inferredMetricsTieBreakers>
 </document>

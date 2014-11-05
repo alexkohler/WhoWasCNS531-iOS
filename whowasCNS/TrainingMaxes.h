@@ -33,6 +33,14 @@
 
     
 }
+@property(nonatomic) NSString *benchTMFieldText;
+@property(nonatomic) NSString *squatTMFieldText;
+@property(nonatomic) NSString *ohpTMFieldText;
+@property(nonatomic) NSString *deadTMFieldText;
+@property(nonatomic) BOOL roundingFieldStatus;
+@property(nonatomic) BOOL usingLbsFieldStatus;
+@property(nonatomic) int numberOfCycles;
+
 
 @property(nonatomic) NSString *dateText;
 @property (strong, nonatomic) IBOutlet UITextField *textField;
