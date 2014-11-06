@@ -173,7 +173,6 @@
 
 -(void) setPlateImageAtRow:(int) row withPlateIndex:(int) plateIndex forLift:(int) liftNumber
 {
-    
 
 
         if (liftNumber == 1)
@@ -181,9 +180,23 @@
             UIImageView *liftOneRightUIViews[] = {_liftOneplatePos1R, _liftOneplatePos1R, _liftOnePlatePos2R, _liftOnePlatePos3R, _liftOnePlatePos4R, _liftOnePlatePos5R, _liftOnePlatePos6R, _liftOnePlatePos7R, _liftOnePlatePos8R, _liftOneplatePos9R};
             UIImageView *liftOneLeftUIViews[] = {_liftOneplatePos1L, _liftOneplatePos1L, _liftOneplatePos2L, _liftOneplatePos3L, _liftOneplatePos4L, _liftOneplatePos5L, _liftOneplatePos6L, _liftOneplatePos7L, _liftOneplatePos8L, _liftOneplatePos9L};
         
+            if (row > 9) //You're using all me plates!
+            {
+                for (int i = 1; i < 10; i++)
+                {
+                    liftOneLeftUIViews[i].hidden = YES;
+                    liftOneRightUIViews[i].hidden = YES;
+                    _liftOneBarbell.hidden = YES;
+                    _liftOnePlateLimit.hidden = NO;
+                    
+                }
+            }
+            else
+            {
             NSString* plateImageString = [self getPlateImageFor:plateIndex andMode:_usingLbs];
             liftOneRightUIViews[row].image = [UIImage imageNamed:plateImageString];
             liftOneLeftUIViews[row].image = [UIImage imageNamed:plateImageString];
+            }
         }
         
         if (liftNumber == 2)
@@ -191,9 +204,25 @@
             UIImageView *liftTwoRightUIViews[] = {_liftTwoPlatePos1R, _liftTwoPlatePos1R, _liftTwoPlatePos2R, _liftTwoPlatePos3R, _liftTwoPlatePos4R, _liftTwoPlatePos5R, _liftTwoPlatePos6R, _liftTwoPlatePos7R, _liftTwoPlatePos8R, _liftTwoPlatePos9R};
             UIImageView *liftTwoLeftUIViews[] = {_liftTwoPlatePos1L, _liftTwoPlatePos1L, _liftTwoPlatePos2L, _liftTwoPlatePos3L, _liftTwoPlatePos4L, _liftTwoPlatePos5L, _liftTwoPlatePos6L, _liftTwoPlatePos7L, _liftTwoPlatePos8L, _liftTwoPlatePos9L};
             
+            if (row > 9) //You're using all me plates!
+            {
+                for (int i = 1; i < 10; i++)
+                {
+                    liftTwoLeftUIViews[i].hidden = YES;
+                    liftTwoRightUIViews[i].hidden = YES;
+                    _liftTwoBarbell.hidden = YES;
+                    _liftTwoPlateLimit.hidden = NO;
+                    
+                    
+                }
+            }
+
+	    else
+	    {
             NSString* plateImageString = [self getPlateImageFor:plateIndex andMode:_usingLbs];
             liftTwoRightUIViews[row].image = [UIImage imageNamed:plateImageString];
             liftTwoLeftUIViews[row].image = [UIImage imageNamed:plateImageString];
+	    }
         }
         
         if (liftNumber == 3)
@@ -201,11 +230,23 @@
             UIImageView *liftThreeRightUIViews[] = {_liftThreeplatePos1R, _liftThreeplatePos1R, _liftThreeplatePos2R, _liftThreeplatePos3R, _liftThreeplatePos4R, _liftThreeplatePos5R, _liftThreeplatePos6R, _liftThreeplatePos7R, _liftThreeplatePos8R, _liftThreeplatePos9R};
             UIImageView *liftThreeLeftUIViews[] = {_liftThreeplatePos1L, _liftThreeplatePos1L, _liftThreeplatePos2L, _liftThreeplatePos3L, _liftThreeplatePos4L, _liftThreeplatePos5L, _liftThreeplatePos6L, _liftThreeplatePos7L, _liftThreeplatePos8L, _liftThreeplatePos9L};
             
+            if (row > 9) //You're using all me plates!
+            {
+                for (int i = 1; i < 10; i++)
+                {
+                    liftThreeLeftUIViews[i].hidden = YES;
+                    liftThreeRightUIViews[i].hidden = YES;
+                    _liftThreeBarbell.hidden = YES;
+                    _liftThreePlateLimit.hidden = NO;
+                }
+            }
+            else
+	    {
             NSString* plateImageString = [self getPlateImageFor:plateIndex andMode:_usingLbs];
             liftThreeRightUIViews[row].image = [UIImage imageNamed:plateImageString];
             liftThreeLeftUIViews[row].image = [UIImage imageNamed:plateImageString];
+            }
         }
-    
 }
 
 

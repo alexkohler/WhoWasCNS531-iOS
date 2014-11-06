@@ -25,7 +25,7 @@
 	NSDate *now = [NSDate date];
 	[picker setDate:now animated:YES];
 	
-    [existingProjectionErrorText setHidden:YES];
+
     //if user is coming from pattern segue
    if (_storedDate != nil )
        [picker setDate:_storedDate];
@@ -40,6 +40,7 @@
 //Analytics
 - (void)viewWillAppear:(BOOL)animated {
      self.screenName = @"Home Screen"; // set screenName prior to calling super
+    [existingProjectionErrorText setHidden:YES];
     [super viewWillAppear:animated];
    }
 
@@ -111,11 +112,11 @@
     }
     
     if (entryCount > 0){
-        NSLog(@"Table exists");
+       // NSLog(@"Table exists");
         return true;
         }
     else{
-        NSLog(@"Table does not exist");
+      //  NSLog(@"Table does not exist");
         return false;
     }
     

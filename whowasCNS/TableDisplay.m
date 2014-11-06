@@ -511,8 +511,8 @@
      if ([segue.identifier isEqualToString:@"tableToAdjustTMS"]) {
          TrainingMaxes *controller = (TrainingMaxes *)segue.destinationViewController;
          DatabaseHelper* dh = [[DatabaseHelper alloc] init];
-         controller.dateText = [dh getStartingDate];
          [dh openDB:YES];
+         controller.dateText = [dh getStartingDate];
          controller.patternArray = _patternArray; //Simply passing patternArray down the line
          controller.benchTMFieldText = [NSString stringWithFormat:@"%d", (int) [dh getTrainingMaxFor:@"Bench"]];
          controller.squatTMFieldText = [NSString stringWithFormat:@"%d", (int) [dh getTrainingMaxFor:@"Squat"]];

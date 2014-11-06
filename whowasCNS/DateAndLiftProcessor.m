@@ -98,10 +98,7 @@ NSString * const FREQ1 = @"5-3-1";
     STARTING_DATE_STRING = myDate;
 }
 
--(NSString*) getDate
-{
-    return CURRENT_DATE_STRING;
-}
+
 
 
 -(void) setDate:(NSString*) formattedDate
@@ -124,6 +121,11 @@ NSString * const FREQ1 = @"5-3-1";
 
 
 //getter definitions
+
+-(NSString*) getDate
+{
+        return CURRENT_DATE_STRING;
+}
 
 -(NSString*) getStartingDate
 {
@@ -270,6 +272,7 @@ NSString * const FREQ1 = @"5-3-1";
 //turns our STARTING_DATE_STRING into a more workable calendar object that we can do date arithmetic om
 -(void) parseDateString
 {
+    if ([STARTING_DATE_STRING length]   > 10){ //xx/xx/xxxx
     df = [[NSDateFormatter alloc] init];
    // [df setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
    NSLocale *locale = [NSLocale currentLocale];
@@ -280,6 +283,13 @@ NSString * const FREQ1 = @"5-3-1";
     CURRENT_DATE_CAL = [df dateFromString:STARTING_DATE_STRING]; //parsed
     [df setDateFormat:@"MM-dd-yyyy"];
     CURRENT_DATE_STRING = [df stringFromDate:CURRENT_DATE_CAL];
+    }
+    else //our date is formatted  (and hopefully hence correct), therefore, we need to set current calendar date based on this string.
+    {
+         [df setDateFormat:@"MM-dd-yyyy"];
+        CURRENT_DATE_CAL = [df dateFromString:STARTING_DATE_STRING]; //parsed
+        CURRENT_DATE_STRING = [df stringFromDate:CURRENT_DATE_CAL];
+    }
     [self setDate:CURRENT_DATE_STRING];
     //TODO may need to format this guy
     
@@ -308,12 +318,6 @@ NSString * const FREQ1 = @"5-3-1";
 //PERCENTAGE definitions
 -(void) incrementLiftBasedOn:(NSArray*) myPattern whenCurrentLiftIs: (NSString*) currentLift
 {
-     //NAMES ASSIGNED ARE BASED ON ENUM::
-    
-    //#####****
-    //enum Lift {Bench, Squat, OHP, Deadlift, REST};
-    //liftTrack will have to be
-    //need separate variable (static? like lifttrack that holds patternSize
     if (liftTrack + 1 < patternSize)
     {
 		liftTrack++;
@@ -520,17 +524,7 @@ return v * floorf(i / v + 0.5f);
 
 -(void)addEvent:(sqlite3*) context
 {
-    //WILL PROBABLY HAVE TO OPEN DATABASE TO INSERT**)(*)(*&*(&^(*&(*&^(*&^(*&^(*&^(*&^(*&^
-    /*( values.put(EventsDataSQLHelper.LIFTDATE, thirdScreen.Processor.getDate() );
-     values.put(EventsDataSQLHelper.CYCLE, thirdScreen.Processor.getCycle());
-     values.put(EventsDataSQLHelper.LIFT, thirdScreen.Processor.getLiftType());
-     values.put(EventsDataSQLHelper.FREQUENCY, thirdScreen.Processor.getFreq());
-     values.put(EventsDataSQLHelper.FIRST, thirdScreen.Processor.getFirstLift());
-     values.put(EventsDataSQLHelper.SECOND, thirdScreen.Processor.getSecondLift());
-     values.put(EventsDataSQLHelper.THIRD, thirdScreen.Processor.getThirdLift());*/
-    
-    
-    NSString* currentDate = [self getDate]; //PROBLEMO
+    NSString* currentDate = [self getDate]; 
 	int currentCycle = [self getCycle];
     NSString* currentLift = [self getLiftType];
     NSString* currentFreq = [self getFreq];

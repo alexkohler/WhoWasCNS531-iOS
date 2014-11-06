@@ -42,6 +42,13 @@
 @property (strong, nonatomic) NSArray *pattern;
 @property (nonatomic) BOOL rounding;
 @property (nonatomic) NSString* viewMode;
+
+//Barbell - lift one
+@property (strong, nonatomic) IBOutlet UIImageView *liftOneBarbell;
+
+//Plate limit - lift one
+@property (strong, nonatomic) IBOutlet UILabel *liftOnePlateLimit;
+
 //Plate positions - Lift one
 @property (strong, nonatomic) IBOutlet UIImageView *liftOneplatePos1R;
 @property (strong, nonatomic) IBOutlet UIImageView *liftOnePlatePos2R;
@@ -63,7 +70,11 @@
 @property (strong, nonatomic) IBOutlet UIImageView *liftOneplatePos8L;
 @property (strong, nonatomic) IBOutlet UIImageView *liftOneplatePos9L;
 
+//Barbell - lift two
+@property (strong, nonatomic) IBOutlet UIImageView *liftTwoBarbell;
 
+//Plate limit - lift two
+@property (strong, nonatomic) IBOutlet UILabel *liftTwoPlateLimit;
 
 //Plate positions - lift two
 @property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos1R;
@@ -85,6 +96,14 @@
 @property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos7L;
 @property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos8L;
 @property (strong, nonatomic) IBOutlet UIImageView *liftTwoPlatePos9L;
+
+//Barbell - lift three
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreeBarbell;
+
+
+//Plate limit - lift three
+@property (strong, nonatomic) IBOutlet UIImageView *liftThreePlateLimit;
+
 
 //Plate positions - lift three
 @property (strong, nonatomic) IBOutlet UIImageView *liftThreeplatePos1R;

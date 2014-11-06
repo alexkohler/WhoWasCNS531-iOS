@@ -598,6 +598,27 @@
                                     <segue destination="v76-3y-nYY" kind="custom" identifier="indViewPrevSegue" customClass="ZHCustomSegue" id="LWG-Sf-ycb"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reached plate limit!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="quL-4c-QMa" userLabel="LiftOneLimitLabel">
+                                <rect key="frame" x="84" y="144" width="152" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reached plate limit!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8vU-Fj-csf" userLabel="liftTwoLimitLabel">
+                                <rect key="frame" x="84" y="283" width="152" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reached plate limit!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fUX-if-dtO" userLabel="liftThreeLimitLabel">
+                                <rect key="frame" x="86" y="430" width="152" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -606,7 +627,9 @@
                         <outlet property="cycleLabel" destination="xW3-OC-a9n" id="PQJ-rr-Phi"/>
                         <outlet property="dateLabel" destination="cBS-s9-vz0" id="3D8-fZ-eWL"/>
                         <outlet property="eofText" destination="Zhq-F1-iHq" id="W6a-pG-xNk"/>
+                        <outlet property="liftOneBarbell" destination="A4b-cZ-2vy" id="Bjy-vA-7OI"/>
                         <outlet property="liftOneLabel" destination="D1D-e1-MUi" id="zrU-og-4Hp"/>
+                        <outlet property="liftOnePlateLimit" destination="quL-4c-QMa" id="90m-v9-cBX"/>
                         <outlet property="liftOnePlatePos2R" destination="RxW-Wn-hgR" id="ZFD-iZ-zA6"/>
                         <outlet property="liftOnePlatePos3R" destination="r1l-y1-xqT" id="tJO-qX-fVT"/>
                         <outlet property="liftOnePlatePos4R" destination="Vgg-uP-BMw" id="NCp-88-3W7"/>
@@ -625,7 +648,9 @@
                         <outlet property="liftOneplatePos8L" destination="AiK-yL-jk9" id="7o1-Ch-Lha"/>
                         <outlet property="liftOneplatePos9L" destination="ubn-2V-tyb" id="Imt-O5-ySe"/>
                         <outlet property="liftOneplatePos9R" destination="Cd6-DP-nFu" id="HV4-JM-AeP"/>
+                        <outlet property="liftThreeBarbell" destination="VTE-p6-tHp" id="bC4-iv-iaO"/>
                         <outlet property="liftThreeLabel" destination="QMG-qe-xQw" id="euW-1l-nM9"/>
+                        <outlet property="liftThreePlateLimit" destination="VTE-p6-tHp" id="d0g-WP-NYi"/>
                         <outlet property="liftThreeplatePos1L" destination="6ku-05-OUN" id="bkq-3g-Vsc"/>
                         <outlet property="liftThreeplatePos1R" destination="VRP-ER-WLw" id="s9j-Xv-M2o"/>
                         <outlet property="liftThreeplatePos2L" destination="37a-ei-dwt" id="1c7-SI-bGh"/>
@@ -644,7 +669,9 @@
                         <outlet property="liftThreeplatePos8R" destination="Pej-yT-aVF" id="2RG-B8-ANN"/>
                         <outlet property="liftThreeplatePos9L" destination="fdr-Ey-Z8q" id="K4m-R1-D1v"/>
                         <outlet property="liftThreeplatePos9R" destination="sQb-VJ-GAZ" id="feT-Sm-9Jw"/>
+                        <outlet property="liftTwoBarbell" destination="pw7-zj-rJq" id="qHA-cN-i0G"/>
                         <outlet property="liftTwoLabel" destination="nyh-Nu-8eN" id="0jl-k2-be8"/>
+                        <outlet property="liftTwoPlateLimit" destination="8vU-Fj-csf" id="yez-od-rzm"/>
                         <outlet property="liftTwoPlatePos1L" destination="GDk-Yr-1Qa" id="eVf-xf-bJ2"/>
                         <outlet property="liftTwoPlatePos1R" destination="Omd-gs-ARw" id="H1x-T5-Ln8"/>
                         <outlet property="liftTwoPlatePos2L" destination="hid-27-rBc" id="jHJ-bY-vRW"/>
