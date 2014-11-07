@@ -165,8 +165,8 @@
     }
     
         
-    if ([tmString isEqualToString:@""])
-        NSLog(@"An error occured getting the training max for one of the lifts. (String format laziness before you ask)");
+    //if ([tmString isEqualToString:@""])
+     //   NSLog(@"An error occured getting the training max for one of the lifts. (String format laziness before you ask)");
     
     return tmString;
 

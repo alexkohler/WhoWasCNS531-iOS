@@ -345,12 +345,12 @@
             {
                 if ([nextOrBack isEqualToString:@"Next"])
                 {
-                 NSLog(@"Bad query");
+                // NSLog(@"Bad query");
                  eofText = @"End of projection.";
                 }
                 else if ([nextOrBack isEqualToString:@"Prev"])
                 {
-                    NSLog(@"Bad query");
+                  //  NSLog(@"Bad query");
                     eofText = @"Start of your projection.";
                 }
 

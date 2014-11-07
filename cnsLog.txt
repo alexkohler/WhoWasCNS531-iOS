@@ -41,35 +41,37 @@ Don't forget about kilogram support and the odd database previous entry bug you'
 
 11-05-14: Fixed null bug date, however, introduced another creating a (wrong) date with the year 1977.. Fixed up "No existing projection exists!" test when pressing back button from training maxes. Fixed that up, ended up with a null first entry date and everything else was fine.. Just a bit of fault in logic when I was attempting to squash original bug. That bug is done and fixed now. Started to get error handling for bad access exception however has not been tested extensively and by the looks of it barbell number three is not disappearing
 
+11-06-14: Fixed next/prev buttons, both were using getNext function because I grouped their segues together. A simple conditional fixed it. I think the bad access exception stuff should be fixed with my cases in plate generation. I'm leaving the field error handling as it is as my plate generation can now handle being thrown weights it can't generate. Some general cleanup (removing NSLogs, comments, db methods replaced by databaseHelper as much as possible as it makes sense (I don't think it's worth it to implement an instance of dh to open and close a database but I think everything else is game. 
+
 TODO:
-:::Your next/prev buttons on your individual view seem to be broken with the following data: 800 B 400 S 450 O 500 D KGS, no rounding 
-
-:::look into bad access exception on individual view. used 400 450 500 550 on kilogram mode and an exception was thrown.
-
-:::also make sure that since you are hiding plates that you are making them reappear if user presses next
-
-:::How is a 750kg ohp getting through your field check? On another note, I think your actually error handling on individualview could be much more robust
 
 :::Schema change for rounding mode. Definitely needs to be done. After you have this you can choose to display data properly on viewing an existing projection
 
-:::Back button needs overridden on every view, otherwise you may be at risk to introduce problems if people get the db cleared, then pop the stack until they're at adjust tms (with no date somehow), and may cause a crash. Regardless, overriding the buttons to go through the default flow is what feels natural and makes sense.
+:::Create a custom segue in the same manner you created your prev segue that just has the change of going in the other direction because the default segue while pressing next feels very very slow compared to pressing prev.
 
-:::Error for empty fields could be prettier
+:::Locale bullshit on previous dateformats (model off of the one on configtool's increment day... Primarily we want to make sure we are catering to all locales and not just the US) (parseDateString in DateAndLiftProcessor is one of possibly more that also needs this fix.) Also look into how you can test the functionality of this. (How to change VM locale, etc..)
 
-[refactor: remove getUnitModeFromDatabase from tableDisplay.m]
+:::Look into getting an actual keyboard to show up, you need to make sure your look and feel is right and without having a keyboard taking up half your UI real estate you're gonna have a hard time being able to tell. Do this with locale stuff while you're researching the vm.
 
-[cleanup: remove/comment out any NSLog messages. There is at least a "View controller has popped that needs to disappear"
+[refactor: I think your actual error handling on individualview could be a little prettier. (Don't set invisible 100 times at setWhateverTheFlux atRow is called. ]
 
-Locale bullshit on previous dateformats (model off of the one on configtool's increment day... Primarily we want to make sure we are catering to all locales and not just the US) (parseDateString in DateAndLiftProcessor is one of possibly more that also needs this fix.)
+[refactor: Your setWhateverTheFlux code is also ugly, there are no performance hindrances on my vm but it might be something you want to look into before production.]
+
+[cleanup: maybe take the time to reduce warnings. Go slow because when you fixed them all at once it broke the application.]
+
 
 CONSIDERATIONS:
 When you do your view bys, it changes almost instantly, you may possibly want a cutesy animation or something 
 I think there's some rounding stuff somewhere along the line that needs to be taken care of in your individualview screen
 
 
-May want to speed up segue transitions
-
 Some sort of dashboard (Prototyping on android perhaps?)
+
+Clear lifts button on training maxes screen (Remember keyboard will be taking up half of screen.
+
+Preserve lifts when user hits back from training maxes to adjust date and then presses adjust lifts? I think this could be a good one... 
 
 CONCERNS:
 Quartzcore only supports ios8, do you want to shut out other users for a custom segue?
+
+Back button needs overridden? Otherwise you may be at risk to introduce problems if people get the db cleared, then pop the stack until they're at adjust tms (with no date somehow), and may cause a crash. Regardless, overriding the buttons to go through the default flow is what feels natural and makes sense.

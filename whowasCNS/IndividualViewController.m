@@ -98,7 +98,7 @@
     
     ConfigTool* configtool = [[ConfigTool alloc] init];
     NSArray* predata =[configtool getPrevLift:_date withPattern:_pattern andCurrentLift:_typeFreq withMode:_viewMode];
-    NSLog(@"Next lift is %@         %@", predata[0], predata[1]);
+   // NSLog(@"Prev lift is %@         %@", predata[0], predata[1]);
 
     
     
@@ -186,10 +186,9 @@
                 {
                     liftOneLeftUIViews[i].hidden = YES;
                     liftOneRightUIViews[i].hidden = YES;
-                    _liftOneBarbell.hidden = YES;
-                    _liftOnePlateLimit.hidden = NO;
-                    
                 }
+                _liftOneBarbell.hidden = YES;
+                _liftOnePlateLimit.hidden = NO;
             }
             else
             {
@@ -210,11 +209,9 @@
                 {
                     liftTwoLeftUIViews[i].hidden = YES;
                     liftTwoRightUIViews[i].hidden = YES;
-                    _liftTwoBarbell.hidden = YES;
-                    _liftTwoPlateLimit.hidden = NO;
-                    
-                    
                 }
+                _liftTwoBarbell.hidden = YES;
+                _liftTwoPlateLimit.hidden = NO;
             }
 
 	    else
@@ -236,12 +233,12 @@
                 {
                     liftThreeLeftUIViews[i].hidden = YES;
                     liftThreeRightUIViews[i].hidden = YES;
-                    _liftThreeBarbell.hidden = YES;
-                    _liftThreePlateLimit.hidden = NO;
                 }
+                _liftThreeBarbell.hidden = YES;
+                _liftThreePlateLimit.hidden = NO;
             }
             else
-	    {
+            {
             NSString* plateImageString = [self getPlateImageFor:plateIndex andMode:_usingLbs];
             liftThreeRightUIViews[row].image = [UIImage imageNamed:plateImageString];
             liftThreeLeftUIViews[row].image = [UIImage imageNamed:plateImageString];
@@ -325,11 +322,12 @@
         //call our methods with our new database toys here.
         //to start, let's just try to open the database.
         ConfigTool* configtool = [[ConfigTool alloc] init];
+        NSArray* predata;
+        if ([segue.identifier isEqualToString:@"indViewNextSegue"])
+            predata =[configtool getNextLift:_date withPattern:_pattern andCurrentLift:_typeFreq withMode:_viewMode];
+       else // it isindViewPrevSegue
+           predata =[configtool getPrevLift:_date withPattern:_pattern andCurrentLift:_typeFreq withMode:_viewMode];
         
-        NSArray* predata =[configtool getNextLift:_date withPattern:_pattern andCurrentLift:_typeFreq withMode:_viewMode];
-       // result = helper.getNextLift(c1, liftPattern, liftType, viewMode);//getNextLiftDefault returns a result array which has nextLift and incrementedString
-        //nextLift = result[0];
-      //  incrementedString = result[1];
         
         
      

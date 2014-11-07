@@ -156,34 +156,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
-//query to grab lbMode
-//select column_lbFlag from lifts limit 1
--(BOOL) getUnitModeFromDatabase //sanity check after nightmare bug with android
-{
-    NSString *queryStatement = @"select column_lbFlag from lifts limit 1";
-    
-    sqlite3_stmt *statement;
-    int cycle = 1; // In case anything goes wrong, just use lbs
-    if (sqlite3_prepare_v2(_contactDB, [queryStatement UTF8String], -1, &statement, NULL) == SQLITE_OK)
-    {
-        // Create a new address from the found row
-        while (sqlite3_step(statement) == SQLITE_ROW)
-        {
-            cycle = sqlite3_column_int(statement, 0);
-            
-        }
-        sqlite3_finalize(statement);
-    }
-    
-    if (cycle == 0)
-        return NO;
-    else
-        return YES;
-}
-
-
 -(void)populateArrays:(NSString*) whereClause
 {
     NSString *queryStatement = @"SELECT * FROM lifts";
@@ -408,7 +380,7 @@
 //for sake of back button override
  - (void)viewWillDisappear:(BOOL)animated
 {
-    NSArray *viewControllers = self.navigationController.viewControllers;
+   /* NSArray *viewControllers = self.navigationController.viewControllers;
     if (viewControllers.count > 1 && [viewControllers objectAtIndex:viewControllers.count-2] == self)
     {
         // View is disappearing because a new view controller was pushed onto the stack
@@ -420,7 +392,7 @@
         //[self clearDB];
         //[self openDB:NO];
         NSLog(@"View controller was popped"); //remove me eventually
-    }
+    }*/
 }
 
 //table display methods
@@ -491,9 +463,10 @@
         destViewController.liftOne = touchedCell.liftOne.text;
         destViewController.liftTwo = touchedCell.liftTwo.text;
         destViewController.liftThree = touchedCell.liftThree.text;
-        [self openDB:YES];
-        destViewController.usingLbs = [self getUnitModeFromDatabase];
-        [self openDB:NO];
+        DatabaseHelper* dh = [[DatabaseHelper alloc] init];
+        [dh openDB:YES];
+        destViewController.usingLbs = [dh getUnitModeFromDatabase];
+        [dh openDB:NO];
         
         //db dependencies
         destViewController.databasePath = _databasePath;

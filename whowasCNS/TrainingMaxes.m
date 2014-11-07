@@ -161,7 +161,7 @@
     
     NSString* emptyLiftString = @"One or more of your training max fields is empty!";
     NSString* zeroLiftString = @"Please enter a training max greater than 0!";
-    NSString* reasonableLiftString = @"Please enter reasonable numbers for your lifts";
+    NSString* reasonableLiftString = @"Please enter reasonable numbers for your lifts.";
 
     
     BOOL errorFree = YES; //will pass until failure  (duh)

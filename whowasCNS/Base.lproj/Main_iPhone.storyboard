@@ -648,9 +648,9 @@
                         <outlet property="liftOneplatePos8L" destination="AiK-yL-jk9" id="7o1-Ch-Lha"/>
                         <outlet property="liftOneplatePos9L" destination="ubn-2V-tyb" id="Imt-O5-ySe"/>
                         <outlet property="liftOneplatePos9R" destination="Cd6-DP-nFu" id="HV4-JM-AeP"/>
-                        <outlet property="liftThreeBarbell" destination="VTE-p6-tHp" id="bC4-iv-iaO"/>
+                        <outlet property="liftThreeBarbell" destination="VTE-p6-tHp" id="hxF-ZP-pyY"/>
                         <outlet property="liftThreeLabel" destination="QMG-qe-xQw" id="euW-1l-nM9"/>
-                        <outlet property="liftThreePlateLimit" destination="VTE-p6-tHp" id="d0g-WP-NYi"/>
+                        <outlet property="liftThreePlateLimit" destination="fUX-if-dtO" id="F05-0O-UwN"/>
                         <outlet property="liftThreeplatePos1L" destination="6ku-05-OUN" id="bkq-3g-Vsc"/>
                         <outlet property="liftThreeplatePos1R" destination="VRP-ER-WLw" id="s9j-Xv-M2o"/>
                         <outlet property="liftThreeplatePos2L" destination="37a-ei-dwt" id="1c7-SI-bGh"/>
@@ -735,17 +735,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="next"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cbE-h0-tpE">
-                                <rect key="frame" x="131" y="433" width="59" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Get TMs">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="getInput" destination="gna-x6-9XC" eventType="touchUpInside" id="4z4-lG-jkU"/>
-                                    <segue destination="lg3-CD-gqs" kind="push" identifier="maxesToTableSegue" id="gMU-gg-T2r"/>
-                                </connections>
-                            </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="43v-PA-yBI">
                                 <rect key="frame" x="183" y="268" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -794,7 +783,7 @@
                                     <segment title="Kilograms"/>
                                 </segments>
                             </segmentedControl>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="bkD-gr-pGR">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" id="bkD-gr-pGR">
                                 <rect key="frame" x="49" y="362" width="240" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -822,6 +811,17 @@
                                     <action selector="textFieldReturn:" destination="gna-x6-9XC" eventType="editingDidEndOnExit" id="1JK-kV-li3"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cbE-h0-tpE">
+                                <rect key="frame" x="131" y="433" width="59" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Get TMs">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getInput" destination="gna-x6-9XC" eventType="touchUpInside" id="4z4-lG-jkU"/>
+                                    <segue destination="lg3-CD-gqs" kind="push" identifier="maxesToTableSegue" id="gMU-gg-T2r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>

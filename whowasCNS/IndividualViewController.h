@@ -101,8 +101,10 @@
 @property (strong, nonatomic) IBOutlet UIImageView *liftThreeBarbell;
 
 
+
 //Plate limit - lift three
-@property (strong, nonatomic) IBOutlet UIImageView *liftThreePlateLimit;
+@property (strong, nonatomic) IBOutlet UILabel *liftThreePlateLimit;
+
 
 
 //Plate positions - lift three
